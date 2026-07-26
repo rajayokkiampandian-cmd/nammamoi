@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>உதவி மையம் | NammaMoi</title>
+<meta name="description" content="NammaMoi உதவி மையம் — கணக்கு தொடங்குவது முதல் அறிக்கை பெறுவது வரை அனைத்து வழிகாட்டிகளும் இங்கே.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.nammamoi.in/help.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="உதவி மையம் | NammaMoi">
+<meta property="og:description" content="NammaMoi-ஐ பயன்படுத்துவது எப்படி என்பதற்கான வழிகாட்டிகள் மற்றும் பதில்கள்.">
+<meta property="og:image" content="assets/images/og-cover.png">
+<link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/responsive.css">
+<link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+
+<div class="page-loader" aria-hidden="true">
+  <svg class="loader-kolam" viewBox="0 0 64 64" fill="none" stroke="#7B1E2B" stroke-width="2.4" stroke-linecap="round">
+    <circle cx="32" cy="32" r="4" fill="#C9A227" stroke="none"/>
+    <path d="M32 18 C 24 22, 24 42, 32 46"/><path d="M32 18 C 40 22, 40 42, 32 46"/>
+    <path d="M18 32 C 22 24, 42 24, 46 32"/><path d="M18 32 C 22 40, 42 40, 46 32"/>
+  </svg>
+</div>
+
+<a class="skip-link" href="#main">முதன்மை உள்ளடக்கத்திற்கு செல்ல (Skip to content)</a>
+
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="brand">
+      <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true">
+        <rect width="64" height="64" rx="16" fill="#7B1E2B"/>
+        <g fill="#E9CE7A"><circle cx="32" cy="32" r="4"/><circle cx="32" cy="14" r="2.6"/><circle cx="32" cy="50" r="2.6"/><circle cx="14" cy="32" r="2.6"/><circle cx="50" cy="32" r="2.6"/></g>
+      </svg>
+      <span>நம்மமொய்</span>
+    </a>
+    <nav class="nav-links" aria-label="முதன்மை வழிசெலுத்தல்">
+      <a href="index.html#why">ஏன் நம்மமொய்</a>
+      <a href="index.html#events">நிகழ்வுகள்</a>
+      <a href="index.html#family">குடும்பம்</a>
+      <a href="index.html#features">அம்சங்கள்</a>
+      <a href="index.html#faq">கேள்விகள்</a>
+      <a href="help.html" aria-current="page">உதவி</a>
+      <a href="contact.html">தொடர்பு</a>
+    </nav>
+    <div class="nav-actions">
+      <a href="contact.html" class="btn btn-ghost">டெமோ கேளுங்கள்</a>
+      <a href="index.html#cta" class="btn btn-primary">இலவசமாக தொடங்கு</a>
+      <button class="nav-toggle" aria-label="மெனுவை திற" aria-expanded="false"><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow" style="justify-content:center;">உதவி மையம்</span>
+      <h1>உங்களுக்கு எப்படி உதவலாம்?</h1>
+      <p>கணக்கு தொடங்குவது முதல் அறிக்கை உருவாக்குவது வரை — வழிகாட்டிகளை கீழே தேடுங்கள்.</p>
+    </div>
+  </section>
+
+  <section class="section-pad" style="padding-top:0;">
+    <div class="container">
+      <form class="help-search" role="search" aria-label="உதவி தேடல்" onsubmit="return false;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0;color:var(--text-muted);"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+        <input type="search" placeholder="எடுத்துக்காட்டு: புதிய மொய் எப்படி சேர்ப்பது?" aria-label="உங்கள் கேள்வியை தேடுங்கள்">
+        <button type="submit">தேடு</button>
+      </form>
+
+      <div class="grid grid-3" data-reveal-group>
+        <div class="help-card" data-reveal="fade-up" data-reveal-index="0">
+          <h3>தொடங்குதல்</h3>
+          <ul>
+            <li><a href="#getting-started-1">கணக்கு எப்படி உருவாக்குவது</a></li>
+            <li><a href="#getting-started-2">குடும்ப உறுப்பினரை சேர்ப்பது</a></li>
+            <li><a href="#getting-started-3">முதல் மொய் பதிவை சேர்ப்பது</a></li>
+          </ul>
+        </div>
+        <div class="help-card" data-reveal="fade-up" data-reveal-index="1">
+          <h3>பதிவுகள் மேலாண்மை</h3>
+          <ul>
+            <li><a href="#records-1">பதிவுகளை திருத்துவது / நீக்குவது</a></li>
+            <li><a href="#records-2">தேடல் மற்றும் வடிகட்டிகளை பயன்படுத்துவது</a></li>
+            <li><a href="#records-3">நகல் பதிவுகளை கண்டறிவது</a></li>
+          </ul>
+        </div>
+        <div class="help-card" data-reveal="fade-up" data-reveal-index="2">
+          <h3>அறிக்கைகள் & Export</h3>
+          <ul>
+            <li><a href="#reports-1">PDF அறிக்கை பெறுவது</a></li>
+            <li><a href="#reports-2">Excel-க்கு ஏற்றுமதி செய்வது</a></li>
+            <li><a href="#reports-3">ஆண்டு வாரியான சுருக்கம்</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-pad section-alt">
+    <div class="container">
+      <div class="section-head center" data-reveal="fade-up">
+        <span class="eyebrow">படிப்படியான வழிகாட்டி</span>
+        <h2>நான்கு எளிய படிகளில் தொடங்குங்கள்</h2>
+      </div>
+
+      <div class="grid grid-4" data-reveal-group>
+        <div class="feature-card" id="getting-started-1" data-reveal="fade-up" data-reveal-index="0">
+          <span class="ic" aria-hidden="true">1</span>
+          <h3>கணக்கு உருவாக்குங்கள்</h3>
+          <p>உங்கள் பெயர், மின்னஞ்சல் மற்றும் கடவுச்சொல்லுடன் ஒரு நிமிடத்தில் பதிவு செய்யுங்கள்.</p>
+        </div>
+        <div class="feature-card" id="getting-started-2" data-reveal="fade-up" data-reveal-index="1">
+          <span class="ic" aria-hidden="true">2</span>
+          <h3>குடும்பத்தை சேர்க்கவும்</h3>
+          <p>உங்கள் குடும்ப உறுப்பினர்களை அழைத்து, அவர்களுக்கான அணுகல் பங்கை நிர்ணயிக்கவும்.</p>
+        </div>
+        <div class="feature-card" id="getting-started-3" data-reveal="fade-up" data-reveal-index="2">
+          <span class="ic" aria-hidden="true">3</span>
+          <h3>நிகழ்வை உருவாக்குங்கள்</h3>
+          <p>திருமணம், காதணி விழா போன்ற நிகழ்வுக்கான புதிய பதிவேட்டை தொடங்குங்கள்.</p>
+        </div>
+        <div class="feature-card" id="getting-started-4" data-reveal="fade-up" data-reveal-index="3">
+          <span class="ic" aria-hidden="true">4</span>
+          <h3>மொய் பதிவு செய்யுங்கள்</h3>
+          <p>பெயர், தொகை, உறவு விவரங்களை பதிவு செய்ய தொடங்குங்கள் — தானாக சேமிக்கப்படும்.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-pad">
+    <div class="container">
+      <div class="prose" data-faq-list data-reveal="fade-up">
+        <h2 id="records-1">பதிவுகளை திருத்துவது மற்றும் நீக்குவது</h2>
+        <p>ஒரு பதிவை திருத்த, அந்த வரியை தொட்டு (tap) "திருத்து" பொத்தானை அழுத்தவும். நீக்குவதற்கு முன் உறுதிப்படுத்தல் கேட்கப்படும் — தவறான நீக்கத்தை தவிர்க்க.</p>
+
+        <h2 id="records-2">தேடல் மற்றும் வடிகட்டிகள்</h2>
+        <p>மேல் பட்டியில் உள்ள தேடல் பெட்டியில் பெயர், ஊர் அல்லது தொகையை தட்டச்சு செய்யவும். மேம்பட்ட வடிகட்டிகள் மூலம் தேதி வரம்பு அல்லது உறவு வகை வாரியாக குறுக்குங்கள்.</p>
+
+        <h2 id="records-3">நகல் பதிவுகளை கண்டறிதல்</h2>
+        <p>ஒரே பெயர் மற்றும் தொகை மீண்டும் பதிவாகும்போது, அமைப்பு தானாக எச்சரிக்கை காட்டும். இதனை உறுதிப்படுத்தி தொடரலாம் அல்லது ரத்து செய்யலாம்.</p>
+
+        <h2 id="reports-1">PDF அறிக்கை பெறுதல்</h2>
+        <p>டாஷ்போர்டில் உள்ள "அறிக்கை" பொத்தானை அழுத்தி, PDF வடிவத்தை தேர்ந்தெடுத்து பதிவிறக்கம் செய்யவும்.</p>
+
+        <h2 id="reports-2">Excel-க்கு ஏற்றுமதி</h2>
+        <p>அதே "அறிக்கை" பட்டியில் Excel (.xlsx) விருப்பத்தை தேர்ந்தெடுக்கவும் — கணக்கியல் பயன்பாட்டுக்கு ஏற்ற வடிவில் கிடைக்கும்.</p>
+
+        <h2 id="reports-3">ஆண்டு வாரியான சுருக்கம்</h2>
+        <p>பல வருடங்களாக பதிவு செய்த நிகழ்வுகளின் மொத்த சுருக்கத்தை "ஆண்டு அறிக்கை" பிரிவில் காணலாம்.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-pad section-alt">
+    <div class="container">
+      <div class="cta-band" data-reveal="zoom">
+        <h2>இன்னும் உதவி தேவையா?</h2>
+        <p>எங்கள் குழு உங்களுக்கு உதவ தயாராக உள்ளது.</p>
+        <div class="btn-row">
+          <a href="contact.html" class="btn btn-gold">எங்களை தொடர்பு கொள்ளுங்கள்</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p class="footer-quote">"மொய் என்பது ஒரு கணக்கு அல்ல... அது அன்பு, நன்றியுணர்வு, உறவுகள் மற்றும் தமிழர் பாரம்பரியத்தின் நினைவுப் பதிவு."</p>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="brand">
+          <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="16" fill="#C9A227"/><g fill="#3B2417"><circle cx="32" cy="32" r="4"/><circle cx="32" cy="14" r="2.6"/><circle cx="32" cy="50" r="2.6"/><circle cx="14" cy="32" r="2.6"/><circle cx="50" cy="32" r="2.6"/></g></svg>
+          <span>நம்மமொய்</span>
+        </a>
+        <p>குடும்ப மொய் பதிவுகளை பாதுகாப்பாக, எளிதாக, தலைமுறைகளுக்கு பராமரிக்க உதவும் தமிழ் பயன்பாடு.</p>
+      </div>
+      <nav aria-label="Footer quick links"><h4>விரைவு இணைப்புகள்</h4><ul>
+        <li><a href="index.html#why">ஏன் நம்மமொய்</a></li>
+        <li><a href="index.html#events">நிகழ்வுகள்</a></li>
+        <li><a href="index.html#features">அம்சங்கள்</a></li>
+      </ul></nav>
+      <nav aria-label="Footer support links"><h4>ஆதரவு</h4><ul>
+        <li><a href="help.html" aria-current="page">உதவி மையம்</a></li>
+        <li><a href="contact.html">தொடர்பு கொள்ள</a></li>
+        <li><a href="privacy.html">தனியுரிமைக் கொள்கை</a></li>
+      </ul></nav>
+      <div><h4>தொடர்பு</h4><ul>
+        <li>support@nammamoi.in</li>
+        <li>+91 90000 00000</li>
+        <li>கோயம்புத்தூர், தமிழ்நாடு</li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span data-current-year>2026</span> NammaMoi · நம்மமொய். அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை.</span>
+      <span>Made with அன்பு for தமிழ் குடும்பங்கள்</span>
+    </div>
+  </div>
+</footer>
+
+<button class="back-to-top" aria-label="மேலே செல்ல">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M18 15l-6-6-6 6"/></svg>
+</button>
+
+<script src="js/app.js"></script>
+<script src="js/animation.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
