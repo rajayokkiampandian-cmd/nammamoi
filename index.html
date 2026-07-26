@@ -3,292 +3,804 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NammaMoi | நம்மமொய் — உங்கள் குடும்ப மொய் பதிவேடு</title>
+<meta name="description" content="நம்மமொய் — திருமணம், காதணி விழா, இல்லக் கூடுவரவு போன்ற குடும்ப நிகழ்வுகளின் மொய் பதிவை எளிதாக பராமரிக்கவும், தேடவும், தலைமுறைகளுக்கு பாதுகாக்கவும் உதவும் தமிழ் குடும்ப பயன்பாடு.">
+<meta name="keywords" content="moi book, moi register, tamil moi app, மொய் பதிவேடு, family moi tracker, wedding gift register, நம்மமொய்">
+<meta name="author" content="NammaMoi">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.nammamoi.in/">
 
-<title>NammaMoi</title>
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="NammaMoi | நம்மமொய் — உங்கள் குடும்ப மொய் பதிவேடு">
+<meta property="og:description" content="மொய் என்பது ஒரு கணக்கு அல்ல, அது அன்பும் நன்றியுணர்வும். உங்கள் குடும்ப மொய் பதிவுகளை பாதுகாப்பாக, எளிதாக பராமரியுங்கள்.">
+<meta property="og:url" content="https://www.nammamoi.in/">
+<meta property="og:site_name" content="NammaMoi">
+<meta property="og:image" content="assets/images/og-cover.png">
+<meta property="og:locale" content="ta_IN">
 
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@400;600;700;800&display=swap" rel="stylesheet">
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="NammaMoi | நம்மமொய்">
+<meta name="twitter:description" content="உங்கள் குடும்ப மொய் பதிவேட்டை பாதுகாப்பாக, தலைமுறைகளுக்கு பராமரியுங்கள்.">
+<meta name="twitter:image" content="assets/images/og-cover.png">
 
-<style>
+<link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+<link rel="apple-touch-icon" href="assets/icons/favicon.svg">
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Noto Sans Tamil',sans-serif;
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/responsive.css">
+<link rel="stylesheet" href="css/animations.css">
+
+<!-- Schema.org -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "NammaMoi",
+  "alternateName": "நம்மமொய்",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Web, Android, iOS",
+  "description": "குடும்ப மொய் / பரிசு பதிவுகளை பராமரிக்க உதவும் தமிழ் மொழி பயன்பாடு.",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" }
 }
-
-body{
-background:#fffaf2;
-color:#3b2d20;
-}
-
-.hero{
-
-padding:80px 20px;
-text-align:center;
-
-background:linear-gradient(180deg,#fff8ec,#fff);
-}
-
-.hero h1{
-
-font-size:52px;
-color:#8B0000;
-margin-bottom:20px;
-
-}
-
-.hero h2{
-
-font-size:30px;
-color:#c56b00;
-margin-bottom:30px;
-
-}
-
-.hero p{
-
-font-size:22px;
-max-width:850px;
-margin:auto;
-line-height:1.8;
-
-}
-
-.highlight{
-
-color:#8B0000;
-font-weight:bold;
-
-}
-
-.cards{
-
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:25px;
-
-padding:70px 20px;
-max-width:1200px;
-margin:auto;
-
-}
-
-.card{
-
-background:white;
-
-padding:35px;
-
-border-radius:18px;
-
-box-shadow:0 10px 30px rgba(0,0,0,.08);
-
-transition:.3s;
-
-}
-
-.card:hover{
-
-transform:translateY(-8px);
-
-}
-
-.card h3{
-
-font-size:24px;
-color:#8B0000;
-margin-bottom:15px;
-
-}
-
-.card p{
-
-font-size:18px;
-line-height:1.8;
-
-}
-
-.quote{
-
-background:#8B0000;
-color:white;
-
-padding:70px 20px;
-
-text-align:center;
-
-}
-
-.quote h2{
-
-font-size:34px;
-
-line-height:1.8;
-
-}
-
-footer{
-
-padding:40px;
-
-text-align:center;
-
-background:#f5ede0;
-
-font-size:18px;
-
-}
-
-button{
-
-margin-top:40px;
-
-padding:18px 45px;
-
-font-size:22px;
-
-background:#c56b00;
-
-color:white;
-
-border:none;
-
-border-radius:50px;
-
-cursor:pointer;
-
-}
-
-button:hover{
-
-background:#8B0000;
-
-}
-
-</style>
-
+</script>
 </head>
-
 <body>
 
-<section class="hero">
-
-<h1>🙏 வணக்கம்</h1>
-
-<h2>உறவுகளை பாதுகாப்போம்... மரபுகளை தொடர்வோம்...</h2>
-
-<p>
-
-<strong>NammaMoi</strong> என்பது ஒரு சாதாரண பதிவு அல்ல.
-
-இது ஒரு <span class="highlight">குடும்பத்தின் நினைவுப் பொக்கிஷம்.</span>
-
-நம்மை மதித்து வந்தவர்களை
-நாமும் மதிப்போம்.
-
-உறவுகளை பாதுகாப்போம்.
-
-ஒரு குடும்பம்...
-ஒரு பதிவு...
-எல்லோரும் இணைந்து
-பல தலைமுறைகள் பாதுகாக்கும்
-ஒரு நம்பிக்கையான நினைவகம்.
-
-</p>
-
-<button>இப்போதே தொடங்குங்கள்</button>
-
-</section>
-
-
-<section class="cards">
-
-<div class="card">
-
-<h3>🙏 மரியாதை</h3>
-
-<p>
-
-நம்மை மதித்து வந்தவர்களை
-நாமும் மனதார மதிப்போம்.
-
-</p>
-
+<div class="page-loader" aria-hidden="true">
+  <svg class="loader-kolam" viewBox="0 0 64 64" fill="none" stroke="#7B1E2B" stroke-width="2.4" stroke-linecap="round">
+    <circle cx="32" cy="32" r="4" fill="#C9A227" stroke="none"/>
+    <path d="M32 18 C 24 22, 24 42, 32 46"/>
+    <path d="M32 18 C 40 22, 40 42, 32 46"/>
+    <path d="M18 32 C 22 24, 42 24, 46 32"/>
+    <path d="M18 32 C 22 40, 42 40, 46 32"/>
+  </svg>
 </div>
 
-<div class="card">
+<a class="skip-link" href="#main">முதன்மை உள்ளடக்கத்திற்கு செல்ல (Skip to content)</a>
 
-<h3>👨‍👩‍👧‍👦 உறவுகள்</h3>
+<!-- =====================================================================
+     HEADER / NAVIGATION
+     ===================================================================== -->
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="brand">
+      <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true">
+        <rect width="64" height="64" rx="16" fill="#7B1E2B"/>
+        <g fill="#E9CE7A">
+          <circle cx="32" cy="32" r="4"/>
+          <circle cx="32" cy="14" r="2.6"/><circle cx="32" cy="50" r="2.6"/>
+          <circle cx="14" cy="32" r="2.6"/><circle cx="50" cy="32" r="2.6"/>
+        </g>
+        <g fill="none" stroke="#E9CE7A" stroke-width="2.4" stroke-linecap="round">
+          <path d="M32 18 C 24 22, 24 42, 32 46"/>
+          <path d="M32 18 C 40 22, 40 42, 32 46"/>
+          <path d="M18 32 C 22 24, 42 24, 46 32"/>
+          <path d="M18 32 C 22 40, 42 40, 46 32"/>
+        </g>
+      </svg>
+      <span>நம்மமொய்</span>
+    </a>
 
-<p>
+    <nav class="nav-links" aria-label="முதன்மை வழிசெலுத்தல்">
+      <a href="#why">ஏன் நம்மமொய்</a>
+      <a href="#events">நிகழ்வுகள்</a>
+      <a href="#family">குடும்பம்</a>
+      <a href="#features">அம்சங்கள்</a>
+      <a href="#faq">கேள்விகள்</a>
+      <a href="help.html">உதவி</a>
+      <a href="contact.html">தொடர்பு</a>
+    </nav>
 
-உறவுகள் பேசப்படும் வரை அல்ல...
+    <div class="nav-actions">
+      <a href="contact.html" class="btn btn-ghost">டெமோ கேளுங்கள்</a>
+      <a href="#cta" class="btn btn-primary">இலவசமாக தொடங்கு</a>
+      <button class="nav-toggle" aria-label="மெனுவை திற" aria-expanded="false">
+        <span></span>
+      </button>
+    </div>
+  </div>
+</header>
 
-பாதுகாக்கப்படும் வரை நிலைத்திருக்கும்.
+<main id="main">
 
-</p>
+  <!-- ===================================================================
+       SECTION 1 — HERO
+       =================================================================== -->
+  <section class="hero" id="hero">
 
-</div>
+    <!-- Decorative thoranam (mango-leaf garland) along the top edge -->
+    <svg class="hero-thoranam" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true">
+      <line x1="0" y1="6" x2="1440" y2="6" stroke="#96781A" stroke-width="2"/>
+      <g fill="#7B1E2B">
+        <path d="M20,6 Q35,55 50,6 Q65,55 80,6 Q95,55 110,6 Q125,55 140,6 Q155,55 170,6 Q185,55 200,6 Q215,55 230,6 Q245,55 260,6 Q275,55 290,6 Q305,55 320,6 Q335,55 350,6 Q365,55 380,6 Q395,55 410,6 Q425,55 440,6 Q455,55 470,6 Q485,55 500,6 Q515,55 530,6 Q545,55 560,6 Q575,55 590,6 Q605,55 620,6 Q635,55 650,6 Q665,55 680,6 Q695,55 710,6 Q725,55 740,6 Q755,55 770,6 Q785,55 800,6 Q815,55 830,6 Q845,55 860,6 Q875,55 890,6 Q905,55 920,6 Q935,55 950,6 Q965,55 980,6 Q995,55 1010,6 Q1025,55 1040,6 Q1055,55 1070,6 Q1085,55 1100,6 Q1115,55 1130,6 Q1145,55 1160,6 Q1175,55 1190,6 Q1205,55 1220,6 Q1235,55 1250,6 Q1265,55 1280,6 Q1295,55 1310,6 Q1325,55 1340,6 Q1355,55 1370,6 Q1385,55 1400,6 Q1415,55 1430,6" fill="none" stroke="#7B1E2B" stroke-width="0" />
+      </g>
+      <!-- simplified repeating leaf triangles -->
+      <g fill="#8C5A2B" opacity="0.85">
+        <path d="M10,6 L34,6 L22,46 Z"/><path d="M58,6 L82,6 L70,46 Z"/><path d="M106,6 L130,6 L118,46 Z"/>
+        <path d="M154,6 L178,6 L166,46 Z"/><path d="M202,6 L226,6 L214,46 Z"/><path d="M250,6 L274,6 L262,46 Z"/>
+        <path d="M298,6 L322,6 L310,46 Z"/><path d="M346,6 L370,6 L358,46 Z"/><path d="M394,6 L418,6 L406,46 Z"/>
+        <path d="M442,6 L466,6 L454,46 Z"/><path d="M490,6 L514,6 L502,46 Z"/><path d="M538,6 L562,6 L550,46 Z"/>
+        <path d="M586,6 L610,6 L598,46 Z"/><path d="M634,6 L658,6 L646,46 Z"/><path d="M682,6 L706,6 L694,46 Z"/>
+        <path d="M730,6 L754,6 L742,46 Z"/><path d="M778,6 L802,6 L790,46 Z"/><path d="M826,6 L850,6 L838,46 Z"/>
+        <path d="M874,6 L898,6 L886,46 Z"/><path d="M922,6 L946,6 L934,46 Z"/><path d="M970,6 L994,6 L982,46 Z"/>
+        <path d="M1018,6 L1042,6 L1030,46 Z"/><path d="M1066,6 L1090,6 L1078,46 Z"/><path d="M1114,6 L1138,6 L1126,46 Z"/>
+        <path d="M1162,6 L1186,6 L1174,46 Z"/><path d="M1210,6 L1234,6 L1222,46 Z"/><path d="M1258,6 L1282,6 L1270,46 Z"/>
+        <path d="M1306,6 L1330,6 L1318,46 Z"/><path d="M1354,6 L1378,6 L1366,46 Z"/><path d="M1402,6 L1426,6 L1414,46 Z"/>
+      </g>
+    </svg>
 
-<div class="card">
+    <!-- Faint temple silhouette (Gopuram outline), parallax layer -->
+    <svg class="hero-temple parallax-layer" data-speed="0.06" viewBox="0 0 800 300" aria-hidden="true">
+      <path fill="#3B2417" d="M400 0 L440 40 L460 60 L400 30 L340 60 L360 40 Z
+        M370 60 H430 V90 H370 Z
+        M350 90 H450 V115 H350 Z
+        M330 115 H470 V140 H330 Z
+        M300 140 H500 V300 H300 Z
+        M250 170 H300 V300 H250 Z M500 170 H550 V300 H500 Z
+        M180 210 H250 V300 H180 Z M550 210 H620 V300 H550 Z
+        M100 250 H180 V300 H100 Z M620 250 H700 V300 H620 Z" />
+    </svg>
 
-<h3>📖 ஒரு குடும்பம் • ஒரு பதிவு</h3>
+    <div class="hero-lamp left parallax-layer" data-speed="0.03" aria-hidden="true">
+      <svg viewBox="0 0 60 100">
+        <path fill="#C9A227" d="M30 4 a6 6 0 1 0 0.1 0 M18 20 h24 l-4 8 h-16 z M20 30 q10 -8 20 0 l-4 30 h-12 z M14 62 h32 l-6 10 h-20 z M10 74 h40 v6 h-40 z"/>
+        <path class="flame" fill="#E85D2A" d="M30 -4 q6 8 0 16 q-6 -8 0 -16 z" transform="translate(0,6)"/>
+      </svg>
+    </div>
+    <div class="hero-lamp right parallax-layer" data-speed="0.03" aria-hidden="true">
+      <svg viewBox="0 0 60 100">
+        <path fill="#C9A227" d="M30 4 a6 6 0 1 0 0.1 0 M18 20 h24 l-4 8 h-16 z M20 30 q10 -8 20 0 l-4 30 h-12 z M14 62 h32 l-6 10 h-20 z M10 74 h40 v6 h-40 z"/>
+        <path class="flame" fill="#E85D2A" d="M30 -4 q6 8 0 16 q-6 -8 0 -16 z" transform="translate(0,6)"/>
+      </svg>
+    </div>
 
-<p>
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <span class="hero-eyebrow-mark"><span class="dot"></span> குடும்பங்களுக்கான தமிழ் மொய் பதிவேடு</span>
 
-குடும்பத்தில் ஒருவர் பதிவு செய்தால் போதும்.
+          <h1 class="hero-title">நம்மை மதித்து வந்தவர்களை,<br><span class="accent">நாமும் மதிப்போம்.</span></h1>
 
-அனைத்து குடும்ப உறுப்பினர்களும்
-அதைப் பார்த்து பயன்படுத்தலாம்.
+          <p class="hero-sub">உறவுகளை தலைமுறைகளுக்கு பாதுகாப்போம். ஒரு குடும்பம், ஒரு பதிவு, அனைவருக்கும் அணுகல்.</p>
+          <p class="hero-sub-en">மொய் என்பது ஒரு கணக்கு அல்ல — அது அன்பு, நன்றியுணர்வு, உறவுகள் மற்றும் தமிழர் பாரம்பரியத்தின் நினைவுப் பதிவு. NammaMoi இதை பாதுகாப்பாக, எளிதாக, என்றென்றும் பராமரிக்க உதவுகிறது.</p>
 
-</p>
+          <div class="hero-actions btn-row">
+            <a href="#cta" class="btn btn-primary">
+              இலவசமாக தொடங்கு
+            </a>
+            <a href="#dashboard" class="btn btn-ghost">பயன்பாட்டை பார்க்க ↓</a>
+          </div>
 
-</div>
+          <div class="hero-stats">
+            <div class="hero-stat"><span class="num" data-count="12400" data-suffix="+">0</span><span class="label">பதிவு செய்யப்பட்ட மொய்கள்</span></div>
+            <div class="hero-stat"><span class="num" data-count="860" data-suffix="+">0</span><span class="label">குடும்பங்கள்</span></div>
+            <div class="hero-stat"><span class="num" data-count="45" data-suffix="+">0</span><span class="label">ஊர்கள்</span></div>
+          </div>
+        </div>
 
-<div class="card">
+        <div class="hero-visual">
+          <svg class="kolam-orbit" viewBox="0 0 400 400" aria-hidden="true">
+            <g fill="none" stroke="#C9A227" stroke-width="1.4" opacity="0.55">
+              <circle cx="200" cy="200" r="170" stroke-dasharray="2 10"/>
+              <circle cx="200" cy="200" r="150"/>
+            </g>
+          </svg>
 
-<h3>🌸 தலைமுறைகளுக்காக</h3>
+          <!-- Kolam signature line-drawing -->
+          <svg class="kolam-orbit" viewBox="0 0 400 400" aria-hidden="true" style="animation:none;">
+            <g fill="none" stroke="#7B1E2B" stroke-width="2" stroke-linecap="round">
+              <path class="kolam-path" d="M200 60 C 120 100, 120 300, 200 340 C 280 300, 280 100, 200 60 Z"/>
+            </g>
+          </svg>
 
-<p>
+          <div class="float-card fc-1">
+            <span class="ic" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M2 12h20"/></svg>
+            </span>
+            <div><div class="t">புதிய மொய் சேர்க்கப்பட்டது</div><div class="s">முருகன் — ₹2,100</div></div>
+          </div>
 
-இன்று பதிவு செய்யும் நினைவுகள்...
+          <div class="float-card fc-2">
+            <span class="ic" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            </span>
+            <div><div class="t">பாதுகாப்பான Cloud Backup</div><div class="s">தினமும் தானாக சேமிப்பு</div></div>
+          </div>
 
-நாளை நம் பிள்ளைகளுக்கும்
-பேரப்பிள்ளைகளுக்கும்
-மதிப்புமிக்க வரலாறாக இருக்கும்.
+          <div class="float-card fc-3">
+            <span class="ic" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+            </span>
+            <div><div class="t">உடனடி தேடல்</div><div class="s">பெயர் / ஊர் / தேதி வாரியாக</div></div>
+          </div>
 
-</p>
+          <div class="phone-mock">
+            <div class="screen">
+              <div class="notch"></div>
+              <div class="screen-app-bar">
+                <div class="app-title tamil">செல்வம் அண்ணன் மகள் திருமணம்</div>
+                <div class="app-sub">12 ஜூலை 2026 · கோயம்புத்தூர்</div>
+              </div>
+              <div class="screen-body">
+                <div class="mock-row"><span class="name">ராஜேந்திரன் — சொந்தம்</span><span class="amt">₹5,000</span></div>
+                <div class="mock-row"><span class="name">கமலா அக்கா — நண்பர்</span><span class="amt">₹2,500</span></div>
+                <div class="mock-row"><span class="name">வேலு மாமா — உறவினர்</span><span class="amt">₹3,100</span></div>
+                <div class="mock-row"><span class="name">சுப்பிரமணி — அயலவர்</span><span class="amt">₹1,100</span></div>
+              </div>
+              <div class="mock-fab" aria-hidden="true">+</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-</div>
+  <!-- ===================================================================
+       SECTION 2 — WHY NAMMAMOI
+       =================================================================== -->
+  <section class="section-pad" id="why">
+    <div class="container">
+      <div class="section-head center" data-reveal="fade-up">
+        <span class="eyebrow">ஏன் நம்மமொய்</span>
+        <h2>ஒரு குடும்பத்திற்கு தேவையான அனைத்தும் ஒரே இடத்தில்</h2>
+        <p>பேப்பர் பதிவேட்டின் சிக்கல்களை மறந்துவிடுங்கள். உங்கள் மொய் பதிவுகள் இனி எளிதாக, துல்லியமாக, என்றென்றும் பாதுகாக்கப்படும்.</p>
+      </div>
 
-</section>
+      <div class="grid grid-4" data-reveal-group>
+        <article class="feature-card" data-reveal="fade-up" data-reveal-index="0">
+          <span class="ic" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span>
+          <h3>எளிய மொய் பதிவு</h3>
+          <p>பெயர், தொகை, உறவு விவரங்களை 10 வினாடிகளில் பதிவு செய்யுங்கள் — கையால் எழுதுவதை விட வேகமாக.</p>
+        </article>
+        <article class="feature-card" data-reveal="fade-up" data-reveal-index="1">
+          <span class="ic" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8zM23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></span>
+          <h3>குடும்ப பதிவுகள்</h3>
+          <p>ஒவ்வொரு குடும்ப உறுப்பினருக்கும் தனித்தனி அணுகல் — அனைவரும் ஒரே பதிவேட்டை பகிர்ந்து பயன்படுத்தலாம்.</p>
+        </article>
+        <article class="feature-card" data-reveal="fade-up" data-reveal-index="2">
+          <span class="ic" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></span>
+          <h3>வரவு & செலவு</h3>
+          <p>விழாவின் மொத்த மொய் வரவு, செலவு, மீதி ஆகியவற்றை ஒரே பார்வையில் அறியுங்கள்.</p>
+        </article>
+        <article class="feature-card" data-reveal="fade-up" data-reveal-index="3">
+          <span class="ic" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg></span>
+          <h3>அறிக்கைகள்</h3>
+          <p>PDF மற்றும் Excel வடிவில் விரிவான அறிக்கைகளை உடனடியாக உருவாக்குங்கள்.</p>
+        </article>
+        <article class="feature-card" data-reveal="fade-up" data-reveal-index="4">
+          <span class="ic" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 10h-1.26A8 8 0 109 20h9a5 5 0 000-10z"/></svg></span>
+          <h3>Cloud Backup</h3>
+          <p>உங்கள் தரவு Google Drive இல் பாதுகாப்பாக சேமிக்கப்படுகிறது — தொலைந்து போகும் அபாயமே இல்லை.</p>
+        </article>
+        <article class="feature-card" data-reveal="fade-up" data-reveal-index="5">
+          <span class="ic" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.3-4.3"/></svg></span>
+          <h3>உடனடி தேடல்</h3>
+          <p>பெயர், ஊர், தேதி, தொகை வாரியாக ஆயிரக்கணக்கான பதிவுகளில் நொடிகளில் தேடுங்கள்.</p>
+        </article>
+        <article class="feature-card" data-reveal="fade-up" data-reveal-index="0">
+          <span class="ic" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></span>
+          <h3>பாதுகாப்பு</h3>
+          <p>கடவுச்சொல் encryption மற்றும் குடும்பம் வாரியான தனிப்பட்ட அணுகல் கட்டுப்பாடு.</p>
+        </article>
+        <article class="feature-card" data-reveal="fade-up" data-reveal-index="1">
+          <span class="ic" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg></span>
+          <h3>எல்லா சாதனங்களிலும்</h3>
+          <p>மொபைல், டேப்லெட், கணினி — எங்கிருந்தும், எந்த சாதனத்திலும் அணுகலாம்.</p>
+        </article>
+      </div>
+    </div>
+  </section>
 
-<section class="quote">
+  <!-- ===================================================================
+       SECTION 3 — SUPPORTED EVENTS
+       =================================================================== -->
+  <section class="section-pad section-alt" id="events">
+    <div class="container">
+      <div class="section-head center" data-reveal="fade-up">
+        <span class="eyebrow">ஆதரிக்கப்படும் நிகழ்வுகள்</span>
+        <h2>வாழ்க்கையின் ஒவ்வொரு விழாவிற்கும்</h2>
+        <p>திருமணம் முதல் இல்லக் கூடுவரவு வரை — ஒவ்வொரு குடும்ப நிகழ்விற்கும் ஏற்ற வகையில் மொய் பதிவை வடிவமைக்கலாம்.</p>
+      </div>
 
-<h2>
+      <div class="grid grid-4" data-reveal-group>
+        <div class="event-card" data-reveal="zoom" data-reveal-index="0">
+          <span class="ic" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 10-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 000-7.78z"/></svg></span>
+          <h3 class="tamil">திருமணம்</h3><span class="en">Marriage</span>
+        </div>
+        <div class="event-card" data-reveal="zoom" data-reveal-index="1">
+          <span class="ic" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="5"/><path d="M12 13v8M9 21h6"/></svg></span>
+          <h3 class="tamil">காதணி விழா</h3><span class="en">Ear Piercing</span>
+        </div>
+        <div class="event-card" data-reveal="zoom" data-reveal-index="2">
+          <span class="ic" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a5 5 0 015 5c0 3-5 11-5 11S7 10 7 7a5 5 0 015-5z"/></svg></span>
+          <h3 class="tamil">சீமந்தம்</h3><span class="en">Baby Shower</span>
+        </div>
+        <div class="event-card" data-reveal="zoom" data-reveal-index="3">
+          <span class="ic" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 10l9-7 9 7v9a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><path d="M9 21V12h6v9"/></svg></span>
+          <h3 class="tamil">இல்லக் கூடுவரவு</h3><span class="en">House Warming</span>
+        </div>
+        <div class="event-card" data-reveal="zoom" data-reveal-index="0">
+          <span class="ic" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v6M8 8h8l2 12H6z"/></svg></span>
+          <h3 class="tamil">கோயில் திருவிழா</h3><span class="en">Temple Festival</span>
+        </div>
+        <div class="event-card" data-reveal="zoom" data-reveal-index="1">
+          <span class="ic" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M8 6h8l1 4H7zM6 10h12l1 12H5z"/></svg></span>
+          <h3 class="tamil">பிறந்தநாள்</h3><span class="en">Birthday</span>
+        </div>
+        <div class="event-card" data-reveal="zoom" data-reveal-index="2">
+          <span class="ic" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8zM23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></span>
+          <h3 class="tamil">குடும்ப விழாக்கள்</h3><span class="en">Family Functions</span>
+        </div>
+        <div class="event-card" data-reveal="zoom" data-reveal-index="3">
+          <span class="ic" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="5" cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="19" cy="12" r="1.6"/></svg></span>
+          <h3 class="tamil">மேலும்</h3><span class="en">More</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
-"உறவுகளை மதிப்போம்...<br><br>
+  <!-- ===================================================================
+       SECTION 4 — ONE FAMILY, ONE RECORD
+       =================================================================== -->
+  <section class="section-pad" id="family">
+    <div class="container">
+      <div class="split">
+        <div class="split-copy" data-reveal="fade-right">
+          <span class="eyebrow">ஒரே குடும்பம், ஒரே பதிவு</span>
+          <h2>ஒரு குடும்பக் கணக்கு. பல உறுப்பினர்கள். பகிரப்பட்ட அணுகல்.</h2>
+          <ul class="check-list">
+            <li>
+              <span class="tick" aria-hidden="true">✓</span>
+              <div><strong>ஒரு குடும்ப கணக்கு</strong><span class="desc">அனைத்து விழாக்களுக்குமான மொய் பதிவுகள் ஒரே இடத்தில் — தேடல் எளிது.</span></div>
+            </li>
+            <li>
+              <span class="tick" aria-hidden="true">✓</span>
+              <div><strong>பல குடும்ப உறுப்பினர்கள்</strong><span class="desc">அப்பா, அம்மா, மகன், மகள் — அனைவரும் ஒரே பதிவேட்டில் இணைந்து பணியாற்றலாம்.</span></div>
+            </li>
+            <li>
+              <span class="tick" aria-hidden="true">✓</span>
+              <div><strong>பங்கு அடிப்படையிலான அனுமதி</strong><span class="desc">யார் என்ன பார்க்கலாம், எதைத் திருத்தலாம் என்பதை நீங்களே தீர்மானியுங்கள்.</span></div>
+            </li>
+            <li>
+              <span class="tick" aria-hidden="true">✓</span>
+              <div><strong>எதிர்கால தலைமுறைக்கும் அணுகல்</strong><span class="desc">உங்கள் பிள்ளைகள், பேரக்குழந்தைகள் கூட இந்த வரலாற்றை பார்க்க முடியும்.</span></div>
+            </li>
+          </ul>
+        </div>
 
-நினைவுகளை பாதுகாப்போம்...<br><br>
+        <div class="split-visual" data-reveal="fade-left">
+          <div class="family-diagram">
+            <svg viewBox="0 0 360 300" role="img" aria-label="ஒரு குடும்ப கணக்கில் பல உறுப்பினர்கள் இணைந்திருப்பதை காட்டும் வரைபடம்">
+              <circle cx="180" cy="70" r="34" fill="#7B1E2B"/>
+              <text x="180" y="76" text-anchor="middle" fill="#FAF3E6" font-size="13" font-family="Poppins">குடும்பம்</text>
+              <g stroke="#C9A227" stroke-width="2">
+                <line x1="180" y1="104" x2="70" y2="200"/>
+                <line x1="180" y1="104" x2="150" y2="220"/>
+                <line x1="180" y1="104" x2="220" y2="220"/>
+                <line x1="180" y1="104" x2="300" y2="200"/>
+              </g>
+              <g fill="#F0E4C9" stroke="#7B1E2B" stroke-width="1.5">
+                <circle cx="70" cy="220" r="26"/>
+                <circle cx="150" cy="240" r="26"/>
+                <circle cx="220" cy="240" r="26"/>
+                <circle cx="300" cy="220" r="26"/>
+              </g>
+              <g fill="#3B2417" font-size="11" font-family="Poppins" text-anchor="middle">
+                <text x="70" y="224">அப்பா</text>
+                <text x="150" y="244">அம்மா</text>
+                <text x="220" y="244">மகன்</text>
+                <text x="300" y="224">மகள்</text>
+              </g>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-ஒரு குடும்பம்...<br>
+  <!-- ===================================================================
+       SECTION 5 — TIMELINE (signature thread motif)
+       =================================================================== -->
+  <section class="section-pad section-alt" id="timeline">
+    <div class="container">
+      <div class="section-head center" data-reveal="fade-up">
+        <span class="eyebrow">தலைமுறைகளின் தொடர்பு</span>
+        <h2>இன்று பதிவு செய்யும் ஒரு வரி, நாளை ஒரு வரலாறு</h2>
+        <p>கோலம் போல ஒவ்வொரு நாளும் புதிதாக வரையப்பட்டாலும், அதன் அர்த்தம் தலைமுறைகள் தாண்டி நீடிக்கும்.</p>
+      </div>
 
-ஒரு பதிவு...<br>
+      <div class="timeline-wrap">
+        <div class="timeline-thread" aria-hidden="true">
+          <svg viewBox="0 0 3 1000" preserveAspectRatio="none">
+            <path d="M1.5 0 V1000" fill="none" stroke="#C9A227" stroke-width="2.4"/>
+          </svg>
+        </div>
 
-எல்லோரும் இணைந்து பயன்படுத்தும்<br>
+        <div class="timeline-row" data-reveal="fade-up">
+          <div></div>
+          <div class="node">இன்று</div>
+          <div class="timeline-card">
+            <h3>நீங்கள் பதிவு செய்கிறீர்கள்</h3>
+            <p>இன்றைய விழாவின் ஒவ்வொரு மொய்யையும் NammaMoi-இல் பாதுகாப்பாக பதிவு செய்கிறீர்கள்.</p>
+          </div>
+        </div>
 
-நம்பிக்கையான குடும்ப நினைவகம்."
+        <div class="timeline-row" data-reveal="fade-up">
+          <div class="timeline-card">
+            <h3>உங்கள் பிள்ளைகள்</h3>
+            <p>அவர்களின் திருமண காலத்தில், யார் யாருக்கு என்ன மொய் கொடுத்தனர் என்பதை உடனே பார்க்க முடியும்.</p>
+          </div>
+          <div class="node">பிள்ளைகள்</div>
+          <div></div>
+        </div>
 
-</h2>
+        <div class="timeline-row" data-reveal="fade-up">
+          <div></div>
+          <div class="node">பேரக்குழந்தைகள்</div>
+          <div class="timeline-card">
+            <h3>பேரக்குழந்தைகள்</h3>
+            <p>தாத்தா பாட்டி காலத்திய உறவுகளின் வரலாற்றை படித்து, அந்த பந்தத்தை தொடர்கின்றனர்.</p>
+          </div>
+        </div>
 
-</section>
+        <div class="timeline-row" data-reveal="fade-up">
+          <div class="timeline-card">
+            <h3>குடும்ப பாரம்பரியம்</h3>
+            <p>தலைமுறை தலைமுறையாக, உறவுகளின் அன்பும் நன்றியுணர்வும் ஒரு பதிவேடாக நீடிக்கிறது.</p>
+          </div>
+          <div class="node">பாரம்பரியம்</div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<footer>
+  <!-- ===================================================================
+       SECTION 6 — DASHBOARD PREVIEW
+       =================================================================== -->
+  <section class="section-pad" id="dashboard">
+    <div class="container">
+      <div class="section-head center" data-reveal="fade-up">
+        <span class="eyebrow">டாஷ்போர்டு தோற்றம்</span>
+        <h2>எந்த சாதனத்திலும், தெளிவான பார்வை</h2>
+        <p>மொபைல் முதல் டெஸ்க்டாப் வரை — உங்கள் மொய் பதிவேடு எல்லா திரைகளிலும் அழகாக, தெளிவாக தெரியும்.</p>
+      </div>
 
-© 2025 NammaMoi • குடும்பங்களை இணைக்கும் நம்பிக்கையான பதிவு
+      <div style="text-align:center;" data-reveal="fade-up">
+        <div class="device-tabs" role="tablist" aria-label="சாதன தோற்றத்தை தேர்வு செய்">
+          <button data-device-tab="mobile" class="active" role="tab" aria-selected="true">மொபைல்</button>
+          <button data-device-tab="tablet" role="tab" aria-selected="false">டேப்லெட்</button>
+          <button data-device-tab="desktop" role="tab" aria-selected="false">டெஸ்க்டாப்</button>
+        </div>
+      </div>
 
+      <div class="device-frame active" data-device-frame="mobile" data-reveal="zoom" style="max-width:340px;margin:0 auto;">
+        <div class="device-chrome"><span></span><span></span><span></span></div>
+        <div class="dash-body">
+          <div class="dash-stat-row" style="grid-template-columns:1fr 1fr;">
+            <div class="dash-stat"><div class="n">₹1,84,200</div><div class="l">மொத்த மொய்</div></div>
+            <div class="dash-stat"><div class="n">142</div><div class="l">பதிவுகள்</div></div>
+          </div>
+          <table class="dash-table">
+            <thead><tr><th>பெயர்</th><th>தொகை</th></tr></thead>
+            <tbody>
+              <tr><td>கோவிந்தசாமி</td><td>₹5,000</td></tr>
+              <tr><td>பழனியம்மாள்</td><td>₹2,000</td></tr>
+              <tr><td>செல்வராஜ்</td><td>₹3,500</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="device-frame" data-device-frame="tablet" data-reveal="zoom" style="max-width:600px;margin:0 auto;">
+        <div class="device-chrome"><span></span><span></span><span></span></div>
+        <div class="dash-body">
+          <div class="dash-stat-row">
+            <div class="dash-stat"><div class="n">₹1,84,200</div><div class="l">மொத்த மொய்</div></div>
+            <div class="dash-stat"><div class="n">142</div><div class="l">பதிவுகள்</div></div>
+            <div class="dash-stat"><div class="n">₹1,297</div><div class="l">சராசரி</div></div>
+            <div class="dash-stat"><div class="n">18</div><div class="l">ஊர்கள்</div></div>
+          </div>
+          <table class="dash-table">
+            <thead><tr><th>பெயர்</th><th>உறவு</th><th>ஊர்</th><th>தொகை</th></tr></thead>
+            <tbody>
+              <tr><td>கோவிந்தசாமி</td><td>சொந்தம்</td><td>ஈரோடு</td><td>₹5,000</td></tr>
+              <tr><td>பழனியம்மாள்</td><td>அயலவர்</td><td>திருப்பூர்</td><td>₹2,000</td></tr>
+              <tr><td>செல்வராஜ்</td><td>நண்பர்</td><td>கோயம்புத்தூர்</td><td>₹3,500</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="device-frame" data-device-frame="desktop" data-reveal="zoom">
+        <div class="device-chrome"><span></span><span></span><span></span></div>
+        <div class="dash-body">
+          <div class="dash-stat-row">
+            <div class="dash-stat"><div class="n">₹1,84,200</div><div class="l">மொத்த மொய் வரவு</div></div>
+            <div class="dash-stat"><div class="n">142</div><div class="l">பதிவுகள்</div></div>
+            <div class="dash-stat"><div class="n">₹1,297</div><div class="l">சராசரி மொய்</div></div>
+            <div class="dash-stat"><div class="n">18</div><div class="l">ஊர்கள்</div></div>
+          </div>
+          <table class="dash-table">
+            <thead><tr><th>அடையாள எண்</th><th>பெயர்</th><th>உறவு</th><th>ஊர்</th><th>தேதி</th><th>தொகை</th></tr></thead>
+            <tbody>
+              <tr><td>CSH-000104</td><td>கோவிந்தசாமி</td><td>சொந்தம்</td><td>ஈரோடு</td><td>12-07-2026</td><td>₹5,000</td></tr>
+              <tr><td>CSH-000105</td><td>பழனியம்மாள்</td><td>அயலவர்</td><td>திருப்பூர்</td><td>12-07-2026</td><td>₹2,000</td></tr>
+              <tr><td>CSH-000106</td><td>செல்வராஜ்</td><td>நண்பர்</td><td>கோயம்புத்தூர்</td><td>13-07-2026</td><td>₹3,500</td></tr>
+              <tr><td>CSH-000107</td><td>வள்ளியம்மாள்</td><td>உறவினர்</td><td>சேலம்</td><td>13-07-2026</td><td>₹1,500</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       SECTION 7 — FEATURES
+       =================================================================== -->
+  <section class="section-pad section-alt" id="features">
+    <div class="container">
+      <div class="section-head center" data-reveal="fade-up">
+        <span class="eyebrow">அம்சங்கள்</span>
+        <h2>சிறிய குடும்பம் முதல் பெரிய குடும்பம் வரை</h2>
+        <p>நீங்கள் தேவைப்படும் அனைத்து அம்சங்களும் — இப்போது, மற்றும் விரைவில் வருபவை.</p>
+      </div>
+
+      <div class="grid grid-4" data-reveal-group>
+        <article class="feature-card" data-reveal="fade-up" data-reveal-index="0"><h3>வேக தேடல்</h3><p>Fast Search — ஆயிரக்கணக்கான பதிவுகளில் நொடிகளில் கண்டறியுங்கள்.</p></article>
+        <article class="feature-card" data-reveal="fade-up" data-reveal-index="1"><h3>மேம்பட்ட வடிகட்டிகள்</h3><p>Advanced Filters — தேதி, ஊர், தொகை வாரியாக துல்லியமான வடிகட்டல்.</p></article>
+        <article class="feature-card" data-reveal="fade-up" data-reveal-index="2"><h3>நகல் கண்டறிதல்</h3><p>Duplicate Detection — ஒரே பெயர் இருமுறை பதிவாவதை தானாக எச்சரிக்கும்.</p></article>
+        <article class="feature-card" data-reveal="fade-up" data-reveal-index="3"><h3>PDF ஏற்றுமதி</h3><p>Export PDF — அச்சிடத் தயாரான அறிக்கையை ஒரு க்ளிக்கில் பெறுங்கள்.</p></article>
+        <article class="feature-card" data-reveal="fade-up" data-reveal-index="0"><h3>Excel ஏற்றுமதி</h3><p>Export Excel — கணக்கியல் மற்றும் பகுப்பாய்வுக்கு ஏற்ற வடிவில்.</p></article>
+        <article class="feature-card" data-reveal="fade-up" data-reveal-index="1"><h3>விரிவான அறிக்கைகள்</h3><p>Reports — விழா வாரியாக, ஆண்டு வாரியாக சுருக்க அறிக்கைகள்.</p></article>
+        <article class="feature-card" data-reveal="fade-up" data-reveal-index="2"><h3>Cloud Sync</h3><p>உங்கள் அனைத்து சாதனங்களிலும் தரவு தானாக ஒத்திசைவாகும்.</p></article>
+        <article class="feature-card" data-reveal="fade-up" data-reveal-index="3">
+          <h3>ஆஃப்லைன் ஆதரவு <span class="eyebrow" style="margin:0;">விரைவில்</span></h3>
+          <p>Offline Support — இணையம் இல்லாத நேரங்களிலும் பதிவு செய்யலாம்.</p>
+        </article>
+        <article class="feature-card" data-reveal="fade-up" data-reveal-index="0">
+          <h3>அறிவிப்புகள் <span class="eyebrow" style="margin:0;">விரைவில்</span></h3>
+          <p>Notifications — புதிய பதிவுகள் மற்றும் நினைவூட்டல்களுக்கு உடனடி அறிவிப்பு.</p>
+        </article>
+        <article class="feature-card" data-reveal="fade-up" data-reveal-index="1">
+          <h3>இருண்ட பயன்முறை <span class="eyebrow" style="margin:0;">விரைவில்</span></h3>
+          <p>Dark Mode — கண்களுக்கு இதமான இரவு நேர தோற்றம்.</p>
+        </article>
+        <article class="feature-card" data-reveal="fade-up" data-reveal-index="2"><h3>Apps Script Backend</h3><p>Google Apps Script உடன் தயார் நிலையில் இணைக்கக்கூடிய கட்டமைப்பு.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       SECTION 8 — TESTIMONIALS
+       =================================================================== -->
+  <section class="section-pad" id="testimonials">
+    <div class="container">
+      <div class="section-head center" data-reveal="fade-up">
+        <span class="eyebrow">குடும்பங்கள் சொல்வது</span>
+        <h2>எங்கள் குடும்பங்களின் அனுபவம்</h2>
+      </div>
+
+      <div class="grid grid-3" data-reveal-group>
+        <blockquote class="testi-card" data-reveal="fade-up" data-reveal-index="0">
+          <span class="quote-mark" aria-hidden="true">"</span>
+          <p>எங்க மகள் கல்யாணத்துல வந்த மொய் எல்லாம் இப்போ ஒரு பதிவேடா தெளிவா இருக்கு. யாரு எவ்ளோ கொடுத்தாங்கன்னு தேடி தேடி பாக்க வேணாம்.</p>
+          <footer class="testi-person">
+            <span class="testi-avatar" aria-hidden="true">ரா</span>
+            <div><div class="name">ராஜேந்திரன் செல்வம்</div><div class="place">ஈரோடு</div></div>
+          </footer>
+        </blockquote>
+        <blockquote class="testi-card" data-reveal="fade-up" data-reveal-index="1">
+          <span class="quote-mark" aria-hidden="true">"</span>
+          <p>எங்க வீட்டு புது வீடு புகுவிழாவுக்கு வந்த மொய் பதிவை என் அண்ணனும் நானும் ஒரே நேரத்துல பதிவு செய்ய முடிஞ்சது ரொம்ப உதவியா இருந்தது.</p>
+          <footer class="testi-person">
+            <span class="testi-avatar" aria-hidden="true">க</span>
+            <div><div class="name">கமலா சுப்பிரமணியன்</div><div class="place">திருப்பூர்</div></div>
+          </footer>
+        </blockquote>
+        <blockquote class="testi-card" data-reveal="fade-up" data-reveal-index="2">
+          <span class="quote-mark" aria-hidden="true">"</span>
+          <p>பேரப்பிள்ளை காதணி விழாவுக்கு பழைய பதிவேட்டை தேடி அலைஞ்சோம். NammaMoi இருந்திருந்தா அந்த பிரச்சனையே வந்திருக்காது.</p>
+          <footer class="testi-person">
+            <span class="testi-avatar" aria-hidden="true">வே</span>
+            <div><div class="name">வேலுசாமி நடராஜன்</div><div class="place">சேலம்</div></div>
+          </footer>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       SECTION 9 — FAQ
+       =================================================================== -->
+  <section class="section-pad section-alt" id="faq">
+    <div class="container">
+      <div class="section-head center" data-reveal="fade-up">
+        <span class="eyebrow">அடிக்கடி கேட்கப்படும் கேள்விகள்</span>
+        <h2>உங்கள் சந்தேகங்களுக்கு பதில்</h2>
+      </div>
+
+      <div class="prose" data-faq-list data-reveal="fade-up">
+
+        <div class="faq-item" data-open="true">
+          <button class="faq-question" aria-expanded="true">
+            NammaMoi முற்றிலும் இலவசமா?
+            <span class="plus" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer"><p>ஆம், அடிப்படை அம்சங்கள் அனைத்தும் இலவசம். எதிர்காலத்தில் மேம்பட்ட குடும்ப அம்சங்களுக்கு விருப்பமான திட்டங்கள் அறிமுகப்படுத்தப்படும்.</p></div>
+        </div>
+
+        <div class="faq-item" data-open="false">
+          <button class="faq-question" aria-expanded="false">
+            என் தரவு எவ்வளவு பாதுகாப்பானது?
+            <span class="plus" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer"><p>உங்கள் தரவு Google Cloud infrastructure மற்றும் encrypted கடவுச்சொல் முறையில் பாதுகாக்கப்படுகிறது. உங்கள் அனுமதி இல்லாமல் யாரும் அணுக முடியாது.</p></div>
+        </div>
+
+        <div class="faq-item" data-open="false">
+          <button class="faq-question" aria-expanded="false">
+            ஒரு குடும்பத்தில் எத்தனை பேர் பயன்படுத்தலாம்?
+            <span class="plus" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer"><p>வரம்பு இல்லை. உங்கள் குடும்பத்தில் உள்ள அனைத்து உறுப்பினர்களையும் சேர்த்து, பங்கு அடிப்படையிலான அணுகலை வழங்கலாம்.</p></div>
+        </div>
+
+        <div class="faq-item" data-open="false">
+          <button class="faq-question" aria-expanded="false">
+            இணையம் இல்லாமல் பயன்படுத்த முடியுமா?
+            <span class="plus" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer"><p>தற்போது இணைய இணைப்பு தேவை. ஆஃப்லைன் ஆதரவு விரைவில் அறிமுகப்படுத்தப்படும்.</p></div>
+        </div>
+
+        <div class="faq-item" data-open="false">
+          <button class="faq-question" aria-expanded="false">
+            பழைய பேப்பர் பதிவேட்டை இதில் சேர்க்க முடியுமா?
+            <span class="plus" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer"><p>ஆம், Excel மூலம் தரவை இறக்குமதி செய்யும் வசதி விரைவில் வழங்கப்படும். தற்போது கைமுறையாக பதிவு செய்யலாம்.</p></div>
+        </div>
+
+        <div class="faq-item" data-open="false">
+          <button class="faq-question" aria-expanded="false">
+            அறிக்கைகளை எந்த வடிவில் பெறலாம்?
+            <span class="plus" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer"><p>PDF மற்றும் Excel வடிவில் அறிக்கைகளை உடனடியாக பதிவிறக்கம் செய்யலாம்.</p></div>
+        </div>
+
+        <div class="faq-item" data-open="false">
+          <button class="faq-question" aria-expanded="false">
+            ஒரே விழாவுக்கு பல ஊர்களில் இருந்து பதிவு செய்ய முடியுமா?
+            <span class="plus" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer"><p>முடியும். குடும்ப உறுப்பினர்கள் வெவ்வேறு இடங்களில் இருந்தாலும், அனுமதி பெற்றவர்கள் ஒரே பதிவேட்டில் இணைந்து பதிவு செய்யலாம்.</p></div>
+        </div>
+
+        <div class="faq-item" data-open="false">
+          <button class="faq-question" aria-expanded="false">
+            என் மொபைலிலும் கணினியிலும் ஒரே தரவு தெரியுமா?
+            <span class="plus" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer"><p>ஆம். Cloud Sync மூலம் அனைத்து சாதனங்களிலும் தரவு தானாகவே புதுப்பிக்கப்படும்.</p></div>
+        </div>
+
+        <div class="faq-item" data-open="false">
+          <button class="faq-question" aria-expanded="false">
+            கணக்கை நீக்கினால் தரவு நீங்கிவிடுமா?
+            <span class="plus" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer"><p>கணக்கை நீக்கும் முன் தரவை Export செய்யுமாறு பரிந்துரைக்கிறோம். மேலும் தகவலுக்கு எங்கள் தனியுரிமைக் கொள்கையை பார்க்கவும்.</p></div>
+        </div>
+
+        <div class="faq-item" data-open="false">
+          <button class="faq-question" aria-expanded="false">
+            புதிய அம்சங்களை எப்படி கோரிக்கை வைப்பது?
+            <span class="plus" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer"><p>எங்கள் தொடர்பு பக்கம் வழியாக உங்கள் யோசனைகளை பகிரலாம். குடும்பங்களின் கருத்துகளின் அடிப்படையிலேயே NammaMoi வளர்கிறது.</p></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       CTA BAND
+       =================================================================== -->
+  <section class="section-pad" id="cta">
+    <div class="container">
+      <div class="cta-band" data-reveal="zoom">
+        <h2>உங்கள் குடும்ப மொய் பதிவை இன்றே பாதுகாக்க தொடங்குங்கள்</h2>
+        <p>பதிவு இலவசம். சில நிமிடங்களில் உங்கள் குடும்ப கணக்கை உருவாக்கி, முதல் மொய் பதிவை சேர்க்கலாம்.</p>
+        <div class="btn-row">
+          <a href="contact.html" class="btn btn-gold">இலவசமாக தொடங்கு</a>
+          <a href="help.html" class="btn btn-on-dark">உதவி பக்கம்</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- =====================================================================
+     FOOTER
+     ===================================================================== -->
+<footer class="site-footer">
+  <div class="container">
+    <p class="footer-quote">"மொய் என்பது ஒரு கணக்கு அல்ல... அது அன்பு, நன்றியுணர்வு, உறவுகள் மற்றும் தமிழர் பாரம்பரியத்தின் நினைவுப் பதிவு."</p>
+
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="brand">
+          <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true">
+            <rect width="64" height="64" rx="16" fill="#C9A227"/>
+            <g fill="#3B2417">
+              <circle cx="32" cy="32" r="4"/>
+              <circle cx="32" cy="14" r="2.6"/><circle cx="32" cy="50" r="2.6"/>
+              <circle cx="14" cy="32" r="2.6"/><circle cx="50" cy="32" r="2.6"/>
+            </g>
+          </svg>
+          <span>நம்மமொய்</span>
+        </a>
+        <p>குடும்ப மொய் பதிவுகளை பாதுகாப்பாக, எளிதாக, தலைமுறைகளுக்கு பராமரிக்க உதவும் தமிழ் பயன்பாடு.</p>
+        <div class="social-row">
+          <a href="#" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 10-11.5 9.9v-7H8v-2.9h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6v1.9H16l-.4 2.9h-2.1v7A10 10 0 0022 12z"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+          <a href="#" aria-label="YouTube"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="4"/><path d="M10 9l6 3-6 3z" fill="currentColor" stroke="none"/></svg></a>
+        </div>
+      </div>
+
+      <nav aria-label="Footer quick links">
+        <h4>விரைவு இணைப்புகள்</h4>
+        <ul>
+          <li><a href="#why">ஏன் நம்மமொய்</a></li>
+          <li><a href="#events">நிகழ்வுகள்</a></li>
+          <li><a href="#features">அம்சங்கள்</a></li>
+          <li><a href="#faq">கேள்விகள்</a></li>
+        </ul>
+      </nav>
+
+      <nav aria-label="Footer support links">
+        <h4>ஆதரவு</h4>
+        <ul>
+          <li><a href="help.html">உதவி மையம்</a></li>
+          <li><a href="contact.html">தொடர்பு கொள்ள</a></li>
+          <li><a href="privacy.html">தனியுரிமைக் கொள்கை</a></li>
+        </ul>
+      </nav>
+
+      <div>
+        <h4>தொடர்பு</h4>
+        <ul>
+          <li>support@nammamoi.in</li>
+          <li>+91 90000 00000</li>
+          <li>கோயம்புத்தூர், தமிழ்நாடு</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© <span data-current-year>2026</span> NammaMoi · நம்மமொய். அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை.</span>
+      <span>Made with அன்பு for தமிழ் குடும்பங்கள்</span>
+    </div>
+  </div>
 </footer>
 
+<button class="back-to-top" aria-label="மேலே செல்ல">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M18 15l-6-6-6 6"/></svg>
+</button>
+
+<script src="js/app.js"></script>
+<script src="js/animation.js"></script>
+<script src="js/main.js"></script>
 </body>
 </html>
