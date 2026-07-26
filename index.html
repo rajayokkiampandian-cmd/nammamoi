@@ -3,234 +3,290 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>நம்மமொய்</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Tamil:wght@400;700&display=swap" rel="stylesheet">
+<title>NammaMoi</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@400;600;700;800&display=swap" rel="stylesheet">
 
 <style>
+
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:'Noto Serif Tamil',serif;
+font-family:'Noto Sans Tamil',sans-serif;
 }
 
 body{
-background:#fff8e7;
-color:#4b2e0f;
-}
-
-header{
-background:linear-gradient(#8b0000,#b22222);
-color:white;
-text-align:center;
-padding:18px;
-border-bottom:6px solid gold;
-}
-
-header h1{
-font-size:38px;
-}
-
-header p{
-margin-top:8px;
-font-size:18px;
+background:#fffaf2;
+color:#3b2d20;
 }
 
 .hero{
-padding:40px 20px;
+
+padding:80px 20px;
 text-align:center;
-background:url("https://images.unsplash.com/photo-1606298855672-3efb63017be3?auto=format&fit=crop&w=1400&q=80") center/cover;
-color:white;
+
+background:linear-gradient(180deg,#fff8ec,#fff);
+}
+
+.hero h1{
+
+font-size:52px;
+color:#8B0000;
+margin-bottom:20px;
+
 }
 
 .hero h2{
-font-size:38px;
-background:rgba(0,0,0,.45);
-display:inline-block;
-padding:10px 20px;
-border-radius:10px;
+
+font-size:30px;
+color:#c56b00;
+margin-bottom:30px;
+
 }
 
 .hero p{
-margin-top:20px;
-font-size:20px;
-background:rgba(0,0,0,.45);
-display:inline-block;
-padding:10px;
-border-radius:8px;
-}
 
-.section{
-padding:40px 20px;
-max-width:1100px;
+font-size:22px;
+max-width:850px;
 margin:auto;
+line-height:1.8;
+
 }
 
-.section h2{
-text-align:center;
-color:#8b0000;
-margin-bottom:30px;
+.highlight{
+
+color:#8B0000;
+font-weight:bold;
+
 }
 
 .cards{
+
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:25px;
+
+padding:70px 20px;
+max-width:1200px;
+margin:auto;
+
 }
 
 .card{
+
 background:white;
-padding:25px;
-border-radius:12px;
-box-shadow:0 5px 15px rgba(0,0,0,.2);
-text-align:center;
-border-top:6px solid #b8860b;
+
+padding:35px;
+
+border-radius:18px;
+
+box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+transition:.3s;
+
+}
+
+.card:hover{
+
+transform:translateY(-8px);
+
 }
 
 .card h3{
-margin-bottom:10px;
-color:#8b0000;
+
+font-size:24px;
+color:#8B0000;
+margin-bottom:15px;
+
 }
 
-button{
-background:#8b0000;
-color:white;
-border:none;
-padding:12px 25px;
+.card p{
+
 font-size:18px;
-border-radius:8px;
-cursor:pointer;
-margin-top:15px;
+line-height:1.8;
+
 }
 
-button:hover{
-background:#b22222;
+.quote{
+
+background:#8B0000;
+color:white;
+
+padding:70px 20px;
+
+text-align:center;
+
+}
+
+.quote h2{
+
+font-size:34px;
+
+line-height:1.8;
+
 }
 
 footer{
-background:#8b0000;
-color:white;
+
+padding:40px;
+
 text-align:center;
-padding:20px;
-margin-top:40px;
+
+background:#f5ede0;
+
+font-size:18px;
+
 }
 
-.temple{
-font-size:70px;
-margin-bottom:15px;
+button{
+
+margin-top:40px;
+
+padding:18px 45px;
+
+font-size:22px;
+
+background:#c56b00;
+
+color:white;
+
+border:none;
+
+border-radius:50px;
+
+cursor:pointer;
+
+}
+
+button:hover{
+
+background:#8B0000;
+
 }
 
 </style>
+
 </head>
 
 <body>
 
-<header>
-<h1>🛕 நம்மமொய்</h1>
-<p>தமிழர் பாரம்பரிய மொய் நிர்வாக அமைப்பு</p>
-</header>
-
 <section class="hero">
 
-<div class="temple">🪔</div>
+<h1>🙏 வணக்கம்</h1>
 
-<h2>வணக்கம்! 🙏</h2>
+<h2>உறவுகளை பாதுகாப்போம்... மரபுகளை தொடர்வோம்...</h2>
 
 <p>
-திருமணம் • காதணி • வளைகாப்பு • கோவில் விழா • குடும்ப விழாக்கள்
-<br><br>
-மொய் வரவு செலவுகளை எளிதாக பதிவு செய்யுங்கள்.
+
+<strong>NammaMoi</strong> என்பது ஒரு சாதாரண பதிவு அல்ல.
+
+இது ஒரு <span class="highlight">குடும்பத்தின் நினைவுப் பொக்கிஷம்.</span>
+
+நம்மை மதித்து வந்தவர்களை
+நாமும் மதிப்போம்.
+
+உறவுகளை பாதுகாப்போம்.
+
+ஒரு குடும்பம்...
+ஒரு பதிவு...
+எல்லோரும் இணைந்து
+பல தலைமுறைகள் பாதுகாக்கும்
+ஒரு நம்பிக்கையான நினைவகம்.
+
 </p>
 
-<br>
-
-<button>தொடங்குங்கள்</button>
+<button>இப்போதே தொடங்குங்கள்</button>
 
 </section>
 
-<section class="section">
 
-<h2>எங்கள் சேவைகள்</h2>
-
-<div class="cards">
+<section class="cards">
 
 <div class="card">
-<h3>💰 மொய் பதிவு</h3>
+
+<h3>🙏 மரியாதை</h3>
+
 <p>
-வரவு மற்றும் செலவு பதிவுகள்.
+
+நம்மை மதித்து வந்தவர்களை
+நாமும் மனதார மதிப்போம்.
+
 </p>
+
 </div>
 
 <div class="card">
-<h3>📒 குடும்ப பதிவுகள்</h3>
+
+<h3>👨‍👩‍👧‍👦 உறவுகள்</h3>
+
 <p>
-யார் எவ்வளவு மொய் கொடுத்தார்கள் என்பதை சேமிக்கலாம்.
+
+உறவுகள் பேசப்படும் வரை அல்ல...
+
+பாதுகாக்கப்படும் வரை நிலைத்திருக்கும்.
+
 </p>
+
 </div>
 
 <div class="card">
-<h3>📊 அறிக்கைகள்</h3>
+
+<h3>📖 ஒரு குடும்பம் • ஒரு பதிவு</h3>
+
 <p>
-ஒரே கிளிக்கில் Report உருவாக்கலாம்.
+
+குடும்பத்தில் ஒருவர் பதிவு செய்தால் போதும்.
+
+அனைத்து குடும்ப உறுப்பினர்களும்
+அதைப் பார்த்து பயன்படுத்தலாம்.
+
 </p>
+
 </div>
 
 <div class="card">
-<h3>🔍 தேடல்</h3>
+
+<h3>🌸 தலைமுறைகளுக்காக</h3>
+
 <p>
-பெயர் அல்லது ஊர் மூலம் பதிவுகளை தேடலாம்.
+
+இன்று பதிவு செய்யும் நினைவுகள்...
+
+நாளை நம் பிள்ளைகளுக்கும்
+பேரப்பிள்ளைகளுக்கும்
+மதிப்புமிக்க வரலாறாக இருக்கும்.
+
 </p>
-</div>
 
 </div>
 
 </section>
 
-<section class="section">
+<section class="quote">
 
-<h2>தமிழர் பண்பாடு</h2>
+<h2>
 
-<div class="cards">
+"உறவுகளை மதிப்போம்...<br><br>
 
-<div class="card">
-<h3>🪔 கோவில் விழா</h3>
-<p>
-அன்னதானம், உற்சவம், திருவிழா.
-</p>
-</div>
+நினைவுகளை பாதுகாப்போம்...<br><br>
 
-<div class="card">
-<h3>💐 திருமணம்</h3>
-<p>
-மொய் மற்றும் பரிசு பதிவுகள்.
-</p>
-</div>
+ஒரு குடும்பம்...<br>
 
-<div class="card">
-<h3>🎉 குடும்ப நிகழ்ச்சிகள்</h3>
-<p>
-வளைகாப்பு, காதணி, பிறந்தநாள் உள்ளிட்ட நிகழ்வுகள்.
-</p>
-</div>
+ஒரு பதிவு...<br>
 
-</div>
+எல்லோரும் இணைந்து பயன்படுத்தும்<br>
+
+நம்பிக்கையான குடும்ப நினைவகம்."
+
+</h2>
 
 </section>
 
 <footer>
 
-<h3>🛕 நம்மமொய்</h3>
-
-<p>
-தமிழர் பாரம்பரியத்தை பாதுகாக்கும் நவீன டிஜிட்டல் பயன்பாடு
-</p>
-
-<br>
-
-<p>
-© 2026 NammaMoi
-</p>
+© 2025 NammaMoi • குடும்பங்களை இணைக்கும் நம்பிக்கையான பதிவு
 
 </footer>
 
