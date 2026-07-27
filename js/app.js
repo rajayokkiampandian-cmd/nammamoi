@@ -7,17 +7,10 @@
    project is hardcoded against a live backend yet.
    ========================================================================== */
 
-const CONFIG = {
-  API_URL:    "",   // Apps Script Web App base URL
-  LOGIN_URL:  "",   // e.g. CONFIG.API_URL + "?action=login"
-  SAVE_URL:   "",   // record create/update endpoint
-  SEARCH_URL: "",   // record search / autocomplete endpoint
-  REPORT_URL: "",   // PDF/Excel report generation endpoint
-  APP_URL:    ""    // Your deployed Apps Script Web App link (the .../exec URL).
-                     // login.html sends people here after they submit the login
-                     // form — the real sign-in screen lives inside the Apps
-                     // Script app itself. Just paste your link above.
-};
+/* CONFIG now lives in js/config.js, loaded before this file on every page.
+   Do not redeclare `const CONFIG` here — a second declaration throws
+   "Identifier 'CONFIG' has already been declared" and silently breaks
+   every script on the page (login, menu, animations, everything). */
 
 (function () {
   'use strict';
