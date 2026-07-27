@@ -14,6 +14,8 @@
 @media (max-width: 992px){
   .nav-links{ display: none; }
   .nav-toggle{ display: flex; }
+  .header-actions{ gap: 10px; }
+  .header-actions .hdr-login{ display: none; } /* now reachable from the hamburger menu instead — keeps header from crowding brand + 2 buttons + hamburger into one row */
 
   .hero .container{ grid-template-columns: 1fr; text-align: center; }
   .hero-copy{ order: 2; }

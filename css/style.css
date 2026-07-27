@@ -589,3 +589,16 @@ h3, .h3{
   padding: 14px 18px; border-radius: 10px; font-size: .88rem; font-weight: 600; margin-bottom: 18px;
 }
 .form-success.show{ display:flex; }
+.form-success.is-warning{ background: rgba(122,17,40,0.10); color: var(--maroon-deep); }
+
+/* ---------- LOGIN PAGE ---------- */
+.login-wrap{ max-width: 460px; margin: 0 auto; }
+.login-card{ background: var(--white); border:1px solid var(--line); border-radius: var(--radius-md); padding: 38px; box-shadow: var(--shadow-md); }
+.login-card .form-group{ margin-bottom: 18px; }
+.login-row{ display:flex; align-items:center; justify-content:space-between; margin-bottom: 22px; font-size:.84rem; }
+.login-row label{ display:flex; align-items:center; gap:8px; color: var(--text-soft); cursor:pointer; }
+.login-row a{ color: var(--maroon); font-weight:600; }
+.login-divider{ display:flex; align-items:center; gap:14px; margin: 24px 0; color: var(--text-soft); font-size:.8rem; }
+.login-divider::before, .login-divider::after{ content:""; flex:1; height:1px; background: var(--line); }
+.login-foot{ text-align:center; margin-top:26px; font-size:.9rem; color: var(--text-soft); }
+.login-foot a{ color: var(--maroon); font-weight:700; }
