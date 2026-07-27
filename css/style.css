@@ -206,6 +206,7 @@ h3, .h3{
 .brand{ display: flex; align-items: center; gap: 10px; font-family: var(--font-tamil); font-weight: 700; font-size: 1.3rem; color: var(--maroon-deep); }
 .brand .brand-mark{ width: 38px; height: 38px; flex-shrink: 0; }
 .nav-links{ display: flex; align-items: center; gap: 34px; }
+.nav-links .mobile-login-item{ display: none; } /* shown only in the mobile dropdown — see responsive.css */
 .nav-links a{
   font-size: 0.94rem; font-weight: 500; color: var(--text-soft); position: relative; padding: 4px 0;
 }

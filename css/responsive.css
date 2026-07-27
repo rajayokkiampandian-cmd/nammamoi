@@ -52,6 +52,7 @@
   }
   .nav-links.mobile-open a{ padding: 12px 16px; border-radius: 10px; width: 100%; }
   .nav-links.mobile-open a:hover{ background: var(--maroon-glass); }
+  .nav-links.mobile-open .mobile-login-item{ display: block; border-top: 1px solid var(--line); margin-top: 6px; padding-top: 18px; font-weight: 700; color: var(--maroon); }
 
   .feature-grid, .events-grid, .features-grid{ grid-template-columns: 1fr 1fr; }
   .help-cats{ grid-template-columns: 1fr 1fr; }
