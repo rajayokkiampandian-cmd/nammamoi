@@ -55,42 +55,22 @@
   <div class="container">
     <div class="simple-page login-wrap" style="padding-top:10px">
 
-      <div class="login-card" data-reveal="scale">
+      <div class="login-card" data-reveal="scale" style="text-align:center">
 
         <div class="form-success" id="loginNote"></div>
 
-        <form id="loginForm" novalidate>
-          <div class="form-group">
-            <label for="l_email">மின்னஞ்சல் *</label>
-            <input type="email" id="l_email" name="email" required placeholder="you@example.com" autocomplete="email">
-          </div>
-          <div class="form-group">
-            <label for="l_password">கடவுச்சொல் *</label>
-            <input type="password" id="l_password" name="password" required placeholder="••••••••" autocomplete="current-password">
-          </div>
+        <p style="margin-bottom:26px;color:var(--text-soft)">
+          "உள்நுழைய" பொத்தானை அழுத்தினால், உங்கள் பாதுகாப்பான NammaMoi கணக்கு பக்கத்திற்கு நேரடியாக அழைத்துச் செல்லப்படுவீர்கள்.
+        </p>
 
-          <div class="login-row">
-            <label><input type="checkbox" name="remember"> என்னை நினைவில் வைத்துக்கொள்</label>
-            <a href="contact.html">கடவுச்சொல் மறந்துவிட்டதா?</a>
-          </div>
-
-          <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center">🔐 உள்நுழைய</button>
-
-          <p class="form-note" style="text-align:center">
-            உங்கள் கணக்கு தகவல்கள் பாதுகாப்பாக சரிபார்க்கப்பட்டு, NammaMoi பயன்பாட்டிற்குள் நேரடியாக அழைத்துச் செல்லப்படுவீர்கள்.
-          </p>
-        </form>
-
-        <div class="login-divider">அல்லது</div>
-
-        <button type="button" id="openAppDirect" class="btn btn-ghost" style="width:100%;justify-content:center">
-          🌿 பயன்பாட்டை நேரடியாக திறக்க
+        <button type="button" id="openAppDirect" class="btn btn-primary" style="width:100%;justify-content:center">
+          🔐 உள்நுழைய
         </button>
 
         <!-- Developer-only setup note: app.js hides this automatically once
              CONFIG.APP_URL is filled in, so visitors never see it. -->
         <p class="form-note" id="setupNote" style="margin-top:20px">
-          ⚙️ Developer setup: இணைப்பு இன்னும் கட்டமைக்கப்படவில்லை. <code>js/app.js</code> கோப்பில் உள்ள <code>CONFIG.APP_URL</code>-ல் உங்கள் deploy செய்யப்பட்ட Web App Link-ஐ (…/exec) சேர்க்கவும். இந்த குறிப்பு link add பண்ணியதும் தானாக மறைந்துவிடும்.
+          ⚙️ Developer setup: இணைப்பு இன்னும் கட்டமைக்கப்படவில்லை. <code>js/config.js</code> கோப்பில் உள்ள <code>CONFIG.APP_URL</code>-ல் உங்கள் deploy செய்யப்பட்ட Web App Link-ஐ (…/exec) சேர்க்கவும். இந்த குறிப்பு link add பண்ணியதும் தானாக மறைந்துவிடும்.
         </p>
       </div>
 
