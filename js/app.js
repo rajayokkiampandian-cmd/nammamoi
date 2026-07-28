@@ -52,18 +52,43 @@
     });
   }
 
+  /* ---------- Header/nav "உள்நுழைய" links — skip the interstitial ---------- */
+  // Once CONFIG.APP_URL is set, every login link across the site (header
+  // button + mobile menu item) points straight at the app — no more
+  // stopping at login.html just to click one more button. If APP_URL isn't
+  // configured yet, these links keep their default href="login.html",
+  // which explains how to set it up.
+  if (CONFIG.APP_URL) {
+    document.querySelectorAll('.js-app-link').forEach(function (el) {
+      el.setAttribute('href', CONFIG.APP_URL);
+    });
+  }
+
   /* ---------- LOGIN PAGE — single button, hands off to the real app ---------- */
   var setupNote = document.getElementById('setupNote');
   if (setupNote) {
     setupNote.style.display = CONFIG.APP_URL ? 'none' : '';
   }
 
+  // If someone lands on login.html directly (bookmark, old link, etc.) and
+  // the app link is already configured, forward them immediately instead
+  // of making them click a second button.
+  var loginCard = document.querySelector('.login-card');
+  if (loginCard && CONFIG.APP_URL) {
+    var noteBox = document.getElementById('loginNote');
+    if (noteBox) {
+      noteBox.textContent = '↪️ பயன்பாட்டிற்கு அழைத்துச் செல்கிறோம்...';
+      noteBox.classList.add('show');
+    }
+    setTimeout(function () { window.location.href = CONFIG.APP_URL; }, 350);
+  }
+
   // The real username/password check happens inside your Apps Script app
   // (it already has its own login screen) — this is the ONLY login step on
   // the marketing site, so people are never asked twice. Once you paste
   // your link into CONFIG.APP_URL (js/config.js), this button takes people
-  // straight to it.
-  var openAppBtn = document.getElementById('openAppDirect');
+  // straight to it (and, per above, most people won't even see this page).
+  var openAppBtn = document.querySelector('.login-card');
   if (openAppBtn) {
     openAppBtn.addEventListener('click', function () {
       var noteBox = document.getElementById('loginNote');
