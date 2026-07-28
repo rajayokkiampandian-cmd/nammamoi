@@ -8,6 +8,17 @@
   .feature-grid{ grid-template-columns: repeat(2, 1fr); }
   .events-grid{ grid-template-columns: repeat(2, 1fr); }
   .features-grid{ grid-template-columns: repeat(2, 1fr); }
+
+  /* FIX: on laptop-width windows (roughly 992–1200px), 7 nav links + the
+     login button + the primary CTA button no longer fit in one row and
+     were overflowing off the right edge (text clipped, e.g. "இலவசமாக
+     தொடங்க" cut to "இலவசமா"). Tighten spacing/size here so everything
+     still fits right up until the 992px breakpoint switches to the
+     hamburger menu. */
+  .nav-links{ gap: 18px; }
+  .nav-links a{ font-size: 0.92rem; }
+  .header-actions{ gap: 8px; }
+  .header-actions .btn{ padding: 9px 16px; font-size: 0.85rem; }
 }
 
 /* ---------- TABLET LANDSCAPE (<=992px) ---------- */
