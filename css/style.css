@@ -195,7 +195,7 @@ h3, .h3{
   padding: 18px 0;
   transition: padding var(--dur-sm) var(--ease-out), background var(--dur-sm), box-shadow var(--dur-sm);
 }
-.site-header .container{ display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.site-header .container{ display: flex; align-items: center; justify-content: space-between; gap: 24px; max-width: 1400px; }
 .site-header.scrolled{
   padding: 10px 0;
   background: rgba(251,243,227,0.86);
@@ -205,7 +205,7 @@ h3, .h3{
 }
 .brand{ display: flex; align-items: center; gap: 10px; font-family: var(--font-tamil); font-weight: 700; font-size: 1.3rem; color: var(--maroon-deep); }
 .brand .brand-mark{ width: 38px; height: 38px; flex-shrink: 0; }
-.nav-links{ display: flex; align-items: center; gap: 34px; }
+.nav-links{ display: flex; align-items: center; gap: 26px; }
 .nav-links .mobile-login-item{ display: none; } /* shown only in the mobile dropdown — see responsive.css */
 .nav-links a{
   font-size: 0.94rem; font-weight: 500; color: var(--text-soft); position: relative; padding: 4px 0;
