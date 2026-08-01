@@ -7,10 +7,10 @@
    ========================================================================== */
 
 const CONFIG = {
-  API_URL:    "https://script.google.com/macros/s/AKfycbyz1XqDJZ_YPyNBxa5hqR0kiNi8jH-QBF4bjgDSENhQ46Oiavcf6RZ4U3zRpHOqKh3M/exec",
+  API_URL:    "https://script.google.com/macros/s/AKfycbwFBG_27pA63PX34iR5zBEAfyT6Kxk8BaTEuHvN7bf_Av90kXtDBji7B9zczdTg4StN/exec",
   LOGIN_URL:  "",   // e.g. CONFIG.API_URL + "?action=login"
   SAVE_URL:   "",   // record create/update endpoint
   SEARCH_URL: "",   // record search / autocomplete endpoint
   REPORT_URL: "",   // PDF/Excel report generation endpoint
-  APP_URL:    "https://script.google.com/macros/s/AKfycbyz1XqDJZ_YPyNBxa5hqR0kiNi8jH-QBF4bjgDSENhQ46Oiavcf6RZ4U3zRpHOqKh3M/exec"
+  APP_URL:    "https://script.google.com/macros/s/AKfycbwFBG_27pA63PX34iR5zBEAfyT6Kxk8BaTEuHvN7bf_Av90kXtDBji7B9zczdTg4StN/exec"
 };
