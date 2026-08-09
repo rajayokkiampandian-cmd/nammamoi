@@ -11,17 +11,17 @@
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:system-ui,-apple-system,"Noto Sans Tamil","Segoe UI",sans-serif;color:var(--ink);background:#fffdf8;line-height:1.55}
 a{color:inherit;text-decoration:none}.wrap{width:min(1120px,92vw);margin:auto}
 .top{position:sticky;top:0;z-index:20;background:rgba(255,253,248,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
-.nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:18px}.brand{display:flex;align-items:center;gap:11px}
-.logo{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle at 35% 25%,#8c2847,#64172e 58%,#3b0b1c);border:2px solid #d9ad4a;color:#ffe5a1;font-weight:900;font-size:20px;box-shadow:0 4px 16px #64172e22}
-.brand b{display:block;color:var(--maroon);font-size:19px}.brand small{display:block;color:var(--muted);font-size:11px}
+.nav{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{display:flex;align-items:center;gap:12px;min-width:250px}
+.logo{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle at 35% 25%,#8c2847,#64172e 58%,#3b0b1c);border:2px solid #d9ad4a;color:#ffe5a1;font-weight:900;font-size:20px;box-shadow:0 4px 16px #64172e22}
+.brand b{display:block;color:var(--maroon);font-size:18px;line-height:1.15;white-space:nowrap}.brand small{display:block;color:var(--muted);font-size:10px;line-height:1.3;max-width:220px}
 .navlinks{display:flex;gap:22px;color:#604b50;font-size:14px}.nav-actions{display:flex;gap:8px}
 .btn{border:1px solid #ddcdb8;background:#fff;border-radius:13px;padding:12px 17px;font-weight:750;cursor:pointer;font-size:14px;display:inline-flex;align-items:center;justify-content:center;gap:8px}
 .btn.primary{background:var(--maroon);color:#fff;border-color:var(--maroon);box-shadow:0 8px 24px #64172e24}.btn.gold{background:#f5e4b8;border-color:#d7b764;color:#552315}
 .hero{padding:72px 0 54px;background:radial-gradient(circle at 85% 15%,#f7e6bb 0,transparent 30%),linear-gradient(180deg,#fffaf0,#fffdf8)}
-.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:54px;align-items:center}.eyebrow{display:inline-flex;background:#f8ecd3;border:1px solid #ead5a2;border-radius:999px;padding:7px 12px;font-size:13px;color:#704d22}
-h1{font-size:clamp(38px,5.5vw,68px);line-height:1.08;margin:18px 0 16px;letter-spacing:-1.7px;color:var(--maroon2)}h1 span{color:var(--maroon)}.lead{font-size:18px;color:#645358;max-width:690px}
-.ctas{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}.micro{margin-top:13px;color:#806e72;font-size:12px}
-.phone{max-width:375px;margin:auto;background:#26151b;border-radius:34px;padding:10px;box-shadow:0 28px 70px #4213212d}.screen{background:#fffaf2;border-radius:26px;overflow:hidden;min-height:580px}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(340px,.92fr);gap:42px;align-items:center}.eyebrow{display:inline-flex;background:#f8ecd3;border:1px solid #ead5a2;border-radius:999px;padding:7px 12px;font-size:13px;color:#704d22}
+h1{font-size:clamp(38px,4.25vw,58px);line-height:1.12;margin:18px 0 16px;letter-spacing:-1.1px;color:var(--maroon2);max-width:700px;text-wrap:balance}h1 span{color:var(--maroon)}.lead{font-size:17px;color:#645358;max-width:650px;line-height:1.7}
+.ctas{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}.micro{margin-top:13px;color:#806e72;font-size:12px}
+.phone{max-width:360px;margin:auto;background:#26151b;border-radius:34px;padding:10px;box-shadow:0 28px 70px #4213212d}.screen{background:#fffaf2;border-radius:26px;overflow:hidden;min-height:580px}
 .ph{background:var(--maroon);color:#fff;padding:18px 18px 15px}.ph strong{font-size:19px}.welcome{padding:16px 16px 8px;font-weight:800;color:var(--maroon)}
 .tiles{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:8px 14px}.tile{background:white;border:1px solid #eadfce;border-radius:17px;padding:14px;box-shadow:0 5px 18px #5b1a2a0c}.tile small{color:#826d71}.tile b{display:block;margin-top:4px;font-size:18px}
 .today{margin:10px 14px;background:#fff;border:1px solid #eadfce;border-radius:18px;padding:14px}.cal{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;margin-top:10px}.d{aspect-ratio:1;border-radius:10px;background:#faf5ed;display:grid;place-items:center;font-size:10px;position:relative}.d.sel{background:var(--maroon);color:white}.d.mu:after{content:"🪔";position:absolute;font-size:7px;right:2px;bottom:1px}
@@ -41,6 +41,14 @@ html[data-lang="ta"] [data-lang-block="ta"],html[data-lang="en"] [data-lang-bloc
 html[data-lang="ta"] .block[data-lang-block="ta"],html[data-lang="en"] .block[data-lang-block="en"]{display:block}
 html[data-lang="ta"] .flex[data-lang-block="ta"],html[data-lang="en"] .flex[data-lang-block="en"]{display:flex}
 @media(max-width:540px){.lang-switch button{padding:7px 10px}}
+
+@media(min-width:1000px){
+  .hero{padding-top:58px}
+  .hero-grid>div:first-child{padding-right:10px}
+  .navlinks{gap:18px}
+  .nav-actions{align-items:center}
+}
+
 </style>
 </head>
 <body>
@@ -124,7 +132,7 @@ document.addEventListener("DOMContentLoaded", () => {
     <div class="eyebrow" data-lang-block="ta">🌾 தமிழ்க் குடும்பங்களுக்காக உருவாக்கப்பட்டது</div>
     <div class="eyebrow" data-lang-block="en">🌾 Built for Tamil families</div>
 
-    <h1 data-lang-block="ta">மொய் முதல் தினசரி பணப் பதிவுகள் வரை.<br><span>ஒரே குடும்ப செயலி.</span></h1>
+    <h1 data-lang-block="ta">மொய் முதல் தினசரி பணப் பதிவுகள் வரை.<br><span>உங்கள் குடும்பத்திற்கான ஒரே செயலி.</span></h1>
     <h1 data-lang-block="en">From MOI to daily money records.<br><span>One family app.</span></h1>
 
     <p class="lead" data-lang-block="ta">
