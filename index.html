@@ -53,9 +53,9 @@ html[data-lang="ta"] .flex[data-lang-block="ta"],html[data-lang="en"] .flex[data
 </head>
 <body>
 <script>
-const GAS_APP_URL = "https://script.google.com/macros/s/AKfycbxX7zRaTEZV57zBmDjuQEYfUCJ6TN60LxP5b-mNTjOgguCeodMs4FgND477DsiuKoXk/exec";
-const REGISTER_URL = GAS_APP_URL + "?entry=register";
-const LOGIN_URL = GAS_APP_URL + "?entry=login";
+const REGISTER_URL = "/register";
+const LOGIN_URL = "/login";
+const BROWSER_APP_URL = "/app";
 const MEDIAN_APP_URL = "https://median.co/share/dywnbmd";
 
 function setLang(lang){
@@ -73,17 +73,9 @@ function setLang(lang){
 
 function goRegister(){ location.href = REGISTER_URL; }
 function goLogin(){ location.href = LOGIN_URL; }
-function continueBrowser(){ location.href = GAS_APP_URL; }
-function openMedian(){
-  if(MEDIAN_APP_URL) location.href = MEDIAN_APP_URL;
-  else {
-    const lang = document.documentElement.getAttribute("data-lang") || "ta";
-    alert(lang === "ta"
-      ? "Median App link இன்னும் configure செய்யப்படவில்லை. Browser Login திறக்கப்படுகிறது."
-      : "The Median App link is not configured yet. Opening browser login.");
-    location.href = LOGIN_URL;
-  }
-}
+function continueBrowser(){ location.href = BROWSER_APP_URL; }
+function openMedian(){ location.href = MEDIAN_APP_URL; }
+
 document.addEventListener("DOMContentLoaded", () => {
   setLang(localStorage.getItem("nammamoi_landing_lang") || "ta");
 });
