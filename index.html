@@ -45,10 +45,10 @@ html[data-lang="ta"] .flex[data-lang-block="ta"],html[data-lang="en"] .flex[data
 </head>
 <body>
 <script>
-const GAS_APP_URL = "https://script.google.com/macros/s/AKfycbwJj75JbF-KWAzZ3dEwNqDlXF0zoSy2wXs7N8uvmTXPqMhlPs_LCS_Vlb-pN3GL5ONo/exec";
+const GAS_APP_URL = "https://script.google.com/macros/s/AKfycbxX7zRaTEZV57zBmDjuQEYfUCJ6TN60LxP5b-mNTjOgguCeodMs4FgND477DsiuKoXk/exec";
 const REGISTER_URL = GAS_APP_URL + "?entry=register";
 const LOGIN_URL = GAS_APP_URL + "?entry=login";
-const MEDIAN_APP_URL = "";
+const MEDIAN_APP_URL = "https://median.co/share/dywnbmd";
 
 function setLang(lang){
   const finalLang = lang === "en" ? "en" : "ta";
@@ -65,6 +65,7 @@ function setLang(lang){
 
 function goRegister(){ location.href = REGISTER_URL; }
 function goLogin(){ location.href = LOGIN_URL; }
+function continueBrowser(){ location.href = GAS_APP_URL; }
 function openMedian(){
   if(MEDIAN_APP_URL) location.href = MEDIAN_APP_URL;
   else {
@@ -143,6 +144,10 @@ document.addEventListener("DOMContentLoaded", () => {
       <button class="btn" onclick="goLogin()">
         <span data-lang-block="ta">🔐 ஏற்கனவே கணக்கு உள்ளதா? உள்நுழையுங்கள்</span>
         <span data-lang-block="en">🔐 Already have an account? Login</span>
+      </button>
+      <button class="btn" onclick="continueBrowser()">
+        <span data-lang-block="ta">🌐 Browser-ல் தொடரவும்</span>
+        <span data-lang-block="en">🌐 Continue in Browser</span>
       </button>
       <button class="btn gold" onclick="openMedian()">
         <span data-lang-block="ta">📱 Android செயலியில் திறக்கவும்</span>
@@ -268,6 +273,7 @@ document.addEventListener("DOMContentLoaded", () => {
     <div class="ctas" style="margin:0">
       <button class="btn gold" onclick="goRegister()"><span data-lang-block="ta">பதிவு செய்</span><span data-lang-block="en">Register</span></button>
       <button class="btn" onclick="goLogin()"><span data-lang-block="ta">உள்நுழை</span><span data-lang-block="en">Login</span></button>
+      <button class="btn" onclick="continueBrowser()"><span data-lang-block="ta">Browser-ல் தொடரவும்</span><span data-lang-block="en">Continue in Browser</span></button>
     </div>
   </div>
 </div>
