@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#5f142b">
-<title>Namma MOI — Family Relationship & MOI Management Platform</title>
-<meta name="description" content="குடும்ப மொய் பதிவுகள், Daily Cash, கைமாற்று, தமிழ் Calendar, Documents, Reports — ஒரே இடத்தில்.">
+<title>நம்ம மொய் — குடும்ப உறவு & மொய் மேலாண்மை</title>
+<meta name="description" content="உறவுகளை நினைவில் வைத்திருக்க உதவும் குடும்ப மொய் பதிவு — மொய், தினசரி பணப் பதிவு, கைமாற்று, தமிழ் நாட்காட்டி, குடும்ப access, ஆவணங்கள் மற்றும் அறிக்கைகள் ஒரே இடத்தில்.">
 <style>
 :root{--maroon:#64172e;--maroon2:#461020;--gold:#c99b35;--cream:#fffaf0;--ink:#24171a;--muted:#735f63;--line:#eadbc5;--ok:#2f7b58}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:system-ui,-apple-system,"Noto Sans Tamil","Segoe UI",sans-serif;color:var(--ink);background:#fffdf8;line-height:1.55}
@@ -492,6 +492,15 @@ footer{
   .hero{padding-top:28px}
 }
 
+
+/* V11 FINAL — FAMILY TRUST / SHARED ACCESS */
+@media(min-width:980px){
+  .trust-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+}
+@media(min-width:761px) and (max-width:979px){
+  .trust-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+
 </style>
 </head>
 <body>
@@ -567,7 +576,7 @@ document.addEventListener("DOMContentLoaded", () => {
     <div class="eyebrow" data-lang-block="ta">🌾 தமிழ்க் குடும்பங்களுக்காக உருவாக்கப்பட்டது</div>
     <div class="eyebrow" data-lang-block="en">🌾 Built for Tamil families</div>
 
-    <h1 data-lang-block="ta">உறவுகள் தொடரட்டும்.<br><span>நினைவுகள் நிலைக்கட்டும்.</span></h1>
+    <h1 data-lang-block="ta">உறவுகள் தொடரட்டும்.<br><span>நினைவுகள் தலைமுறைகளுக்கும் நிலைக்கட்டும்.</span></h1>
     <h1 data-lang-block="en">Keep relationships close.<br><span>Keep family memories alive.</span></h1>
 
     <p class="lead" data-lang-block="ta">
@@ -657,6 +666,12 @@ document.addEventListener("DOMContentLoaded", () => {
       <p data-lang-block="en">Remember who gave to your family and whom your family gave to, with names, villages and occasions easy to find again.</p>
     </article>
     <article class="card">
+      <div class="ico">👨‍👩‍👧‍👦</div>
+      <h3 data-lang-block="ta">குடும்பம் ஒன்றாகப் பயன்படுத்தலாம்</h3><h3 data-lang-block="en">Use it together as a family</h3>
+      <p data-lang-block="ta">வீட்டில் ஒருவர் பதிவு செய்த தகவலை, நீங்கள் அனுமதி கொடுத்த குடும்ப உறுப்பினர்கள் பார்க்கலாம். தேவையானவர்களுக்கு மட்டும் access கொடுத்து பதிவுகளை ஒன்றாகப் பராமரிக்கலாம்.</p>
+      <p data-lang-block="en">Records added by one family member can be viewed by family members you authorize, so the family can maintain them together with controlled access.</p>
+    </article>
+    <article class="card">
       <div class="ico">💰</div>
       <h3 data-lang-block="ta">தினசரி பணப் பதிவு</h3><h3 data-lang-block="en">Daily Cash</h3>
       <p data-lang-block="ta">குடும்பத்தின் அன்றாட செலவு, வரவு, கைமாற்று போன்ற முக்கிய பணப் பதிவுகளை ஒழுங்காக வைத்திருக்க.</p>
@@ -673,6 +688,12 @@ document.addEventListener("DOMContentLoaded", () => {
       <h3 data-lang-block="ta">ஆவணங்கள்</h3><h3 data-lang-block="en">Documents</h3>
       <p data-lang-block="ta">குடும்பத்திற்கு தேவையான முக்கிய ஆவணங்களை தனி பகுதியில் ஒழுங்காக வைத்திருந்து தேவைப்படும் நேரத்தில் எளிதாக அணுக.</p>
       <p data-lang-block="en">Keep important family documents organized in one dedicated place for when they are needed.</p>
+    </article>
+    <article class="card">
+      <div class="ico">🔎</div>
+      <h3 data-lang-block="ta">பழைய பதிவை எளிதாக கண்டுபிடிக்க</h3><h3 data-lang-block="en">Find old records easily</h3>
+      <p data-lang-block="ta">பெயர், ஊர் மற்றும் தொடர்புடைய தகவல்களின் மூலம் பழைய மொய் பதிவுகளை தேடி, தேவையான உறவின் வரலாற்றை மீண்டும் பார்க்கலாம்.</p>
+      <p data-lang-block="en">Search past MOI records by name, village and related details to revisit the relationship history you need.</p>
     </article>
     <article class="card">
       <div class="ico">📊</div>
@@ -693,24 +714,35 @@ document.addEventListener("DOMContentLoaded", () => {
 <section class="trust" id="privacy">
 <div class="wrap">
   <div class="section-head">
-    <h2 data-lang-block="ta">உங்கள் குடும்பப் பதிவு. உங்கள் கட்டுப்பாட்டில்.</h2>
-    <h2 data-lang-block="en">Your family records. In your control.</h2>
+    <h2 data-lang-block="ta">உங்கள் குடும்பப் பதிவு. உங்கள் குடும்பத்தோடு. உங்கள் கட்டுப்பாட்டில்.</h2>
+    <h2 data-lang-block="en">Your family records. With your family. In your control.</h2>
+    <p data-lang-block="ta">நம்ம மொய் ஒரு நாள் பயன்படுத்திவிட்டு மறந்துவிடும் பதிவு அல்ல — குடும்ப நிகழ்வுகள் மாறினாலும், உறவுகளை தொடர்ந்து நினைவில் வைத்திருக்க உதவும் நீண்டகால குடும்பப் பதிவு.</p>
+    <p data-lang-block="en">Namma MOI is designed as a long-term family record that helps your family remember relationships across occasions and over time.</p>
   </div>
   <div class="trust-grid">
     <div class="trustitem">
-      <b data-lang-block="ta">🤝 உறவுகளை மறக்காமல் இருக்க</b><b data-lang-block="en">🤝 Remember the relationships that matter</b>
-      <span data-lang-block="ta">பெயர், ஊர், நிகழ்வு, கொடுத்தது, பெற்றது போன்ற பதிவுகள் அடுத்த நல்ல நிகழ்வில் முக்கியமான ஒருவரை மறக்காமல் இருக்க உதவும்.</span>
-      <span data-lang-block="en">Names, villages, occasions, given and received records help your family remember the right people when it matters.</span>
+      <b data-lang-block="ta">👨‍👩‍👧‍👦 ஒருவர் பதிவு செய்யலாம். குடும்பம் பயன்படுத்தலாம்.</b>
+      <b data-lang-block="en">👨‍👩‍👧‍👦 One can record. The family can use it.</b>
+      <span data-lang-block="ta">ஒருவர் update செய்த பதிவை, அனுமதி உள்ள குடும்ப உறுப்பினர்கள் பார்க்கலாம். குடும்பத்தின் முக்கிய பதிவு ஒருவரின் நினைவில் மட்டும் சார்ந்திருக்க வேண்டியதில்லை.</span>
+      <span data-lang-block="en">Authorized family members can view records updated by one member, so important family history does not depend on one person's memory alone.</span>
     </div>
     <div class="trustitem">
-      <b data-lang-block="ta">🪔 இன்று பதிவு — நாளைக்கும் பயன்பாடு</b><b data-lang-block="en">🪔 Record today, remember tomorrow</b>
-      <span data-lang-block="ta">ஒரு நிகழ்வில் பதிவு செய்த உறவு, அடுத்த நிகழ்விலும் பல வருடங்கள் கழித்தும் குடும்பத்திற்கு உதவும் வகையில் தொடர்ச்சியாக வைத்திருக்கலாம்.</span>
-      <span data-lang-block="en">A relationship recorded at one occasion can continue to help your family at the next one, even years later.</span>
+      <b data-lang-block="ta">🔐 தேவையானவர்களுக்கு மட்டும் அனுமதி</b>
+      <b data-lang-block="en">🔐 Access only for the people you choose</b>
+      <span data-lang-block="ta">யார் பார்க்கலாம், யார் நிர்வகிக்கலாம் என்பதை குடும்ப account owner கட்டுப்படுத்தலாம். குடும்பப் பதிவின் அணுகல் உங்கள் முடிவில் இருக்கும்.</span>
+      <span data-lang-block="en">The family account owner controls who can view or manage records, keeping access under your family's control.</span>
     </div>
     <div class="trustitem">
-      <b data-lang-block="ta">🌾 ஊர் மாறலாம். உறவு தொடரட்டும்.</b><b data-lang-block="en">🌾 Places may change. Relationships continue.</b>
-      <span data-lang-block="ta">உறவினர்கள், சம்பந்திகள், நண்பர்கள் — எங்கு இருந்தாலும் குடும்பத்தின் உறவுப் பதிவை ஒழுங்காக நினைவில் வைத்திருக்க.</span>
-      <span data-lang-block="en">Relatives, extended family and friends may live anywhere; your family can still keep those relationship records organized.</span>
+      <b data-lang-block="ta">🪔 இன்று பதிவு — நாளைக்கும் பயன்பாடு</b>
+      <b data-lang-block="en">🪔 Record today, remember tomorrow</b>
+      <span data-lang-block="ta">ஒரு திருமணம், ஒரு விழா, ஒரு மொய் பதிவு — பல வருடங்கள் கழித்தும் “யார் நமக்கு செய்தார்கள், நாம் யாருக்கு செய்தோம்?” என்பதை நினைவுபடுத்த உதவும்.</span>
+      <span data-lang-block="en">A wedding, an occasion, a MOI record — even years later it can help your family remember who stood with you and whom you stood with.</span>
+    </div>
+    <div class="trustitem">
+      <b data-lang-block="ta">🗂️ உங்கள் பதிவுகள் — உங்கள் கட்டுப்பாட்டில்</b>
+      <b data-lang-block="en">🗂️ Your records — under your control</b>
+      <span data-lang-block="ta">குடும்பப் பதிவுகளை உங்கள் சொந்த Google account storage சூழலில் வைத்துக்கொள்ளும் வகையில் அமைக்கப்பட்டுள்ளது. தொழில்நுட்பத்தை விட, உங்கள் பதிவின் உரிமையும் அணுகல் கட்டுப்பாடும் முக்கியம்.</span>
+      <span data-lang-block="en">Your family records are designed around your own Google account storage environment, with ownership and access control kept central.</span>
     </div>
   </div>
 </div>
@@ -722,7 +754,7 @@ document.addEventListener("DOMContentLoaded", () => {
     <div>
       <h2 data-lang-block="ta">ஒரு குடும்பத்தின் கணக்கு மட்டுமல்ல. அதன் உறவுப் பயணம்.</h2>
       <h2 data-lang-block="en">More than family accounts. A record of relationships.</h2>
-      <p data-lang-block="ta">இன்று எழுதிவைக்கும் ஒரு பெயர், ஒரு ஊர், ஒரு மொய் பதிவு — நாளை ஒரு உறவை நினைவுபடுத்தலாம். நம்ம மொய் உங்கள் குடும்பத்தோடு தொடர்ந்து பயணிக்கட்டும்.</p>
+      <p data-lang-block="ta">இன்று எழுதிவைக்கும் ஒரு பெயர், ஒரு ஊர், ஒரு மொய் பதிவு — நாளை ஒரு உறவை நினைவுபடுத்தலாம். குடும்ப நிகழ்வுகள் மாறினாலும், நம்ம மொய் உங்கள் குடும்பத்தோடு தொடர்ந்து பயணிக்கட்டும்.</p>
       <p data-lang-block="en">A name, a village and a MOI record saved today can help your family remember a relationship tomorrow.</p>
     </div>
     <div class="ctas" style="margin:0">
