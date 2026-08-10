@@ -36,10 +36,13 @@ footer{background:#2e0b17;color:#eadde1;padding:34px 0}.foot{display:flex;justif
 .lang-switch{display:flex;gap:6px;padding:4px;background:#f5ead7;border:1px solid #e2cfaa;border-radius:999px}
 .lang-switch button{border:0;background:transparent;padding:8px 12px;border-radius:999px;font-weight:800;cursor:pointer;color:#6a5358}
 .lang-switch button.active{background:var(--maroon);color:white}
-[data-lang-block]{display:none}
-html[data-lang="ta"] [data-lang-block="ta"],html[data-lang="en"] [data-lang-block="en"]{display:initial}
-html[data-lang="ta"] .block[data-lang-block="ta"],html[data-lang="en"] .block[data-lang-block="en"]{display:block}
-html[data-lang="ta"] .flex[data-lang-block="ta"],html[data-lang="en"] .flex[data-lang-block="en"]{display:flex}
+[data-lang-block]{display:none !important}
+html[data-lang="ta"] [data-lang-block="ta"],
+html[data-lang="en"] [data-lang-block="en"]{display:initial !important}
+html[data-lang="ta"] .block[data-lang-block="ta"],
+html[data-lang="en"] .block[data-lang-block="en"]{display:block !important}
+html[data-lang="ta"] .flex[data-lang-block="ta"],
+html[data-lang="en"] .flex[data-lang-block="en"]{display:flex !important}
 @media(max-width:540px){.lang-switch button{padding:7px 10px}}
 
 @media(min-width:1000px){
@@ -174,6 +177,321 @@ img,svg,video,canvas{max-width:100%;height:auto}
   .tiles{grid-template-columns:1fr}
 }
 
+
+/* V8 — RELATIONSHIP-FIRST LANDING / MOBILE COMPACT */
+.culture{padding:46px 0;background:#fff7e8;border-top:1px solid #f0dfbf;border-bottom:1px solid #f0dfbf}
+.culture-inner{display:grid;grid-template-columns:auto minmax(0,1fr);gap:22px;align-items:start;max-width:900px}
+.culture-mark{width:58px;height:58px;border-radius:18px;background:#f5e4b8;display:grid;place-items:center;font-size:27px;border:1px solid #dfc47c}
+.culture h2{font-size:clamp(27px,3.4vw,39px);line-height:1.2;margin-bottom:12px}
+.culture p{margin:0;color:var(--muted);font-size:16px;line-height:1.8}
+.culture-note{margin-top:16px;padding:12px 15px;border-left:3px solid var(--gold);background:#fffdf8;border-radius:0 12px 12px 0;color:var(--maroon2);font-weight:750}
+@media(max-width:760px){
+  .hero{padding:28px 0 30px}
+  h1{font-size:clamp(30px,8.5vw,38px);line-height:1.14;margin:14px 0 12px;overflow-wrap:normal}
+  .lead{font-size:14px;line-height:1.72}
+  section{padding:36px 0}
+  .culture{padding:34px 0}
+  .culture-inner{grid-template-columns:1fr;gap:12px}
+  .culture-mark{width:46px;height:46px;border-radius:14px;font-size:22px}
+  .culture h2,.section-head h2,.band h2{font-size:clamp(24px,7vw,30px);line-height:1.24}
+  .culture p{font-size:14px;line-height:1.7}
+  .culture-note{font-size:13px;line-height:1.55}
+  .section-head{margin-bottom:18px}
+  .card{padding:15px 16px}
+  .ico{width:40px;height:40px;border-radius:12px;font-size:19px;margin-bottom:9px}
+  .card h3{font-size:16px;margin-bottom:5px}
+  .card p,.trustitem span{font-size:13px;line-height:1.6}
+  .trustitem{padding:15px 16px}
+  .band{padding:19px 16px}
+}
+@media(max-width:390px){
+  .nav{display:flex;flex-wrap:wrap}
+  .brand{flex:1 1 150px}
+  .nav-actions{flex:1 1 100%;justify-content:space-between}
+  h1{font-size:30px}
+}
+
+
+/* V9 — LANGUAGE + RELATIONSHIP SECTION FLOW FIX */
+.culture-inner>div:last-child{min-width:0}
+.culture h2{display:block;margin-top:0}
+.culture p{display:block}
+.culture-note{display:block}
+.trustitem{min-width:0}
+.trustitem b{line-height:1.45}
+.trustitem span{display:block;line-height:1.65}
+.band>div{min-width:0}
+.band h2{line-height:1.2;text-wrap:balance}
+.band p{line-height:1.65}
+
+@media(max-width:760px){
+  .culture-inner{max-width:100%}
+  .culture h2{font-size:clamp(23px,7vw,30px);margin:0 0 10px}
+  .culture p{margin:0}
+  .trustitem b{font-size:15px}
+  .trustitem span{font-size:13px}
+  .band h2{font-size:clamp(23px,7vw,29px)}
+}
+
+
+/* V10 — PROFESSIONAL PREMIUM LANDING DESIGN */
+:root{
+  --maroon:#6f102c;
+  --maroon-deep:#3f0919;
+  --maroon-soft:#8f2846;
+  --gold:#c9a04b;
+  --gold-soft:#f3e6bf;
+  --cream:#fffaf2;
+  --cream-2:#f8f1e5;
+  --ink:#24171a;
+  --muted:#74656a;
+  --line:#e8dccb;
+  --card:#fffdf9;
+  --shadow:0 18px 50px rgba(63,9,25,.10);
+  --shadow-soft:0 8px 24px rgba(63,9,25,.07);
+}
+body{
+  background:
+    radial-gradient(circle at 15% 0%, rgba(201,160,75,.09), transparent 26%),
+    linear-gradient(180deg,#fffdf9 0%,#fffaf2 55%,#fffdf9 100%);
+  color:var(--ink);
+  letter-spacing:.01em;
+}
+.wrap{width:min(1160px,92vw)}
+.top{
+  background:rgba(255,253,249,.92);
+  backdrop-filter:blur(18px) saturate(130%);
+  border-bottom:1px solid rgba(201,160,75,.20);
+  box-shadow:0 4px 20px rgba(63,9,25,.04);
+}
+.nav{min-height:72px}
+.logo{
+  width:46px;height:46px;
+  background:linear-gradient(145deg,#8a2443,#5b1028 60%,#3b0818);
+  border:1.5px solid #dcb762;
+  box-shadow:0 8px 22px rgba(91,16,40,.18), inset 0 1px rgba(255,255,255,.22);
+}
+.brand b{font-size:18px;letter-spacing:.01em}
+.brand small{font-size:10.5px;color:#806e72}
+.lang-switch{
+  background:#f7efdf;
+  border:1px solid #e6d3aa;
+  box-shadow:inset 0 1px rgba(255,255,255,.7);
+}
+.lang-switch button.active{
+  background:linear-gradient(180deg,#7c1736,#641229);
+  box-shadow:0 4px 12px rgba(100,18,41,.18);
+}
+.btn{
+  border-radius:14px;
+  min-height:44px;
+  border:1px solid #e4d7c6;
+  background:rgba(255,255,255,.9);
+  transition:.18s ease;
+  box-shadow:0 4px 14px rgba(63,9,25,.04);
+}
+.btn:hover{transform:translateY(-1px);box-shadow:0 8px 20px rgba(63,9,25,.08)}
+.btn.primary{
+  background:linear-gradient(180deg,#7a1735,#5d1028);
+  border-color:#65112b;
+  box-shadow:0 10px 24px rgba(100,18,41,.20);
+}
+.btn.gold{
+  background:linear-gradient(180deg,#f7e9bd,#ecd79e);
+  border-color:#d4b667;
+  color:#5b2618;
+}
+
+.hero{
+  padding:70px 0 58px;
+  background:
+    radial-gradient(circle at 78% 18%, rgba(217,181,95,.20) 0, rgba(217,181,95,0) 28%),
+    linear-gradient(180deg,#fffaf2 0%,#fffdf9 100%);
+}
+.hero-grid{gap:54px}
+.eyebrow{
+  background:linear-gradient(180deg,#fbf1d9,#f7e8c7);
+  border:1px solid #e8d29b;
+  color:#77501d;
+  padding:7px 13px;
+  font-weight:700;
+}
+h1{
+  font-size:clamp(38px,4.2vw,58px);
+  line-height:1.10;
+  letter-spacing:-.9px;
+  margin:18px 0 16px;
+  max-width:720px;
+}
+.lead{
+  font-size:17px;
+  line-height:1.78;
+  color:#65575b;
+  max-width:680px;
+}
+.micro{color:#8a767b}
+.phone{
+  max-width:360px;
+  background:linear-gradient(160deg,#2b111b,#170b10);
+  padding:9px;
+  border:1px solid rgba(255,255,255,.08);
+  box-shadow:0 32px 80px rgba(63,9,25,.23);
+}
+.screen{background:#fffaf3}
+.ph{background:linear-gradient(180deg,#74142f,#5d1028)}
+.tile,.today{
+  background:linear-gradient(180deg,#fff,#fffdf9);
+  border-color:#eadfce;
+  box-shadow:0 6px 18px rgba(63,9,25,.04);
+}
+
+section{padding:72px 0}
+.section-head{max-width:780px;margin-bottom:34px}
+.section-head h2{
+  font-size:clamp(30px,3.6vw,44px);
+  line-height:1.18;
+  letter-spacing:-.5px;
+}
+.section-head p{font-size:15px;line-height:1.7}
+
+.culture{
+  position:relative;
+  background:
+    radial-gradient(circle at 8% 18%, rgba(201,160,75,.12), transparent 25%),
+    linear-gradient(180deg,#fff8e9,#fffdf8);
+  border-top:1px solid rgba(201,160,75,.20);
+  border-bottom:1px solid rgba(201,160,75,.20);
+}
+.culture-inner{
+  max-width:900px;
+  margin:auto;
+}
+.culture h2{
+  font-size:clamp(30px,3.6vw,44px);
+  color:var(--maroon-deep);
+  margin-bottom:14px;
+  line-height:1.18;
+  text-wrap:balance;
+}
+.culture p{
+  font-size:16px;
+  line-height:1.82;
+  color:#65575b;
+}
+.culture-note{
+  margin-top:20px;
+  padding:18px 20px;
+  border-radius:16px;
+  background:rgba(255,255,255,.86);
+  border:1px solid #ead8b7;
+  box-shadow:var(--shadow-soft);
+  color:#5c1a2a;
+  font-weight:800;
+  line-height:1.55;
+}
+
+.grid{gap:18px}
+.card{
+  border-radius:22px;
+  padding:22px;
+  background:linear-gradient(180deg,#fff,#fffdf9);
+  border:1px solid rgba(225,209,189,.95);
+  box-shadow:var(--shadow-soft);
+  transition:.18s ease;
+}
+.card:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+.ico{
+  width:46px;height:46px;border-radius:14px;
+  background:linear-gradient(145deg,#fbefd3,#f4dfad);
+  border:1px solid #ead29a;
+  box-shadow:0 6px 16px rgba(201,160,75,.12);
+}
+.card h3{
+  color:#3e2027;
+  font-size:18px;
+  line-height:1.4;
+}
+.card p{font-size:14px;line-height:1.7}
+
+.trust{
+  background:
+    radial-gradient(circle at 90% 0%, rgba(201,160,75,.10), transparent 25%),
+    #fbf6ec;
+}
+.trust-grid{gap:16px}
+.trustitem{
+  border-radius:20px;
+  padding:20px;
+  background:linear-gradient(180deg,#fff,#fffdf9);
+  border:1px solid #e6d8c4;
+  box-shadow:var(--shadow-soft);
+}
+.trustitem b{
+  color:var(--maroon);
+  font-size:15px;
+  margin-bottom:8px;
+}
+.trustitem span{font-size:14px;line-height:1.7}
+
+.band{
+  border-radius:26px;
+  padding:30px;
+  background:
+    radial-gradient(circle at 90% 20%, rgba(230,190,104,.18), transparent 28%),
+    linear-gradient(135deg,#4b0b1e,#68142e 70%,#7d1e3a);
+  box-shadow:0 24px 58px rgba(63,9,25,.22);
+  border:1px solid rgba(255,255,255,.08);
+}
+.band h2{
+  font-size:clamp(28px,3.4vw,40px);
+  line-height:1.18;
+  margin-bottom:10px;
+}
+.band p{color:#f2dfe5}
+
+footer{
+  background:linear-gradient(180deg,#2d0915,#22060f);
+  border-top:1px solid rgba(201,160,75,.16);
+}
+.foot{gap:30px}
+.foot small{line-height:1.65}
+
+@media(max-width:760px){
+  .wrap{width:min(94vw,100%)}
+  .nav{padding:8px 0}
+  .brand{gap:8px}
+  .brand b{font-size:16px}
+  .brand small{display:none}
+  .logo{width:40px;height:40px;min-width:40px}
+  .nav-actions{gap:5px}
+  .lang-switch button{padding:6px 9px;font-size:12px}
+  .nav-actions>.btn.primary{padding:9px 11px;font-size:12px}
+  .hero{padding:34px 0 38px}
+  .hero-grid{gap:30px}
+  h1{font-size:clamp(30px,8.8vw,39px);line-height:1.14;letter-spacing:-.45px}
+  .lead{font-size:15px;line-height:1.68}
+  section{padding:48px 0}
+  .section-head{margin-bottom:24px}
+  .section-head h2,
+  .culture h2{font-size:clamp(25px,7.4vw,32px);line-height:1.2}
+  .culture p{font-size:14.5px;line-height:1.72}
+  .culture-note{padding:15px 16px;font-size:14px}
+  .grid,.trust-grid{grid-template-columns:1fr}
+  .card,.trustitem{padding:17px;border-radius:18px}
+  .card h3{font-size:16px}
+  .card p,.trustitem span{font-size:13.5px}
+  .band{padding:22px 18px;border-radius:22px}
+  .band h2{font-size:clamp(25px,7vw,31px)}
+  footer{padding:28px 0}
+}
+@media(max-width:390px){
+  .nav{grid-template-columns:minmax(0,1fr) auto}
+  .nav-actions{width:auto;justify-content:flex-end}
+  .lang-switch{display:none}
+  h1{font-size:30px}
+  .hero{padding-top:28px}
+}
+
 </style>
 </head>
 <body>
@@ -249,16 +567,14 @@ document.addEventListener("DOMContentLoaded", () => {
     <div class="eyebrow" data-lang-block="ta">🌾 தமிழ்க் குடும்பங்களுக்காக உருவாக்கப்பட்டது</div>
     <div class="eyebrow" data-lang-block="en">🌾 Built for Tamil families</div>
 
-    <h1 data-lang-block="ta">மொய் முதல் தினசரி பணப் பதிவுகள் வரை.<br><span>உங்கள் குடும்பத்திற்கான ஒரே செயலி.</span></h1>
-    <h1 data-lang-block="en">From MOI to daily money records.<br><span>One family app.</span></h1>
+    <h1 data-lang-block="ta">உறவுகள் தொடரட்டும்.<br><span>நினைவுகள் நிலைக்கட்டும்.</span></h1>
+    <h1 data-lang-block="en">Keep relationships close.<br><span>Keep family memories alive.</span></h1>
 
     <p class="lead" data-lang-block="ta">
-      கொடுத்த மொய், பெற்ற மொய், தினசரி செலவு மற்றும் வரவு, கைமாற்று, தமிழ் நாட்காட்டி,
-      ஆவணங்கள் மற்றும் அறிக்கைகள் — உங்கள் குடும்பப் பதிவுகளை எளிமையாக ஒரே இடத்தில் நிர்வகிக்க உதவும் நம்ம மொய்.
+      திருமணம் முதல் குடும்பத்தின் நல்ல நிகழ்வுகள் வரை — நம்முடன் இருந்த உறவுகளையும், யார் நமக்கு செய்தார்கள், நாம் யாருக்கு செய்தோம் என்பதையும் மறக்காமல் நினைவில் வைத்திருக்க உதவும் குடும்பப் பதிவு. மொய் என்பது பணம் மட்டும் அல்ல; ஒரு உறவின் நினைவு.
     </p>
     <p class="lead" data-lang-block="en">
-      Manage MOI given and received, daily expenses and income, hand loans, Tamil Calendar,
-      documents and reports in one simple family-focused app.
+      From weddings to family occasions, remember the people who stood with your family, what they gave, and what you gave in return. Namma MOI keeps those relationship memories organized for the years ahead.
     </p>
 
     <div class="ctas">
@@ -311,50 +627,64 @@ document.addEventListener("DOMContentLoaded", () => {
 </div>
 </section>
 
+<section class="culture" id="culture">
+<div class="wrap culture-inner">
+  <div class="culture-mark">🪔</div>
+  <div>
+    <h2 data-lang-block="ta">மொய் என்பது பணம் மட்டும் அல்ல. அது ஒரு உறவின் நினைவு.</h2>
+    <h2 data-lang-block="en">MOI is more than money. It is a memory of a relationship.</h2>
+    <p data-lang-block="ta">நம் வீட்டில் ஒரு நல்ல நிகழ்வு நடந்தால் உறவினர்கள் வந்து வாழ்த்துவதும், மொய் செய்வதும் “உங்கள் நல்ல நாளில் நாங்கள் உங்களுடன் இருக்கிறோம்” என்று சொல்லும் நம் பண்பாட்டின் ஒரு அழகான வழக்கம். காலம் செல்ல பெயரும் ஊரும் தொகையும் மறந்துவிடலாம்; அந்த உறவு மறந்துவிடக் கூடாது.</p>
+    <p data-lang-block="en">When relatives stand with us at a family occasion, MOI carries more than a value — it carries participation, respect and remembrance. Details may fade with time; the relationship should not.</p>
+    <div class="culture-note" data-lang-block="ta">இன்று நீங்கள் பதிவு செய்வது, நாளை உங்கள் குடும்பத்திற்கு ஒரு உறவை சரியாக நினைவுபடுத்த உதவும்.</div>
+    <div class="culture-note" data-lang-block="en">What you record today can help your family remember a relationship correctly tomorrow.</div>
+  </div>
+</div>
+</section>
+
 <section id="features">
 <div class="wrap">
   <div class="section-head">
-    <h2 data-lang-block="ta">நம்ம மொயில் உள்ள முக்கிய அம்சங்கள்</h2>
-    <h2 data-lang-block="en">Core features in Namma MOI</h2>
-    <p data-lang-block="ta">தற்போது app-ல் உள்ள முக்கிய பயன்பாடுகள் மட்டும் இங்கே காட்டப்பட்டுள்ளன.</p>
-    <p data-lang-block="en">Only the core features currently present in the app are highlighted here.</p>
+    <h2 data-lang-block="ta">உறவுகளை நினைவில் வைத்திருக்க உதவும் அம்சங்கள்</h2>
+    <h2 data-lang-block="en">Features that help families stay connected</h2>
+    <p data-lang-block="ta">இன்று பதிவு செய்வது, அடுத்த குடும்ப நிகழ்விலும் பல வருடங்கள் கழித்தும் சரியான உறவை நினைவுபடுத்த உதவும்.</p>
+    <p data-lang-block="en">What you record today can help your family remember the right people at the next occasion — even years later.</p>
   </div>
   <div class="grid">
     <article class="card">
       <div class="ico">🤝</div>
       <h3 data-lang-block="ta">மொய் பதிவுகள்</h3><h3 data-lang-block="en">MOI Records</h3>
-      <p data-lang-block="ta">கொடுத்தது / பெற்றது, பெயர், ஊர், நிகழ்வு, தேடல், பரிந்துரைகள், திருத்தம், நீக்கம், மீட்டெடுப்பு மற்றும் வரலாறு.</p>
-      <p data-lang-block="en">Given/received MOI, name, village, event, search, suggestions, edit, delete, restore and history.</p>
+      <p data-lang-block="ta">யார் நமக்கு செய்தார்கள், நாம் யாருக்கு செய்தோம், பெயர், ஊர், நிகழ்வு ஆகியவற்றை பதிவு செய்து தேவையான நேரத்தில் மீண்டும் எளிதாக கண்டுபிடிக்க.</p>
+      <p data-lang-block="en">Remember who gave to your family and whom your family gave to, with names, villages and occasions easy to find again.</p>
     </article>
     <article class="card">
       <div class="ico">💰</div>
       <h3 data-lang-block="ta">தினசரி பணப் பதிவு</h3><h3 data-lang-block="en">Daily Cash</h3>
-      <p data-lang-block="ta">செலவு, வரவு, கைமாற்று பதிவுகள், சுருக்கம் மற்றும் தேதிவாரியான பார்வைகள்.</p>
-      <p data-lang-block="en">Expense, income, hand-loan entries, summaries and date-based views.</p>
+      <p data-lang-block="ta">குடும்பத்தின் அன்றாட செலவு, வரவு, கைமாற்று போன்ற முக்கிய பணப் பதிவுகளை ஒழுங்காக வைத்திருக்க.</p>
+      <p data-lang-block="en">Keep everyday family expenses, income and hand-loan records organized and easy to review.</p>
     </article>
     <article class="card">
       <div class="ico">📅</div>
       <h3 data-lang-block="ta">தமிழ் நாட்காட்டி</h3><h3 data-lang-block="en">Tamil Calendar</h3>
-      <p data-lang-block="ta">இன்றைய நாள், தேர்ந்தெடுத்த தேதி, நாள் விவரங்கள் மற்றும் சிறப்பு நாள் / முகூர்த்த நாள் குறிகள்.</p>
-      <p data-lang-block="en">Today, selected date, day details and compact special-day/Muhurtham markers.</p>
+      <p data-lang-block="ta">நம் வழக்கத்திற்கு பழக்கமான தமிழ் நாட்கள், முகூர்த்த நாள் மற்றும் சிறப்பு நாட்களை குடும்பத் திட்டமிடலோடு பார்க்க.</p>
+      <p data-lang-block="en">View familiar Tamil calendar days, Muhurtham and special-day markers alongside family planning.</p>
     </article>
     <article class="card">
       <div class="ico">📄</div>
       <h3 data-lang-block="ta">ஆவணங்கள்</h3><h3 data-lang-block="en">Documents</h3>
-      <p data-lang-block="ta">முக்கிய ஆவணங்களை தனி பகுதியில் capture/upload செய்து Google Drive அடிப்படையில் வைத்துக்கொள்ளும் வசதி.</p>
-      <p data-lang-block="en">Capture or upload important documents in a separate Google Drive-based module.</p>
+      <p data-lang-block="ta">குடும்பத்திற்கு தேவையான முக்கிய ஆவணங்களை தனி பகுதியில் ஒழுங்காக வைத்திருந்து தேவைப்படும் நேரத்தில் எளிதாக அணுக.</p>
+      <p data-lang-block="en">Keep important family documents organized in one dedicated place for when they are needed.</p>
     </article>
     <article class="card">
       <div class="ico">📊</div>
       <h3 data-lang-block="ta">அறிக்கைகள் & ஏற்றுமதி</h3><h3 data-lang-block="en">Reports & Export</h3>
-      <p data-lang-block="ta">மொய் மற்றும் பணப் பதிவுகளுக்கான சுருக்கம், அறிக்கைகள் மற்றும் ஏற்றுமதி வசதிகள்.</p>
-      <p data-lang-block="en">Summary, reporting and export flows for MOI and money records.</p>
+      <p data-lang-block="ta">பழைய மொய் மற்றும் பணப் பதிவுகளை தேவைப்படும் போது சுருக்கமாகப் பார்த்து குடும்பப் பதிவின் தொடர்ச்சியை புரிந்துகொள்ள.</p>
+      <p data-lang-block="en">Review past MOI and money records through useful summaries and reports when your family needs them.</p>
     </article>
     <article class="card">
       <div class="ico">🔔</div>
       <h3 data-lang-block="ta">நினைவூட்டல்கள் & உதவி</h3><h3 data-lang-block="en">Reminders & Help</h3>
-      <p data-lang-block="ta">தேதிவாரியான நினைவூட்டல்கள் மற்றும் Namma MOI பயன்படுத்த உதவும் உள்ளமைவு உதவி.</p>
-      <p data-lang-block="en">Date-based reminders and built-in help for using Namma MOI.</p>
+      <p data-lang-block="ta">முக்கியமான குடும்பப் பணிகள் மற்றும் நினைவில் வைத்திருக்க வேண்டியவற்றை சரியான நேரத்தில் மறக்காமல் இருக்க.</p>
+      <p data-lang-block="en">Remember important family tasks and date-based items at the right time.</p>
     </article>
   </div>
 </div>
@@ -363,24 +693,24 @@ document.addEventListener("DOMContentLoaded", () => {
 <section class="trust" id="privacy">
 <div class="wrap">
   <div class="section-head">
-    <h2 data-lang-block="ta">எளிமை. குடும்பத்திற்கானது. மொபைலுக்கு ஏற்றது.</h2>
-    <h2 data-lang-block="en">Simple. Family-focused. Mobile-first.</h2>
+    <h2 data-lang-block="ta">உங்கள் குடும்பப் பதிவு. உங்கள் கட்டுப்பாட்டில்.</h2>
+    <h2 data-lang-block="en">Your family records. In your control.</h2>
   </div>
   <div class="trust-grid">
     <div class="trustitem">
-      <b data-lang-block="ta">🗂️ குடும்பப் பதிவுகள் ஒரே இடத்தில்</b><b data-lang-block="en">🗂️ Family records in one place</b>
-      <span data-lang-block="ta">மொய், தினசரி பணம், நாட்காட்டி, ஆவணங்கள் அனைத்தும் தெளிவான தனிப்பிரிவுகளில்.</span>
-      <span data-lang-block="en">MOI, Daily Cash, Calendar and Documents are organized into clear modules.</span>
+      <b data-lang-block="ta">🤝 உறவுகளை மறக்காமல் இருக்க</b><b data-lang-block="en">🤝 Remember the relationships that matter</b>
+      <span data-lang-block="ta">பெயர், ஊர், நிகழ்வு, கொடுத்தது, பெற்றது போன்ற பதிவுகள் அடுத்த நல்ல நிகழ்வில் முக்கியமான ஒருவரை மறக்காமல் இருக்க உதவும்.</span>
+      <span data-lang-block="en">Names, villages, occasions, given and received records help your family remember the right people when it matters.</span>
     </div>
     <div class="trustitem">
-      <b data-lang-block="ta">☁️ Google Drive / Sheet அடிப்படை</b><b data-lang-block="en">☁️ Google Drive / Sheet based</b>
-      <span data-lang-block="ta">App தரவு கட்டமைப்பு உங்கள் Google account சூழலை அடிப்படையாக பயன்படுத்துகிறது.</span>
-      <span data-lang-block="en">The app data architecture is built around your Google account ecosystem.</span>
+      <b data-lang-block="ta">🪔 இன்று பதிவு — நாளைக்கும் பயன்பாடு</b><b data-lang-block="en">🪔 Record today, remember tomorrow</b>
+      <span data-lang-block="ta">ஒரு நிகழ்வில் பதிவு செய்த உறவு, அடுத்த நிகழ்விலும் பல வருடங்கள் கழித்தும் குடும்பத்திற்கு உதவும் வகையில் தொடர்ச்சியாக வைத்திருக்கலாம்.</span>
+      <span data-lang-block="en">A relationship recorded at one occasion can continue to help your family at the next one, even years later.</span>
     </div>
     <div class="trustitem">
-      <b data-lang-block="ta">📱 மொபைல் முதன்மை வடிவமைப்பு</b><b data-lang-block="en">📱 Mobile-first design</b>
-      <span data-lang-block="ta">Browser மற்றும் Median WebView பயன்பாட்டை கருத்தில் கொண்டு compact screens.</span>
-      <span data-lang-block="en">Compact screens designed for browser and Median WebView usage.</span>
+      <b data-lang-block="ta">🌾 ஊர் மாறலாம். உறவு தொடரட்டும்.</b><b data-lang-block="en">🌾 Places may change. Relationships continue.</b>
+      <span data-lang-block="ta">உறவினர்கள், சம்பந்திகள், நண்பர்கள் — எங்கு இருந்தாலும் குடும்பத்தின் உறவுப் பதிவை ஒழுங்காக நினைவில் வைத்திருக்க.</span>
+      <span data-lang-block="en">Relatives, extended family and friends may live anywhere; your family can still keep those relationship records organized.</span>
     </div>
   </div>
 </div>
@@ -390,10 +720,10 @@ document.addEventListener("DOMContentLoaded", () => {
 <div class="wrap">
   <div class="band">
     <div>
-      <h2 data-lang-block="ta">இப்போதே நம்ம மொய் தொடங்குங்கள்</h2>
-      <h2 data-lang-block="en">Start using Namma MOI</h2>
-      <p data-lang-block="ta">புதிய பயனர் என்றால் பதிவு செய்யுங்கள். ஏற்கனவே கணக்கு இருந்தால் உள்நுழையுங்கள்.</p>
-      <p data-lang-block="en">Register if you are a new user, or login if you already have an account.</p>
+      <h2 data-lang-block="ta">ஒரு குடும்பத்தின் கணக்கு மட்டுமல்ல. அதன் உறவுப் பயணம்.</h2>
+      <h2 data-lang-block="en">More than family accounts. A record of relationships.</h2>
+      <p data-lang-block="ta">இன்று எழுதிவைக்கும் ஒரு பெயர், ஒரு ஊர், ஒரு மொய் பதிவு — நாளை ஒரு உறவை நினைவுபடுத்தலாம். நம்ம மொய் உங்கள் குடும்பத்தோடு தொடர்ந்து பயணிக்கட்டும்.</p>
+      <p data-lang-block="en">A name, a village and a MOI record saved today can help your family remember a relationship tomorrow.</p>
     </div>
     <div class="ctas" style="margin:0">
       <button class="btn gold" onclick="goRegister()"><span data-lang-block="ta">பதிவு செய்</span><span data-lang-block="en">Register</span></button>
