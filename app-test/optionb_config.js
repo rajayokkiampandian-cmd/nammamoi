@@ -5,11 +5,10 @@
 window.NAMMAMOI_OPTION_B = {
   // OAuth 2.0 Web client ID from the SAME standard Google Cloud project
   // used by the Apps Script project. Example: 123...apps.googleusercontent.com
-  CLIENT_ID: 'PASTE_WEB_OAUTH_CLIENT_ID_HERE',
-
+CLIENT_ID: '485579350441-tnb42vqu2h6dfguurlo7vpoese48fbmd.apps.googleusercontent.com',
+  
   // Apps Script API Executable deployment ID (Deploy > New deployment > API Executable).
-  SCRIPT_DEPLOYMENT_ID: 'PASTE_API_EXECUTABLE_DEPLOYMENT_ID_HERE',
-
+SCRIPT_DEPLOYMENT_ID: 'AKfycbzAbsKKNZ1hXjqb24D8rrXOATndrWhfVUSqr9jYtPbE-EVb9B_zbV1LqIBelAwrsqvG',
   // Copy EVERY scope shown in Apps Script > Overview > Project OAuth scopes.
   // Keep openid/email so the frontend can establish the Google identity.
   OAUTH_SCOPES: [
