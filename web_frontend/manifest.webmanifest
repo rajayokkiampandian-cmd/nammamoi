@@ -1,0 +1,43 @@
+{
+  "id": "/web_frontend/",
+  "name": "Namma MOI",
+  "short_name": "Namma MOI",
+  "description": "Tamil family MOI, daily cash, calendar and records management.",
+  "lang": "ta",
+  "dir": "ltr",
+  "start_url": "/web_frontend/",
+  "scope": "/web_frontend/",
+  "display": "standalone",
+  "display_override": [
+    "standalone",
+    "minimal-ui"
+  ],
+  "background_color": "#fffaf7",
+  "theme_color": "#681126",
+  "orientation": "portrait-primary",
+  "categories": [
+    "finance",
+    "productivity",
+    "utilities"
+  ],
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

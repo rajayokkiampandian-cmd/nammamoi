@@ -5658,6 +5658,15 @@ label,#expenseScreen .fg label{font-size:var(--text-sm);line-height:var(--lh-ui)
 <script src="./gas_bridge.js"></script>
 
 <!-- v304: startup paint shield prevents CSS/splash/login flash on refresh; reveal only after routed screen is ready. -->
+<!-- Namma MOI PWA -->
+<link rel="manifest" href="./manifest.webmanifest">
+<meta name="theme-color" content="#681126">
+<meta name="application-name" content="Namma MOI">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="apple-touch-icon" href="./icon-192.png">
+
 </head>
 <body>
 <script>
@@ -23597,5 +23606,17 @@ function _aiLocalAnswer(q) {
 </script>
 
 <script>init();</script>
+<script src="capacitor_bridge.js"></script>
+<script>
+(function(){
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function(){
+      navigator.serviceWorker.register('./service-worker.js', {scope:'./'})
+        .catch(function(err){ console.warn('[Namma MOI PWA] service worker registration failed', err); });
+    });
+  }
+})();
+</script>
+
 </body>
 </html>
