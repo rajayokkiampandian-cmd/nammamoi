@@ -1,4 +1,4 @@
-/* Namma MOI v301 — google.script.run compatibility bridge for own-domain frontend.
+/* Namma MOI v302 — google.script.run compatibility bridge for own-domain frontend.
  * Keeps the existing client modules unchanged while replacing HTML-Service's
  * built-in google.script.run transport with Apps Script API scripts.run.
  */
@@ -12,6 +12,21 @@
   var queue = [];
   var TOKEN_KEY = 'nmOptionBAccessToken';
   var TOKEN_EXPIRY_KEY = 'nmOptionBTokenExpiry';
+
+  // Keep the app on one canonical OAuth origin. sessionStorage is origin-scoped,
+  // so switching between nammamoi.in and www.nammamoi.in after Google auth
+  // makes a valid token look missing on refresh. Normalize before auth/UI starts.
+  function normalizeCanonicalOrigin() {
+    try {
+      if (!cfg.PUBLIC_APP_URL) return false;
+      var canonical = new URL(cfg.PUBLIC_APP_URL, window.location.href);
+      if (canonical.origin === window.location.origin) return false;
+      var target = canonical.origin + window.location.pathname + window.location.search + window.location.hash;
+      window.location.replace(target);
+      return true;
+    } catch (_e) { return false; }
+  }
+  if (normalizeCanonicalOrigin()) return;
 
   function restoreSessionToken() {
     try {
