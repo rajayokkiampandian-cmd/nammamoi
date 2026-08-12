@@ -3,7 +3,7 @@
  */
 'use strict';
 
-const CACHE_VERSION = 'nammamoi-pwa-v1';
+const CACHE_VERSION = 'nammamoi-pwa-v2';
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 const APP_PREFIX = '/web_frontend/';
 const STATIC_ASSETS = [
