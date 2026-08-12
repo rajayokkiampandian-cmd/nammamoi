@@ -1,4 +1,4 @@
-/* Namma MOI v296 — google.script.run compatibility bridge for own-domain frontend.
+/* Namma MOI v302 — google.script.run compatibility bridge for own-domain frontend.
  * Keeps the existing client modules unchanged while replacing HTML-Service's
  * built-in google.script.run transport with Apps Script API scripts.run.
  */
@@ -10,441 +10,322 @@
   var tokenClient = null;
   var authInFlight = false;
   var queue = [];
+  var TOKEN_KEY = 'nmOptionBAccessToken';
+  var TOKEN_EXPIRY_KEY = 'nmOptionBTokenExpiry';
+  var OAUTH_STATE_KEY = 'nmOptionBOAuthState';
+
+  function isMedianApp() {
+    try { return /median/i.test(navigator.userAgent || '') || !!(window.median && median.window); } catch(_e) { return false; }
+  }
+  function randomState() {
+    try {
+      var a = new Uint8Array(24); crypto.getRandomValues(a);
+      return Array.prototype.map.call(a, function(b){ return ('0'+b.toString(16)).slice(-2); }).join('');
+    } catch(_e) { return String(Date.now()) + Math.random().toString(36).slice(2); }
+  }
+  function oauthRedirectUri() { return String(cfg.OAUTH_REDIRECT_URI || '').trim(); }
+  function medianAuthUrl() {
+    var redirect = oauthRedirectUri();
+    if (!redirect) return '';
+    var state = randomState();
+    try { sessionStorage.setItem(OAUTH_STATE_KEY, state); } catch(_e) {}
+    var q = new URLSearchParams({
+      client_id: cfg.CLIENT_ID, redirect_uri: redirect, response_type: 'code',
+      scope: scopes(), include_granted_scopes: 'true', access_type: 'online', state: state
+    });
+    return 'https://accounts.google.com/o/oauth2/v2/auth?' + q.toString();
+  }
+  function startMedianOAuth() {
+    var url = medianAuthUrl();
+    if (!url) { setGateMessage('Median OAuth redirect URL configure செய்ய வேண்டும்.', true); return; }
+    setGateMessage('Google login Chrome-ல் திறக்கிறது…', false);
+    try {
+      if (window.median && median.window && typeof median.window.open === 'function') {
+        median.window.open(url, 'external');
+        return;
+      }
+    } catch(_e) {}
+    setGateMessage('Median JavaScript Bridge கிடைக்கவில்லை. App rebuild/config check செய்யவும்.', true);
+  }
+
+  // Keep the app on one canonical OAuth origin. sessionStorage is origin-scoped,
+  // so switching between nammamoi.in and www.nammamoi.in after Google auth
+  // makes a valid token look missing on refresh. Normalize before auth/UI starts.
+  function normalizeCanonicalOrigin() {
+    try {
+      if (!cfg.PUBLIC_APP_URL) return false;
+      var canonical = new URL(cfg.PUBLIC_APP_URL, window.location.href);
+      if (canonical.origin === window.location.origin) return false;
+      var target = canonical.origin + window.location.pathname + window.location.search + window.location.hash;
+      window.location.replace(target);
+      return true;
+    } catch (_e) { return false; }
+  }
+  if (normalizeCanonicalOrigin()) return;
+
+  function restoreSessionToken() {
+    try {
+      var t = sessionStorage.getItem(TOKEN_KEY) || '';
+      var e = Number(sessionStorage.getItem(TOKEN_EXPIRY_KEY) || 0);
+      if (t && e && Date.now() < (e - 360000)) { accessToken = t; tokenExpiry = e; return true; }
+      sessionStorage.removeItem(TOKEN_KEY); sessionStorage.removeItem(TOKEN_EXPIRY_KEY);
+    } catch(_e) {}
+    return false;
+  }
+  function persistSessionToken() {
+    try { sessionStorage.setItem(TOKEN_KEY, accessToken); sessionStorage.setItem(TOKEN_EXPIRY_KEY, String(tokenExpiry)); } catch(_e) {}
+  }
+  function clearSessionToken() {
+    try { sessionStorage.removeItem(TOKEN_KEY); sessionStorage.removeItem(TOKEN_EXPIRY_KEY); } catch(_e) {}
+  }
+
+  // Restore a still-valid token immediately, before the app's inline startup
+  // code can queue its first google.script.run call. Waiting until
+  // DOMContentLoaded is too late because early startup calls would otherwise
+  // trigger a new OAuth request even though a resumable token already exists.
+  var restoredAtBoot = restoreSessionToken();
 
   function configured() {
     return cfg.CLIENT_ID && cfg.SCRIPT_DEPLOYMENT_ID &&
       cfg.CLIENT_ID.indexOf('PASTE_') !== 0 &&
       cfg.SCRIPT_DEPLOYMENT_ID.indexOf('PASTE_') !== 0;
   }
-
   function scopes() {
     return (cfg.OAUTH_SCOPES || []).filter(Boolean).join(' ');
   }
-
   function hasFreshToken() {
-    return !!accessToken && Date.now() < (tokenExpiry - 360000);
+    return !!accessToken && Date.now() < (tokenExpiry - 360000); // refresh >=6 min early
   }
-
   function ensureGate() {
     var gate = document.getElementById('nmOptionBAuthGate');
     if (gate) return gate;
-
     gate = document.createElement('div');
     gate.id = 'nmOptionBAuthGate';
-    gate.style.cssText =
-      'position:fixed;inset:0;z-index:2147483647;background:#fffaf7;' +
-      'display:flex;align-items:center;justify-content:center;padding:24px;' +
-      'font-family:system-ui,-apple-system,Segoe UI,sans-serif';
-
-    gate.innerHTML =
-      '<div style="width:min(390px,100%);background:#fff;border:1px solid #ead9d0;' +
-      'border-radius:18px;padding:24px;box-shadow:0 12px 38px rgba(70,15,30,.14);text-align:center">' +
+    gate.style.cssText = 'position:fixed;inset:0;z-index:2147483647;background:#fffaf7;display:flex;align-items:center;justify-content:center;padding:24px;font-family:system-ui,-apple-system,Segoe UI,sans-serif';
+    gate.innerHTML = '<div style="width:min(390px,100%);background:#fff;border:1px solid #ead9d0;border-radius:18px;padding:24px;box-shadow:0 12px 38px rgba(70,15,30,.14);text-align:center">' +
       '<div style="font-size:26px;font-weight:800;color:#681126;margin-bottom:8px">நம்ம மொய்</div>' +
-      '<div id="nmOptionBAuthMsg" style="font-size:14px;line-height:1.6;color:#555;margin-bottom:16px">' +
-      'Google கணக்குடன் இணைக்கவும்</div>' +
-      '<button id="nmOptionBAuthBtn" type="button" style="width:100%;border:0;border-radius:12px;' +
-      'padding:13px 16px;background:#681126;color:white;font-size:15px;font-weight:700">' +
-      'Continue with Google</button>' +
-      '<div style="font-size:11px;color:#777;margin-top:12px">Own-domain secure connection</div>' +
-      '</div>';
-
+      '<div id="nmOptionBAuthMsg" style="font-size:14px;line-height:1.6;color:#555;margin-bottom:16px">Google கணக்குடன் இணைக்கவும்</div>' +
+      '<button id="nmOptionBAuthBtn" type="button" style="width:100%;border:0;border-radius:12px;padding:13px 16px;background:#681126;color:white;font-size:15px;font-weight:700">Continue with Google</button>' +
+      '<div style="font-size:11px;color:#777;margin-top:12px">Own-domain secure connection</div></div>';
     document.body.appendChild(gate);
-
-    gate.querySelector('#nmOptionBAuthBtn').addEventListener('click', function () {
-      requestToken(true);
-    });
-
+    gate.querySelector('#nmOptionBAuthBtn').addEventListener('click', function(){ requestToken(true); });
     return gate;
   }
-
   function setGateMessage(msg, isError) {
     var gate = ensureGate();
     var el = gate.querySelector('#nmOptionBAuthMsg');
-
-    if (el) {
-      el.textContent = msg;
-      el.style.color = isError ? '#b42318' : '#555';
-    }
+    if (el) { el.textContent = msg; el.style.color = isError ? '#b42318' : '#555'; }
   }
-
+  function authErrorText(err) {
+    if (!err) return 'Google authorization முடியவில்லை.';
+    var parts = [];
+    if (err.type) parts.push('type=' + err.type);
+    if (err.error) parts.push('error=' + err.error);
+    if (err.error_description) parts.push(err.error_description);
+    if (err.message && parts.indexOf(err.message) < 0) parts.push(err.message);
+    return parts.length ? ('Google sign-in error: ' + parts.join(' · ')) : 'Google authorization முடியவில்லை.';
+  }
+  function showAuthError(err) {
+    try { console.error('[NammaMoi Option B OAuth]', err); } catch(_e) {}
+    setGateMessage(authErrorText(err), true);
+  }
   function hideGate() {
     var gate = document.getElementById('nmOptionBAuthGate');
     if (gate) gate.style.display = 'none';
   }
-
-  var gisLoading = false;
-  var gisLoadStartedAt = 0;
-
-  function ensureGoogleIdentityServices() {
-    if (
-      window.google &&
-      google.accounts &&
-      google.accounts.oauth2
-    ) {
+  function redeemOAuthTicketFromUrl() {
+    try {
+      var u = new URL(window.location.href);
+      var ticket = u.searchParams.get('oauth_ticket');
+      var returnedState = u.searchParams.get('oauth_state');
+      if (!ticket) return false;
+      var expected = '';
+      try { expected = sessionStorage.getItem(OAUTH_STATE_KEY) || ''; } catch(_e) {}
+      if (!expected || !returnedState || expected !== returnedState) {
+        setGateMessage('Google authorization state verify ஆகவில்லை. மீண்டும் Continue with Google அழுத்தவும்.', true);
+        return true;
+      }
+      var redirect = oauthRedirectUri();
+      if (!redirect) { setGateMessage('OAuth redirect URL configure செய்ய வேண்டும்.', true); return true; }
+      window.NammaMoiOptionB = window.NammaMoiOptionB || {};
+      window.NammaMoiOptionB.oauthTicketCallback = function(payload) {
+        if (!payload || payload.error || !payload.accessToken) {
+          setGateMessage((payload && payload.error) || 'OAuth ticket redeem ஆகவில்லை.', true); return;
+        }
+        accessToken = payload.accessToken;
+        tokenExpiry = Date.now() + (Number(payload.expiresIn || 3600) * 1000);
+        persistSessionToken();
+        try { sessionStorage.removeItem(OAUTH_STATE_KEY); } catch(_e) {}
+        u.searchParams.delete('oauth_ticket'); u.searchParams.delete('oauth_state');
+        history.replaceState({}, document.title, u.pathname + (u.searchParams.toString() ? '?' + u.searchParams.toString() : '') + u.hash);
+        hideGate(); drainQueue();
+      };
+      var src = redirect + (redirect.indexOf('?') >= 0 ? '&' : '?') + 'oauthredeem=1&ticket=' + encodeURIComponent(ticket) + '&callback=' + encodeURIComponent('NammaMoiOptionB.oauthTicketCallback');
+      var tag = document.createElement('script'); tag.src = src; tag.async = true;
+      tag.onerror = function(){ setGateMessage('OAuth ticket server connect ஆகவில்லை.', true); };
+      document.head.appendChild(tag);
+      setGateMessage('Google authorization verify செய்கிறது…', false);
       return true;
-    }
-
-    if (!gisLoading) {
-      gisLoading = true;
-      gisLoadStartedAt = Date.now();
-
-      var s = document.createElement('script');
-      s.src = 'https://accounts.google.com/gsi/client';
-      s.async = true;
-      s.defer = true;
-
-      s.onload = function () {
-        gisLoading = false;
-      };
-
-      s.onerror = function () {
-        gisLoading = false;
-        setGateMessage(
-          'Google authorization service load ஆகவில்லை. Internet connection check செய்து மீண்டும் முயற்சிக்கவும்.',
-          true
-        );
-      };
-
-      document.head.appendChild(s);
-    }
-
-    return false;
+    } catch(_e) { return false; }
   }
 
   function initTokenClient() {
-    if (tokenClient) return true;
-
-    if (!ensureGoogleIdentityServices()) {
-      return false;
-    }
-
+    if (tokenClient || !window.google || !google.accounts || !google.accounts.oauth2) return !!tokenClient;
     tokenClient = google.accounts.oauth2.initTokenClient({
       client_id: cfg.CLIENT_ID,
       scope: scopes(),
-
-      callback: function (resp) {
+      callback: function(resp) {
         authInFlight = false;
-
         if (!resp || resp.error || !resp.access_token) {
-          setGateMessage(
-            (resp && (resp.error_description || resp.error)) ||
-              'Google authorization முடியவில்லை.',
-            true
-          );
+          showAuthError(resp || {message:'No OAuth access token returned'});
           return;
         }
-
         accessToken = resp.access_token;
-        tokenExpiry =
-          Date.now() +
-          Number(resp.expires_in || 3600) * 1000;
-
+        tokenExpiry = Date.now() + (Number(resp.expires_in || 3600) * 1000);
+        persistSessionToken();
         hideGate();
         drainQueue();
       },
-
-      error_callback: function (err) {
+      error_callback: function(err) {
         authInFlight = false;
-
-        setGateMessage(
-          (err && (err.message || err.type)) ||
-            'Google authorization முடியவில்லை.',
-          true
-        );
+        showAuthError(err || {message:'Google Identity Services popup error'});
       }
     });
-
     return true;
   }
-
   function requestToken(interactive) {
     if (!configured()) {
-      setGateMessage(
-        'Option B setup pending: OAuth Client ID + API Executable Deployment ID configure செய்ய வேண்டும்.',
-        true
-      );
+      setGateMessage('Option B setup pending: OAuth Client ID + API Executable Deployment ID configure செய்ய வேண்டும்.', true);
       return;
     }
-
     if (authInFlight) return;
-
-    if (!initTokenClient()) {
-      if (
-        gisLoadStartedAt &&
-        Date.now() - gisLoadStartedAt > 12000
-      ) {
-        gisLoading = false;
-        gisLoadStartedAt = 0;
-
-        setGateMessage(
-          'Google authorization service load ஆகவில்லை. Continue with Google-ஐ மீண்டும் அழுத்தவும்.',
-          true
-        );
-        return;
-      }
-
-      setGateMessage(
-        'Google authorization service ஏற்றுகிறது…',
-        false
-      );
-
-      setTimeout(function () {
-        requestToken(interactive);
-      }, 300);
-
+    if (isMedianApp()) {
+      if (interactive) startMedianOAuth();
+      else setGateMessage('Google கணக்குடன் இணைக்க Continue with Google அழுத்தவும்.', false);
       return;
     }
-
-    authInFlight = true;
-
-    try {
-      tokenClient.requestAccessToken({
-        prompt: interactive ? 'consent' : ''
-      });
-    } catch (e) {
-      authInFlight = false;
-
-      setGateMessage(
-        e.message || 'Authorization error',
-        true
-      );
+    if (!initTokenClient()) {
+      setGateMessage('Google authorization service ஏற்றுகிறது…', false);
+      setTimeout(function(){ requestToken(interactive); }, 250);
+      return;
     }
+    authInFlight = true;
+    try { tokenClient.requestAccessToken({prompt: ''}); }
+    catch(e) { authInFlight=false; showAuthError(e); }
   }
-
   function queueCall(call) {
     queue.push(call);
     ensureGate();
-
     if (!configured()) {
-      setGateMessage(
-        'Option B setup pending: optionb_config.js-ல் credentials configure செய்ய வேண்டும்.',
-        true
-      );
+      setGateMessage('Option B setup pending: optionb_config.js-ல் credentials configure செய்ய வேண்டும்.', true);
       return;
     }
-
-    if (!hasFreshToken()) {
-      requestToken(false);
-    } else {
-      drainQueue();
-    }
+    if (!hasFreshToken()) requestToken(false);
+    else drainQueue();
   }
-
   function normalizeApiError(data, httpStatus) {
-    var detail =
-      data &&
-      data.error &&
-      data.error.details &&
-      data.error.details[0];
-
-    var msg =
-      (detail && detail.errorMessage) ||
+    var detail = data && data.error && data.error.details && data.error.details[0];
+    var msg = (detail && detail.errorMessage) ||
       (data && data.error && data.error.message) ||
-      (
-        'Apps Script API error' +
-        (httpStatus ? ' (' + httpStatus + ')' : '')
-      );
-
+      ('Apps Script API error' + (httpStatus ? ' ('+httpStatus+')' : ''));
     var err = new Error(msg);
     err.raw = data;
-
     return err;
   }
-
   async function execute(call) {
     try {
-      if (!hasFreshToken()) {
-        queue.unshift(call);
-        requestToken(false);
-        return;
-      }
-
-      var url =
-        'https://script.googleapis.com/v1/scripts/' +
-        encodeURIComponent(cfg.SCRIPT_DEPLOYMENT_ID) +
-        ':run';
-
+      if (!hasFreshToken()) { queue.unshift(call); requestToken(false); return; }
+      var url = 'https://script.googleapis.com/v1/scripts/' + encodeURIComponent(cfg.SCRIPT_DEPLOYMENT_ID) + ':run';
       var response = await fetch(url, {
         method: 'POST',
-
         headers: {
           'Authorization': 'Bearer ' + accessToken,
           'Content-Type': 'application/json'
         },
-
         body: JSON.stringify({
           function: call.fn,
           parameters: call.args || [],
           devMode: !!cfg.DEV_MODE
         })
       });
-
-      var data = await response
-        .json()
-        .catch(function () {
-          return {};
-        });
-
+      var data = await response.json().catch(function(){ return {}; });
       if (response.status === 401) {
-        accessToken = '';
-        tokenExpiry = 0;
-
-        queue.unshift(call);
-        requestToken(false);
-        return;
+        // Do not auto-start OAuth again here. On mobile this can create a
+        // Google -> app -> Google permission loop that hides the real API
+        // authorization failure. Surface the 401 and let the user retry
+        // explicitly from the auth gate instead.
+        accessToken=''; tokenExpiry=0; clearSessionToken();
+        ensureGate().style.display='flex';
+        setGateMessage('Apps Script API authorization 401. Google permission loop நிறுத்தப்பட்டது. Continue with Google மூலம் ஒருமுறை retry செய்யவும்.', true);
+        var authErr = normalizeApiError(data, response.status);
+        authErr.code = 401;
+        throw authErr;
       }
-
-      if (!response.ok || data.error) {
-        throw normalizeApiError(
-          data,
-          response.status
-        );
-      }
-
-      var result =
-        data && data.response
-          ? data.response.result
-          : undefined;
-
-      if (typeof call.success === 'function') {
-        call.success(
-          result,
-          call.userObject
-        );
-      }
-
-    } catch (e) {
-      if (typeof call.failure === 'function') {
-        call.failure(
-          e,
-          call.userObject
-        );
-      } else {
-        console.error(
-          '[NammaMoi Option B]',
-          call.fn,
-          e
-        );
-      }
+      if (!response.ok || data.error) throw normalizeApiError(data, response.status);
+      var result = data && data.response ? data.response.result : undefined;
+      if (typeof call.success === 'function') call.success(result, call.userObject);
+    } catch(e) {
+      if (typeof call.failure === 'function') call.failure(e, call.userObject);
+      else console.error('[NammaMoi Option B]', call.fn, e);
     }
   }
-
   function drainQueue() {
     if (!hasFreshToken()) return;
-
-    var pending =
-      queue.splice(
-        0,
-        queue.length
-      );
-
+    var pending = queue.splice(0, queue.length);
     pending.forEach(execute);
   }
-
   function makeRunner(state) {
     state = state || {};
-
     return new Proxy({}, {
-      get: function (_target, prop) {
-
-        if (prop === 'withSuccessHandler') {
-          return function (fn) {
-            var s =
-              Object.assign(
-                {},
-                state,
-                { success: fn }
-              );
-
-            return makeRunner(s);
-          };
-        }
-
-        if (prop === 'withFailureHandler') {
-          return function (fn) {
-            var s =
-              Object.assign(
-                {},
-                state,
-                { failure: fn }
-              );
-
-            return makeRunner(s);
-          };
-        }
-
-        if (prop === 'withUserObject') {
-          return function (obj) {
-            var s =
-              Object.assign(
-                {},
-                state,
-                { userObject: obj }
-              );
-
-            return makeRunner(s);
-          };
-        }
-
-        if (prop === 'then') {
-          return undefined;
-        }
-
-        return function () {
-          queueCall({
-            fn: String(prop),
-            args: Array.prototype.slice.call(arguments),
-            success: state.success,
-            failure: state.failure,
-            userObject: state.userObject
-          });
+      get: function(_target, prop) {
+        if (prop === 'withSuccessHandler') return function(fn){ var s=Object.assign({},state,{success:fn}); return makeRunner(s); };
+        if (prop === 'withFailureHandler') return function(fn){ var s=Object.assign({},state,{failure:fn}); return makeRunner(s); };
+        if (prop === 'withUserObject') return function(obj){ var s=Object.assign({},state,{userObject:obj}); return makeRunner(s); };
+        if (prop === 'then') return undefined;
+        return function(){
+          queueCall({fn:String(prop), args:Array.prototype.slice.call(arguments), success:state.success, failure:state.failure, userObject:state.userObject});
         };
       }
     });
   }
 
-  window.google =
-    window.google || {};
+  // Preserve Google Identity Services namespace and add only script.run.
+  window.google = window.google || {};
+  window.google.script = window.google.script || {};
+  window.google.script.run = makeRunner();
 
-  window.google.script =
-    window.google.script || {};
-
-  window.google.script.run =
-    makeRunner();
-
-  window.NammaMoiOptionB = {
-    requestGoogleAccess: function () {
-      requestToken(true);
-    },
-
-    clearToken: function () {
-      accessToken = '';
-      tokenExpiry = 0;
-
-      ensureGate().style.display =
-        'flex';
-    },
-
+  window.NammaMoiOptionB = Object.assign(window.NammaMoiOptionB || {}, {
+    requestGoogleAccess: function(){ requestToken(true); },
+    clearToken: function(){ accessToken=''; tokenExpiry=0; clearSessionToken(); ensureGate().style.display='flex'; },
     isConfigured: configured
-  };
+  });
 
-  document.addEventListener(
-    'DOMContentLoaded',
-    function () {
+  // Mobile browsers can occasionally return focus to the page after the
+  // Google account/2-step flow without delivering a token callback. Do not
+  // leave the UI permanently stuck in an in-flight state; surface that exact
+  // condition so it can be distinguished from a backend/CORS failure.
+  window.addEventListener('focus', function(){
+    if (!authInFlight || hasFreshToken()) return;
+    setTimeout(function(){
+      if (!authInFlight || hasFreshToken()) return;
+      authInFlight = false;
+      showAuthError({type:'oauth_returned_without_token', message:'Google sign-in முடிந்தது, ஆனால் access token app-க்கு திரும்பவில்லை. Retry செய்யவும்.'});
+    }, 2500);
+  });
 
-      ensureGate();
-
-      if (!configured()) {
-        setGateMessage(
-          'Option B setup pending: credentials configure செய்ய வேண்டும்.',
-          true
-        );
-      } else {
-        setGateMessage(
-          'Google கணக்குடன் இணைக்கவும்',
-          false
-        );
-      }
+  document.addEventListener('DOMContentLoaded', function(){
+    ensureGate();
+    if (redeemOAuthTicketFromUrl()) return;
+    // Always show an explicit manual auth path on cold load. Silent token
+    // acquisition may be blocked or delayed by browser privacy settings,
+    // but the user must never be left waiting without a visible action.
+    if (!configured()) {
+      setGateMessage('Option B setup pending: credentials configure செய்ய வேண்டும்.', true);
+    } else if (restoredAtBoot || hasFreshToken()) {
+      hideGate();
+      drainQueue();
+    } else {
+      setGateMessage('Google கணக்குடன் இணைக்கவும்', false);
     }
-  );
+  });
 })();
