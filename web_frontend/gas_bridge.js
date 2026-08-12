@@ -1,4 +1,4 @@
-/* Namma MOI v296 — google.script.run compatibility bridge for own-domain frontend.
+/* Namma MOI v300 — google.script.run compatibility bridge for own-domain frontend.
  * Keeps the existing client modules unchanged while replacing HTML-Service's
  * built-in google.script.run transport with Apps Script API scripts.run.
  */
@@ -94,7 +94,7 @@
       return;
     }
     authInFlight = true;
-    try { tokenClient.requestAccessToken({prompt: interactive ? 'consent' : ''}); }
+    try { tokenClient.requestAccessToken({prompt: ''}); }
     catch(e) { authInFlight=false; showAuthError(e); }
   }
   function queueCall(call) {
@@ -134,7 +134,16 @@
       });
       var data = await response.json().catch(function(){ return {}; });
       if (response.status === 401) {
-        accessToken=''; tokenExpiry=0; queue.unshift(call); requestToken(false); return;
+        // Do not auto-start OAuth again here. On mobile this can create a
+        // Google -> app -> Google permission loop that hides the real API
+        // authorization failure. Surface the 401 and let the user retry
+        // explicitly from the auth gate instead.
+        accessToken=''; tokenExpiry=0;
+        ensureGate().style.display='flex';
+        setGateMessage('Apps Script API authorization 401. Google permission loop நிறுத்தப்பட்டது. Continue with Google மூலம் ஒருமுறை retry செய்யவும்.', true);
+        var authErr = normalizeApiError(data, response.status);
+        authErr.code = 401;
+        throw authErr;
       }
       if (!response.ok || data.error) throw normalizeApiError(data, response.status);
       var result = data && data.response ? data.response.result : undefined;
