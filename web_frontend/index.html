@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html lang="ta">
+<html lang="ta" class="nm-preboot">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
 <style id="nmConsolidatedStyles">
-  html.nm-preboot::before{content:"";position:fixed;inset:0;z-index:2147483000;background:#fffaf7;pointer-events:none}
+  html.nm-preboot{background:#fffaf7!important}
+  html.nm-preboot body{visibility:hidden!important}
+  html.nm-preboot::before{content:"";visibility:visible!important;position:fixed;inset:0;z-index:2147483000;background:#fffaf7;pointer-events:none}
 
 
 /* ===== v305 CONSOLIDATED STYLE BOUNDARY ===== */
@@ -5554,7 +5556,6 @@ label,#expenseScreen .fg label{font-size:var(--text-sm);line-height:var(--lh-ui)
 #p-today .dash-stat-l{color:#51474a!important;font-weight:700!important}
 #p-today .dash-daily-info-copy span{display:-webkit-box!important;-webkit-box-orient:vertical!important;-webkit-line-clamp:2!important;overflow:hidden!important;font-size:10.5px!important;line-height:1.35!important;color:#665c5f!important}
 </style>
-<script>document.documentElement.classList.add('nm-preboot');</script>
 <meta name="theme-color" content="#0F6E56">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
