@@ -3,6 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<style id="nmStartupShieldStyle">
+  html.nm-preboot::before{content:"";position:fixed;inset:0;z-index:2147483000;background:#fffaf7;pointer-events:none}
+</style>
+<script>document.documentElement.classList.add('nm-preboot');</script>
 <meta name="theme-color" content="#0F6E56">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -5538,6 +5542,7 @@ label,#expenseScreen .fg label{font-size:var(--text-sm);line-height:var(--lh-ui)
 </style>
 
 
+<style>
 /* V295 — dashboard compactness/readability patch (presentation only) */
 #p-today .tcal-dash-date-row{display:flex!important;align-items:baseline!important;gap:7px!important;min-width:0!important;white-space:nowrap!important;overflow:hidden!important}
 #p-today .tcal-dash-title{font-size:12.5px!important;font-weight:900!important;color:var(--brand-maroon)!important;overflow:hidden!important;text-overflow:ellipsis!important}
@@ -5547,17 +5552,21 @@ label,#expenseScreen .fg label{font-size:var(--text-sm);line-height:var(--lh-ui)
 #p-today .dash-pick-range input{height:27px!important;min-height:27px!important;padding:2px 6px!important;font-size:10px!important;border-radius:8px!important}
 #p-today .dash-stat-l{color:#51474a!important;font-weight:700!important}
 #p-today .dash-daily-info-copy span{display:-webkit-box!important;-webkit-box-orient:vertical!important;-webkit-line-clamp:2!important;overflow:hidden!important;font-size:10.5px!important;line-height:1.35!important;color:#665c5f!important}
-
+</style>
 
 <!-- Namma MOI v296 Option B: own-domain transport -->
 <script src="https://accounts.google.com/gsi/client" async defer></script>
 <script src="./optionb_config.js"></script>
 <script src="./gas_bridge.js"></script>
 
+<!-- v304: startup paint shield prevents CSS/splash/login flash on refresh; reveal only after routed screen is ready. -->
 </head>
-<body class="nm-booting">
-<style>body.nm-booting>*:not(#splashScreen){visibility:hidden!important}body.nm-booting{background:#5f0b1d;overflow:hidden}</style>
-<script>requestAnimationFrame(function(){document.body.classList.remove('nm-booting');});</script>
+<body>
+<script>
+function _nmFinishStartupPaint(){
+  try{document.documentElement.classList.remove('nm-preboot');}catch(_e){}
+}
+</script>
 
 <!-- ══════════ ICON SPRITE (UX_REVIEW H3 — replaces emoji icons with a
      consistent, self-contained SVG set; no external font/CDN dependency,
@@ -8581,6 +8590,7 @@ function _fabAddExpense() {
 
 
 function _showBlockedWithMsg(title, msg) {
+  if (typeof _nmFinishStartupPaint === 'function') _nmFinishStartupPaint();
   showScreen('blockedScreen');
   var errEl = document.getElementById('blockedScreen');
   var ttl = errEl.querySelector('.login-title');
@@ -11122,12 +11132,14 @@ function _routeCachedResumeImmediate() {
     initExpenseScreen();
     var et = (st && st.tab && st.tab !== 'add') ? st.tab : 'list';
     setTimeout(function(){ if (typeof expGo === 'function') expGo(et); }, 0);
+    if (typeof _nmFinishStartupPaint === 'function') _nmFinishStartupPaint();
     return;
   }
 
   enterApp();
   var mt = (st && st.tab && ['add','admin','account','documents'].indexOf(st.tab) === -1) ? st.tab : 'today';
   if (mt !== 'today') setTimeout(function(){ if (typeof go === 'function') go(mt); }, 0);
+  if (typeof _nmFinishStartupPaint === 'function') _nmFinishStartupPaint();
 }
 
 
@@ -11180,6 +11192,7 @@ function _handleSession(res) {
     S = res;
     _scheduleDictionaryBackfill();
     _routeAfterLogin();
+    if (typeof _nmFinishStartupPaint === 'function') _nmFinishStartupPaint();
     return;
   }
 
@@ -11232,6 +11245,7 @@ function _handleSession(res) {
     // Unknown/unexpected state -> fail safe, never fail open.
     _showBlockedWithMsg('⚠️ பிழை ஏற்பட்டது', (res.msg || 'அறியப்படாத பிழை') + ' — பக்கத்தை மீண்டும் புதுப்பிக்கவும்.');
   }
+  if (typeof _nmFinishStartupPaint === 'function') _nmFinishStartupPaint();
 }
 
 
