@@ -1623,8 +1623,11 @@ textarea{min-height:96px}
 .hdr-menu-item span{width:24px;text-align:center;font-size:17px}.hdr-menu-item b{font-weight:750}
 .hdr-menu-item:hover,.hdr-menu-item:active{background:#f8eee8}.hdr-menu-danger{color:#b4232d}
 @media (min-width:760px){
-  .premium-app-header{padding-left:max(20px,calc((100% - 1180px)/2));padding-right:max(20px,calc((100% - 1180px)/2));}
-  .premium-app-header .hdr-sub{max-width:260px}.hdr-menu{right:max(20px,calc((100% - 1180px)/2));}
+  /* V298 desktop alignment: keep premium header actions on the same centered
+     app column as main/tabs. The previous 1180px rail made the header look
+     detached from the 520px app body on desktop. Mobile is untouched. */
+  .premium-app-header{padding-left:max(20px,calc((100% - var(--app-max))/2));padding-right:max(20px,calc((100% - var(--app-max))/2));}
+  .premium-app-header .hdr-sub{max-width:260px}.hdr-menu{right:max(20px,calc((100% - var(--app-max))/2));}
 }
 @media (max-width:380px){
   .hdr-brand-logo{width:40px!important;height:40px!important}.premium-app-header .hdr-right{gap:4px}
