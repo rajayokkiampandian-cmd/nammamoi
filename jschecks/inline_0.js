@@ -1,1 +1,1 @@
-
+document.documentElement.classList.add('nm-preboot');
