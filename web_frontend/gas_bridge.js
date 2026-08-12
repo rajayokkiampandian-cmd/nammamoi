@@ -1,4 +1,4 @@
-/* Namma MOI v300 — google.script.run compatibility bridge for own-domain frontend.
+/* Namma MOI v301 — google.script.run compatibility bridge for own-domain frontend.
  * Keeps the existing client modules unchanged while replacing HTML-Service's
  * built-in google.script.run transport with Apps Script API scripts.run.
  */
@@ -10,6 +10,24 @@
   var tokenClient = null;
   var authInFlight = false;
   var queue = [];
+  var TOKEN_KEY = 'nmOptionBAccessToken';
+  var TOKEN_EXPIRY_KEY = 'nmOptionBTokenExpiry';
+
+  function restoreSessionToken() {
+    try {
+      var t = sessionStorage.getItem(TOKEN_KEY) || '';
+      var e = Number(sessionStorage.getItem(TOKEN_EXPIRY_KEY) || 0);
+      if (t && e && Date.now() < (e - 360000)) { accessToken = t; tokenExpiry = e; return true; }
+      sessionStorage.removeItem(TOKEN_KEY); sessionStorage.removeItem(TOKEN_EXPIRY_KEY);
+    } catch(_e) {}
+    return false;
+  }
+  function persistSessionToken() {
+    try { sessionStorage.setItem(TOKEN_KEY, accessToken); sessionStorage.setItem(TOKEN_EXPIRY_KEY, String(tokenExpiry)); } catch(_e) {}
+  }
+  function clearSessionToken() {
+    try { sessionStorage.removeItem(TOKEN_KEY); sessionStorage.removeItem(TOKEN_EXPIRY_KEY); } catch(_e) {}
+  }
 
   function configured() {
     return cfg.CLIENT_ID && cfg.SCRIPT_DEPLOYMENT_ID &&
@@ -72,6 +90,7 @@
         }
         accessToken = resp.access_token;
         tokenExpiry = Date.now() + (Number(resp.expires_in || 3600) * 1000);
+        persistSessionToken();
         hideGate();
         drainQueue();
       },
@@ -138,7 +157,7 @@
         // Google -> app -> Google permission loop that hides the real API
         // authorization failure. Surface the 401 and let the user retry
         // explicitly from the auth gate instead.
-        accessToken=''; tokenExpiry=0;
+        accessToken=''; tokenExpiry=0; clearSessionToken();
         ensureGate().style.display='flex';
         setGateMessage('Apps Script API authorization 401. Google permission loop நிறுத்தப்பட்டது. Continue with Google மூலம் ஒருமுறை retry செய்யவும்.', true);
         var authErr = normalizeApiError(data, response.status);
@@ -180,7 +199,7 @@
 
   window.NammaMoiOptionB = {
     requestGoogleAccess: function(){ requestToken(true); },
-    clearToken: function(){ accessToken=''; tokenExpiry=0; ensureGate().style.display='flex'; },
+    clearToken: function(){ accessToken=''; tokenExpiry=0; clearSessionToken(); ensureGate().style.display='flex'; },
     isConfigured: configured
   };
 
@@ -204,6 +223,9 @@
     ensureGate();
     if (!configured()) {
       setGateMessage('Option B setup pending: credentials configure செய்ய வேண்டும்.', true);
+    } else if (restoreSessionToken()) {
+      hideGate();
+      drainQueue();
     } else {
       setGateMessage('Google கணக்குடன் இணைக்கவும்', false);
     }
