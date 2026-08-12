@@ -44,6 +44,12 @@
     try { sessionStorage.removeItem(TOKEN_KEY); sessionStorage.removeItem(TOKEN_EXPIRY_KEY); } catch(_e) {}
   }
 
+  // Restore a still-valid token immediately, before the app's inline startup
+  // code can queue its first google.script.run call. Waiting until
+  // DOMContentLoaded is too late because early startup calls would otherwise
+  // trigger a new OAuth request even though a resumable token already exists.
+  var restoredAtBoot = restoreSessionToken();
+
   function configured() {
     return cfg.CLIENT_ID && cfg.SCRIPT_DEPLOYMENT_ID &&
       cfg.CLIENT_ID.indexOf('PASTE_') !== 0 &&
@@ -238,7 +244,7 @@
     ensureGate();
     if (!configured()) {
       setGateMessage('Option B setup pending: credentials configure செய்ய வேண்டும்.', true);
-    } else if (restoreSessionToken()) {
+    } else if (restoredAtBoot || hasFreshToken()) {
       hideGate();
       drainQueue();
     } else {
