@@ -5555,7 +5555,86 @@ label,#expenseScreen .fg label{font-size:var(--text-sm);line-height:var(--lh-ui)
 #p-today .dash-pick-range input{height:27px!important;min-height:27px!important;padding:2px 6px!important;font-size:10px!important;border-radius:8px!important}
 #p-today .dash-stat-l{color:#51474a!important;font-weight:700!important}
 #p-today .dash-daily-info-copy span{display:-webkit-box!important;-webkit-box-orient:vertical!important;-webkit-line-clamp:2!important;overflow:hidden!important;font-size:10.5px!important;line-height:1.35!important;color:#665c5f!important}
+
+
+/* ==========================================================
+   v307 — launch closure: compact dashboard/calendar/list UI
+   + responsive amount typography + desktop top alignment.
+   Presentation only; business/calculation flows are unchanged.
+   ========================================================== */
+/* Dashboard: compact selector, darker labels only, amounts auto-fit. */
+#p-today .dash-summary-head{display:flex!important;align-items:center!important;gap:8px!important;flex-wrap:nowrap!important}
+#p-today .dash-summary-head .section-title{flex:1 1 auto!important;min-width:0!important}
+#p-today .dash-range-select{flex:0 1 172px!important;width:auto!important;max-width:48%!important;min-height:36px!important;height:36px!important;padding:4px 30px 4px 9px!important;font-size:11.5px!important;border-radius:10px!important}
+#p-today .dash-range-chips{display:none!important}
+#p-today .dash-pick-range{width:min(100%,220px)!important;max-width:220px!important;padding:3px 6px!important;min-height:32px!important;margin:0 0 7px auto!important;gap:6px!important;background:#fffaf5!important}
+#p-today .dash-pick-range label{font-size:10px!important;font-weight:800!important;color:#5f5558!important}
+#p-today .dash-pick-range input{flex:1 1 auto!important;min-width:0!important;width:auto!important;height:26px!important;min-height:26px!important;font-size:10.5px!important;padding:1px 5px!important}
+#p-today .dash-stat-l{color:#443a3d!important;font-weight:800!important}
+#p-today .dash-stat-l span{color:inherit!important;font-weight:inherit!important}
+#p-today .dash-stat-v{font-size:clamp(14px,4.6vw,19px)!important;line-height:1.05!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important;font-variant-numeric:tabular-nums!important;letter-spacing:-.45px!important}
+#p-today .dash-stat-card{min-width:0!important;overflow:hidden!important}
+#p-today .dash-daily-info{padding:7px 9px!important;gap:7px!important;margin-bottom:7px!important}
+#p-today .dash-daily-info-icon{width:24px!important;height:24px!important;flex-basis:24px!important;font-size:13px!important}
+#p-today .dash-daily-info-copy b{font-size:10.5px!important;margin-bottom:1px!important}
+#p-today .dash-daily-info-copy span{font-size:10px!important;line-height:1.28!important;-webkit-line-clamp:2!important}
+#p-today .tamil-cal-dash{padding:9px 10px!important;min-height:0!important}
+#p-today .tcal-dash-date-row{gap:6px!important}
+#p-today .tcal-dash-title{font-size:12.5px!important}
+#p-today .tcal-dash-date{font-size:10px!important;color:#6b6164!important}
+#p-today .tcal-dash-note{font-size:9.8px!important}
+
+/* Full Tamil calendar: today is represented by the highlighted cell, not a duplicate header action. */
+#p-tamilCalendar .tcal-head{grid-template-columns:auto minmax(0,1fr)!important;gap:8px!important;margin-bottom:7px!important;padding-bottom:0!important}
+#p-tamilCalendar .tcal-head>div{min-width:0!important}
+#p-tamilCalendar .tcal-head .tcal-sub{white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important;font-size:10px!important}
+#p-tamilCalendar .tcal-month-card{padding:8px 7px 7px!important;margin-bottom:7px!important}
+#p-tamilCalendar .tcal-month-nav{min-height:32px!important;margin-bottom:3px!important}
+#p-tamilCalendar .tcal-month-nav .arr{width:32px!important;height:32px!important;min-width:32px!important}
+#p-tamilCalendar .tcal-month-nav b{font-size:16px!important}
+#p-tamilCalendar .tcal-weekdays{margin-bottom:2px!important}
+#p-tamilCalendar .tcal-weekdays span{font-size:9px!important;padding:2px 0!important}
+#p-tamilCalendar .tcal-week-row{gap:2px!important;margin-bottom:2px!important}
+#p-tamilCalendar .tcal-day,#p-tamilCalendar .tcal-day.empty{height:48px!important;min-height:48px!important;border-radius:9px!important;padding:4px 2px!important}
+#p-tamilCalendar .tcal-day b{font-size:14px!important;line-height:1!important}
+#p-tamilCalendar .tcal-day small{font-size:6.5px!important;line-height:1.05!important}
+#p-tamilCalendar .tcal-symbol{min-height:10px!important;line-height:1!important}
+#p-tamilCalendar .tcal-legend{gap:4px 7px!important;margin-top:5px!important;padding-top:5px!important;font-size:8.5px!important;line-height:1.2!important}
+#p-tamilCalendar .tcal-tap-hint{font-size:8.5px!important;margin-top:4px!important;line-height:1.2!important}
+@media(max-width:380px){
+  #p-tamilCalendar .tcal-day,#p-tamilCalendar .tcal-day.empty{height:45px!important;min-height:45px!important}
+  #p-tamilCalendar .tcal-day b{font-size:13px!important}
+  #p-tamilCalendar .tcal-legend{font-size:8px!important}
+}
+
+/* Daily Cash summary: never exceed viewport; compact range/cards/category surfaces. */
+#expenseScreen #ep-summary,#expenseScreen #ep-summary>*{min-width:0!important;max-width:100%!important;box-sizing:border-box!important}
+#expenseScreen #ep-summary{overflow-x:hidden!important}
+#expenseScreen #ep-summary #expSumCards{width:100%!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:7px!important}
+#expenseScreen #ep-summary #expSumCards .sc{min-width:0!important;padding:10px 7px!important}
+#expenseScreen #ep-summary #expSumCards .sv{font-size:clamp(15px,4.5vw,19px)!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important}
+#expenseScreen #ep-summary .cash-range-presets{max-width:100%!important;overflow-x:auto!important;scrollbar-width:none!important}
+#expenseScreen #ep-summary .cash-range-presets::-webkit-scrollbar{display:none!important}
+#expenseScreen #ep-summary .card,#expenseScreen #ep-summary .sec{min-width:0!important;max-width:100%!important}
+#expenseScreen #ep-summary .cash-txn-summary-card{min-height:0!important;padding:9px 10px!important}
+
+/* MOI All/Recent: first screen should show data, not oversized controls/skeletons. */
+#appScreen #p-all .moi-all-primary-filters{gap:6px!important;margin-bottom:6px!important}
+#appScreen #p-all .moi-quick-range{margin-bottom:6px!important}
+#appScreen #p-all .moi-more-filters-toggle{min-height:34px!important;margin-bottom:6px!important;padding:6px 10px!important}
+#appScreen #p-all .skeleton-stack{gap:6px!important}
+#appScreen #p-all .skeleton-moi-row{min-height:62px!important;padding:9px 10px!important;border-radius:13px!important}
+#appScreen #p-all .moi-all-list .empty{min-height:84px!important;padding:14px 10px!important}
+
+/* Desktop top/header alignment: header content follows the same app content column. */
+@media(min-width:900px){
+  #appScreen .premium-app-header{padding-left:max(20px,calc((100% - 1120px)/2))!important;padding-right:max(20px,calc((100% - 1120px)/2))!important}
+  #appScreen>main{max-width:1120px!important;margin-left:auto!important;margin-right:auto!important}
+  #appScreen .hdr-menu{right:max(20px,calc((100% - 1120px)/2))!important}
+}
 </style>
+<link rel="preconnect" href="https://accounts.google.com">
+<link rel="preconnect" href="https://script.googleapis.com" crossorigin>
 <meta name="theme-color" content="#0F6E56">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -6174,7 +6253,6 @@ function _nmFinishStartupPaint(){
           <div class="section-title" style="margin:0">தமிழ் நாட்காட்டி</div>
           <div class="tcal-sub" id="tcalTodayEnglish">—</div>
         </div>
-        <button class="btn-sm" onclick="tcalGoToday()">இன்று</button>
       </div>
 
       <section class="tcal-month-card tcal-option1-freeze">
@@ -10643,7 +10721,21 @@ var _NM_DAILY_INFO = [
 'தகவலை சரியாக பதிவு செய்வது சேமிப்பை உருவாக்காது; ஆனால் நல்ல முடிவெடுக்க சரியான அடிப்படை தரும்.'
 ];
 function _nmDayOfYear_(d){var y=d.getFullYear(),a=new Date(y,0,1);return Math.floor((Date.UTC(y,d.getMonth(),d.getDate())-Date.UTC(y,0,1))/86400000);}
-function _renderDailyInfo(){var el=document.getElementById('dashDailyInfoText');if(!el||!_NM_DAILY_INFO.length)return;var d=new Date();el.textContent=_NM_DAILY_INFO[_nmDayOfYear_(d)%_NM_DAILY_INFO.length];}
+var _NM_DAILY_INFO_SHORT=[
+'சிறிய செலவுகளையும் பதிவு செய்தால் மாத கணக்கு தெளிவாகும்.',
+'பெயர், ஊர் ஒரே spelling-ல் இருந்தால் duplicate குறையும்.',
+'EMI due date-ஐ reminder-ல் வைத்தால் தவறாது.',
+'வரவு வந்ததும் ஒரு பகுதியை முதலில் சேமிப்புக்கு ஒதுக்குங்கள்.',
+'மாதம் ஒருமுறை recurring செலவுகளை review செய்யுங்கள்.',
+'கைமாற்றுக்கு திரும்ப வேண்டிய தேதியையும் பதிவு செய்யுங்கள்.',
+'பெரிய செலவுக்கு முன் கடந்த மாத pattern-ஐ பாருங்கள்.',
+'Loan எடுக்கும்போது EMI மட்டுமல்ல, மொத்த repayment-ஐ பாருங்கள்.',
+'Cash செலவுகள் சிறியதாக இருந்தாலும் சேர்ந்து பெரியதாகும்.',
+'பெரிய import/edit முன் manual backup எடுக்கவும்.',
+'ஒரு செலவு தவறான category-ல் இருந்தால் உடனே edit செய்யுங்கள்.',
+'மாத முடிவில் duplicate records ஒரு quick check செய்யுங்கள்.'
+];
+function _renderDailyInfo(){var el=document.getElementById('dashDailyInfoText');if(!el)return;var d=new Date(),a=_NM_DAILY_INFO_SHORT.length?_NM_DAILY_INFO_SHORT:_NM_DAILY_INFO;el.textContent=a[_nmDayOfYear_(d)%a.length]||'—';}
 var _tcalLocation = {lat:13.0827,lon:80.2707,label:'சென்னை (இயல்புநிலை)'};
 var _tcalGeoTried = false;
 function _tcalFormatDate(o,opt){var d=o instanceof Date?o:new Date(o);if(isNaN(d.getTime()))d=new Date();try{return d.toLocaleDateString('ta-IN',opt||{});}catch(e){}try{return d.toLocaleDateString('en-IN',opt||{});}catch(e2){}return d.getDate()+'-'+(d.getMonth()+1)+'-'+d.getFullYear();}
@@ -10807,7 +10899,7 @@ function tcalAddMoiForSelectedDate(){if(!_tcalSelectedDate)return;var iso=_tcalI
 function _tcalSet(id,v){var e=document.getElementById(id);if(e)e.textContent=v;}
 function _tcalApply(d){var p=_tcalPanchang(d);_tcalSet('tcalTamilDate',p.tamil+' — '+_tcalFormatDate(d,{weekday:'long',day:'numeric',month:'long',year:'numeric'}));_tcalSet('tcalNakshatra',p.nak);_tcalSet('tcalTithi',p.tithi);_tcalSet('tcalNallaNeram',p.good);_tcalSet('tcalRahu',p.rahu);_tcalSet('tcalYama',p.yama);_tcalSet('tcalKuligai',p.gulika);_tcalSet('tcalYoga',p.yoga);_tcalSet('tcalKarana',p.karana);_tcalSet('tcalSunrise',p.sunrise);_tcalSet('tcalSunset',p.sunset);var sp=_tcalSpecialLabel(d,p);_tcalSet('tcalSourceNote',sp+' • '+_tcalLocation.label+' அடிப்படையிலான இணையமில்லா கணிப்பு');var n=document.getElementById('tcalDashNote');if(n)n.textContent=(p.nakShort||p.nak)+' • '+(p.tithiShort||p.tithi);}
 function _tcalTryGeo(){if(_tcalGeoTried||!navigator.geolocation)return;_tcalGeoTried=true;navigator.geolocation.getCurrentPosition(function(p){_tcalLocation={lat:p.coords.latitude,lon:p.coords.longitude,label:'உங்கள் இருப்பிடம்'};if(_tcalSelectedDate)_tcalApply(_tcalSelectedDate);},function(){},{timeout:5000,maximumAge:86400000});}
-function _tcalRenderDashboardToday(){_renderDailyInfo();var d=new Date(),p=_tcalPanchang(d);_tcalSet('tcalDashTitle',_tcalFormatDate(d,{day:'numeric',month:'long',weekday:'long'}));_tcalSet('tcalDashDate',p.tamil+' · இன்று');_tcalSet('tcalDashNote',(p.nakShort||p.nak)+' • '+(p.tithiShort||p.tithi));}
+function _tcalRenderDashboardToday(){_renderDailyInfo();var d=new Date(),p=_tcalPanchang(d);_tcalSet('tcalDashTitle',_tcalFormatDate(d,{day:'numeric',month:'long',weekday:'long'}));_tcalSet('tcalDashDate',p.tamil);_tcalSet('tcalDashNote',(p.nakShort||p.nak)+' • '+(p.tithiShort||p.tithi));}
 function _tcalSetSelectedDate(o){var d=o instanceof Date?o:new Date();if(isNaN(d.getTime()))d=new Date();_tcalSelectedDate=new Date(d.getFullYear(),d.getMonth(),d.getDate());var en=_tcalFormatDate(d,{weekday:'long',year:'numeric',month:'long',day:'numeric'});_tcalSet('tcalTodayEnglish',en);_tcalApply(_tcalSelectedDate);_tcalRenderDashboardToday();}
 function _tcalEsc(v){return String(v==null?'':v).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;'}[c]||c;});}
 function _tcalDetailHtml(d,p){
@@ -11060,9 +11152,11 @@ function init() {
   if (_initDone) return;
   _initDone = true;
   _initTamilTransliteration();
-  // Launch-safe: the additive existing-value suggestion layer must never
-  // block login/MOI initialization if an older WebView rejects any optional UI API.
-  try { _initExistingSuggest(); } catch (e) { console.warn('[ExistingSuggest] init skipped:', e); }
+  // v307 startup: suggestion hydration is optional and can be deferred so it
+  // never competes with auth/session restore or the first dashboard paint.
+  (window.requestIdleCallback || function(cb){ return setTimeout(cb,900); })(function(){
+    try { _initExistingSuggest(); } catch (e) { console.warn('[ExistingSuggest] init skipped:', e); }
+  });
 
   // FIX [PERF]: Use localStorage instead of sessionStorage so the
   // session survives app restarts in Median WebView (sessionStorage
