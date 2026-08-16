@@ -1,0 +1,11 @@
+NAMMA MOI — GOOGLE OAUTH / PLAY PUBLIC VALUES
+
+App name: Namma MOI
+Home page: https://www.nammamoi.in/
+Privacy policy: https://www.nammamoi.in/privacy/
+Terms of service: https://www.nammamoi.in/terms/
+Authorized domain: nammamoi.in
+User support email: nammamoi.app@gmail.com
+Developer contact email: nammamoi.app@gmail.com
+Public support email: support@nammamoi.in
+Google Play account deletion URL: https://www.nammamoi.in/delete-account/
