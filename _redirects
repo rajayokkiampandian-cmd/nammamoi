@@ -1,4 +1,4 @@
 /privacy.html /privacy/ 301
 /terms.html /terms/ 301
 /delete-account.html /delete-account/ 301
-/web_frontend/*  /app  302
+/web_frontend/* /app 302

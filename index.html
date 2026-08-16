@@ -3,124 +3,172 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#781126">
+  <meta name="theme-color" content="#761126">
   <title>Namma MOI | நம்ம மொய்</title>
-  <meta name="description" content="Namma MOI — MOI records, Daily Cash, reminders, documents, Tamil Calendar, Rasi Palan and family records for Tamil families.">
-  <link rel="canonical" href="https://www.nammamoi.in/">
+  <meta name="description" content="Namma MOI — குடும்ப மொய், Daily Cash, reminders, documents, Tamil Calendar, Rasi Palan மற்றும் family records-ஐ ஒரே இடத்தில் நிர்வகிக்க உதவும் தமிழ்-first app.">
+  <link rel="canonical" href="https://nammamoi.in/">
   <link rel="icon" href="assets/favicon-64.png">
   <link rel="apple-touch-icon" href="assets/icon-192.png">
   <link rel="manifest" href="site.webmanifest">
-  <link rel="stylesheet" href="assets/site.css">
-  <script defer src="assets/site.js"></script>
+  <link rel="stylesheet" href="assets/site.css?v=3">
+  <script defer src="assets/site.js?v=3"></script>
   <meta property="og:title" content="Namma MOI | நம்ம மொய்">
-  <meta property="og:description" content="குடும்பத்தை இணைத்து, உறவுகளைப் பாதுகாப்போம். MOI, Daily Cash, Reminders, Documents மற்றும் Tamil Calendar — ஒரே app-ல்.">
+  <meta property="og:description" content="குடும்பத்தை இணைத்து, உறவுகளைப் பாதுகாப்போம்.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.nammamoi.in/">
-  <meta property="og:image" content="https://www.nammamoi.in/assets/nammamoi-front-logo.png">
+  <meta property="og:url" content="https://nammamoi.in/">
+  <meta property="og:image" content="https://nammamoi.in/assets/nammamoi-front-logo.png">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 <header class="site-header">
   <div class="container nav">
-    <a class="brand" href="/" aria-label="Namma MOI home"><img src="assets/icon-192.png" alt=""><span>நம்ம மொய்</span></a>
+    <a class="brand" href="/" aria-label="Namma MOI home">
+      <img src="assets/icon-192.png" alt="Namma MOI">
+      <span class="brand-copy"><b>நம்ம மொய்</b><small>Family Relationship & MOI Management</small></span>
+    </a>
     <nav class="nav-links" aria-label="Main navigation">
-      <a class="nav-home" href="/">Home</a>
+      <a class="nav-home" href="#top"><span class="inline-lang ta">முகப்பு</span><span class="inline-lang en">Home</span></a>
       <a class="nav-features" href="#features"><span class="inline-lang ta">வசதிகள்</span><span class="inline-lang en">Features</span></a>
       <a class="nav-privacy" href="/privacy/">Privacy</a>
-      <a class="nav-login nav-cta-secondary" href="/login"><span class="inline-lang ta">உள்நுழை</span><span class="inline-lang en">Login</span></a>
-      <a class="nav-register nav-cta-primary" href="/register"><span class="inline-lang ta">பதிவு</span><span class="inline-lang en">Register</span></a>
+      <a class="nav-login" href="/login"><span class="inline-lang ta">உள்நுழை</span><span class="inline-lang en">Login</span></a>
+      <a class="nav-register" href="/register"><span class="inline-lang ta">புதிய பதிவு</span><span class="inline-lang en">Register</span></a>
       <button class="lang-btn" data-lang-toggle type="button"><span class="lang-en">English</span><span class="lang-ta">தமிழ்</span></button>
     </nav>
   </div>
 </header>
 
 <main id="main">
-  <section class="hero">
+  <section class="hero" id="top">
     <div class="container hero-grid">
-      <div>
-        <span class="eyebrow"><span>✦</span><span class="ta">தமிழ் குடும்பங்களுக்கான MOI & Money companion</span><span class="en">MOI & money companion for Tamil families</span></span>
-        <h1>நம்ம மொய்</h1>
+      <div class="hero-copy">
+        <span class="eyebrow"><span class="spark">✦</span><span class="ta">தமிழ் குடும்பங்களுக்கான MOI & Money companion</span><span class="en">MOI & money companion for Tamil families</span></span>
+        <h1><span class="ta">மொய் முதல் <em>தினசரி பணம்</em> வரை — ஒரே குடும்ப app.</span><span class="en">From MOI to <em>daily money</em> — one family app.</span></h1>
         <p class="slogan">குடும்பத்தை இணைத்து, உறவுகளைப் பாதுகாப்போம்.</p>
-        <p class="lead ta">மொய் வரவு/செய்முறை, தினசரி வரவு–செலவு, கைமாற்று, Budget, Accounts, Reminders, முக்கிய ஆவணங்கள், தமிழ் Calendar & Rasi Palan — குடும்பப் பதிவுகளை ஒரே இடத்தில் எளிதாக நிர்வகிக்க.</p>
-        <p class="lead en">Manage MOI received/given, daily cash, hand loans, budgets, accounts, reminders, important documents, Tamil Calendar and Rasi Palan in one practical family app.</p>
+        <p class="lead ta">மொய் வரவு/செய்முறை, Daily Cash, கைமாற்று, Budget, Accounts, Reminders, முக்கிய Documents, தமிழ் Calendar & Rasi — தேவையான பதிவுகளை தேடும் நேரத்தில் உடனே கிடைக்கச் செய்யும் எளிய app.</p>
+        <p class="lead en">Keep MOI received/given, Daily Cash, hand loans, budgets, accounts, reminders, important documents, Tamil Calendar and Rasi in one practical family app.</p>
         <div class="cta-row">
-          <a class="btn btn-primary" href="/app"><span class="inline-lang ta">App திற</span><span class="inline-lang en">Open App</span></a>
+          <a class="btn btn-primary" href="/app"><span class="inline-lang ta">App திற</span><span class="inline-lang en">Open App</span><span aria-hidden="true">→</span></a>
           <a class="btn btn-secondary" href="/register"><span class="inline-lang ta">புதிய பதிவு</span><span class="inline-lang en">Create account</span></a>
-          <a class="btn btn-ghost" href="/login"><span class="inline-lang ta">ஏற்கனவே பயனர்?</span><span class="inline-lang en">Already a user?</span></a>
+          <a class="text-link" href="/login"><span class="inline-lang ta">ஏற்கனவே பயனர்? உள்நுழை</span><span class="inline-lang en">Already a user? Login</span></a>
         </div>
-        <div class="hero-trust">
+        <div class="trustline">
           <span>✓ Google sign-in + App PIN</span>
           <span>✓ Google Sheet / Drive backed</span>
           <span>✓ Tamil + English</span>
         </div>
       </div>
-      <div class="hero-art"><img src="assets/nammamoi-front-logo.png" alt="Namma MOI official logo"></div>
+
+      <div class="hero-visual" aria-label="Namma MOI brand and app overview">
+        <div class="brand-stage">
+          <span class="halo halo-a"></span><span class="halo halo-b"></span>
+          <img class="front-logo" src="assets/nammamoi-front-logo.png" alt="Namma MOI official logo">
+          <div class="float-chip chip-1"><b>MOI</b><span>வரவு • செய்முறை</span></div>
+          <div class="float-chip chip-2"><b>Daily Cash</b><span>Income • Expense</span></div>
+          <div class="float-chip chip-3"><b>Family</b><span>Reminders • Documents</span></div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <section class="quick-strip" aria-label="Namma MOI highlights">
-    <div class="container quick-grid">
-      <div><strong>MOI</strong><span class="ta">வரவு • செய்முறை • Person ledger</span><span class="en">Received • Given • Person ledger</span></div>
-      <div><strong>Daily Cash</strong><span class="ta">Income • Expense • Budget • Accounts</span><span class="en">Income • Expense • Budget • Accounts</span></div>
-      <div><strong>Family</strong><span class="ta">Sub Users • Reminders • Documents</span><span class="en">Sub Users • Reminders • Documents</span></div>
-      <div><strong>Tamil</strong><span class="ta">Calendar • Rasi • Ask</span><span class="en">Calendar • Rasi • Ask</span></div>
+  <section class="value-strip" aria-label="Core value">
+    <div class="container value-grid">
+      <div><span class="value-icon">🤝</span><div><b>MOI</b><small class="ta">வரவு • செய்முறை • Person ledger</small><small class="en">Received • Given • Person ledger</small></div></div>
+      <div><span class="value-icon">₹</span><div><b>Daily Cash</b><small class="ta">Income • Expense • Budget • Accounts</small><small class="en">Income • Expense • Budget • Accounts</small></div></div>
+      <div><span class="value-icon">👨‍👩‍👧‍👦</span><div><b>Family</b><small class="ta">Sub Users • Reminders • Documents</small><small class="en">Sub Users • Reminders • Documents</small></div></div>
+      <div><span class="value-icon">📅</span><div><b>Tamil</b><small class="ta">Calendar • Rasi • Ask</small><small class="en">Calendar • Rasi • Ask</small></div></div>
     </div>
   </section>
 
-  <section id="features" class="section">
+  <section class="section section-intro" id="features">
     <div class="container">
-      <div class="section-title">
-        <h2 class="ta">அன்றாட குடும்பப் பதிவுகள் — தெளிவாக, ஒரே இடத்தில்</h2>
-        <h2 class="en">Everyday family records — clear and in one place</h2>
-        <p class="ta">Launch build-ல் உள்ள முக்கிய வசதிகளை மட்டும் இங்கே காட்டுகிறோம்.</p>
-        <p class="en">A focused view of the core features available in the launch build.</p>
+      <div class="section-head centered">
+        <span class="section-kicker ta">முக்கிய வசதிகள்</span><span class="section-kicker en">Core features</span>
+        <h2 class="ta">குடும்பத்தில் தினமும் தேவைப்படும் பதிவுகள் — தெளிவாக.</h2>
+        <h2 class="en">Everyday family records — clear, useful and easy to find.</h2>
+        <p class="ta">Accounting software மாதிரி சிக்கலாக இல்லாமல், வீட்டில் யாரும் புரிந்து பயன்படுத்தும் வகையில் உருவாக்கப்பட்ட அனுபவம்.</p>
+        <p class="en">Designed for everyday family use without accountant-style complexity.</p>
       </div>
-      <div class="grid feature-grid">
-        <article class="card"><div class="icon">🤝</div><h3>MOI / மொய்</h3><p class="ta">வரும் மொய் & செய்முறை, event/place, person ledger, search, recent-first records மற்றும் continuous loading.</p><p class="en">Track received/given MOI, event/place, person ledgers, search and latest-first continuous records.</p></article>
-        <article class="card"><div class="icon">₹</div><h3>Daily Cash</h3><p class="ta">Income, Expense, Hand Loan, Summary, Records, Budget, Accounts & Transfers — மாத context உடன்.</p><p class="en">Income, expense, hand loan, summary, records, budgets, accounts and transfers with clear month context.</p></article>
-        <article class="card"><div class="icon">⏰</div><h3>Reminders</h3><p class="ta">Once / Daily / Weekly / Monthly reminder, custom alert offsets மற்றும் Android native notifications.</p><p class="en">Once, daily, weekly and monthly reminders with custom alert offsets and Android native notifications.</p></article>
-        <article class="card"><div class="icon">👨‍👩‍👧‍👦</div><h3>Family & Sub Users</h3><p class="ta">Viewer / Editor / Admin role permissions மூலம் குடும்ப workspace-ஐ பாதுகாப்பாக பகிர்ந்து பயன்படுத்தலாம்.</p><p class="en">Share a family workspace with Viewer, Editor and Admin permissions enforced by the app and server.</p></article>
-        <article class="card"><div class="icon">📁</div><h3>Important Documents</h3><p class="ta">Files/photos, nested folders, multi-page/Front-Back capture மற்றும் Drive-backed storage. Documents module OCR செய்யாது.</p><p class="en">Files/photos, nested folders, multi-page/front-back capture and Drive-backed storage. The Documents module does not OCR document content.</p></article>
-        <article class="card"><div class="icon">📷</div><h3>Receipt OCR</h3><p class="ta">Receipt image-ல் இருந்து date, amount, vendor போன்ற candidate fields; manual value overwrite செய்யாமல் review-first flow.</p><p class="en">Extract candidate receipt fields such as date, amount and vendor with a review-first flow that preserves manual values.</p></article>
-        <article class="card"><div class="icon">💬</div><h3>SMS Import</h3><p class="ta">User share/paste அல்லது XML/CSV/TXT import மூலம் bank/UPI transaction candidates. OTP/promotional messages filter செய்யப்படும்.</p><p class="en">User-initiated share/paste or XML/CSV/TXT import for bank/UPI transaction candidates, filtering OTP and promotional messages.</p></article>
-        <article class="card"><div class="icon">📅</div><h3>Tamil Calendar & Rasi</h3><p class="ta">தமிழ் date details, special-day information மற்றும் 12 ராசிகளுக்கான compact Rasi Palan experience.</p><p class="en">Tamil date details, special-day information and a compact 12-sign Rasi Palan experience.</p></article>
-        <article class="card"><div class="icon">✨</div><h3>Ask Assistant</h3><p class="ta">Tamil / Tanglish / English questions, app context help, simple calculations மற்றும் privacy-aware public lookup guard.</p><p class="en">Tamil, Tanglish and English questions with app-context help, simple calculations and privacy-aware public lookup safeguards.</p></article>
+
+      <div class="feature-grid">
+        <article class="feature-card feature-primary">
+          <div class="feature-top"><span class="feature-icon">🤝</span><span class="feature-tag ta">முக்கியம்</span><span class="feature-tag en">Core</span></div>
+          <h3>MOI / மொய்</h3>
+          <p class="ta">வரவு & செய்முறை, event/place, person ledger, recent-first records, search மற்றும் continuous loading.</p>
+          <p class="en">Received/given MOI, event/place, person ledgers, search, latest-first records and continuous loading.</p>
+        </article>
+        <article class="feature-card feature-primary">
+          <div class="feature-top"><span class="feature-icon">₹</span><span class="feature-tag ta">தினசரி</span><span class="feature-tag en">Everyday</span></div>
+          <h3>Daily Cash</h3>
+          <p class="ta">Income, Expense, Hand Loan, Summary, Records, Budget, Accounts & Transfers — shared month context உடன்.</p>
+          <p class="en">Income, expense, hand loans, summary, records, budgets, accounts and transfers with a shared month context.</p>
+        </article>
+        <article class="feature-card"><span class="feature-icon">⏰</span><h3>Reminders</h3><p class="ta">Once / Daily / Weekly / Monthly repeat, custom alert offsets மற்றும் Android native notifications.</p><p class="en">Once, daily, weekly and monthly repeats with custom alert offsets and Android native notifications.</p></article>
+        <article class="feature-card"><span class="feature-icon">👨‍👩‍👧‍👦</span><h3>Family & Sub Users</h3><p class="ta">Viewer / Editor / Admin roles மூலம் குடும்ப workspace-ஐ permission-களுடன் பகிர்ந்து பயன்படுத்தலாம்.</p><p class="en">Share a family workspace using Viewer, Editor and Admin permissions.</p></article>
+        <article class="feature-card"><span class="feature-icon">📁</span><h3>Important Documents</h3><p class="ta">Files/photos, nested folders, Front-Back அல்லது multi-page capture மற்றும் Drive-backed storage. Documents module OCR செய்யாது.</p><p class="en">Files/photos, nested folders, front-back or multi-page capture and Drive-backed storage. The Documents module does not OCR content.</p></article>
+        <article class="feature-card"><span class="feature-icon">📷</span><h3>Receipt OCR</h3><p class="ta">Receipt image-ல் இருந்து date, amount, vendor போன்ற candidate fields-ஐ review-first flow-ல் படிக்க உதவும்.</p><p class="en">Review-first receipt OCR for candidate fields such as date, amount and vendor.</p></article>
+        <article class="feature-card"><span class="feature-icon">💬</span><h3>SMS Import</h3><p class="ta">Share/Paste அல்லது XML/CSV/TXT மூலம் bank/UPI transaction candidates; OTP/promo போன்றவை filter செய்யப்படும்.</p><p class="en">User-initiated share/paste or XML/CSV/TXT import for bank/UPI transaction candidates, filtering OTP and promotional messages.</p></article>
+        <article class="feature-card"><span class="feature-icon">📅</span><h3>Tamil Calendar & Rasi</h3><p class="ta">தமிழ் date details, special-day information மற்றும் 12 ராசிகளுக்கான compact Rasi Palan experience.</p><p class="en">Tamil date details, special-day information and a compact 12-sign Rasi Palan experience.</p></article>
+        <article class="feature-card"><span class="feature-icon">✨</span><h3>Ask Assistant</h3><p class="ta">Tamil / Tanglish / English questions, app-context help, simple calculations மற்றும் privacy-aware public lookup guard.</p><p class="en">Tamil, Tanglish and English questions with app-context help, simple calculations and privacy-aware safeguards.</p></article>
       </div>
     </div>
   </section>
 
-  <section class="section soft-section">
+  <section class="section data-section">
+    <div class="container data-grid">
+      <div class="data-copy">
+        <span class="section-kicker ta">உங்கள் data • உங்கள் control</span><span class="section-kicker en">Your data • your control</span>
+        <h2 class="ta">வேகமும் வேண்டும். குடும்ப data-க்கு பாதுகாப்பும் வேண்டும்.</h2>
+        <h2 class="en">Built for speed without giving up control of family data.</h2>
+        <p class="ta">Structured records வேகத்திற்காக தேவையான அளவு cache ஆகலாம். Important Documents மற்றும் app-managed attachments Google Drive-ல் இருக்கின்றன. Role permissions server-side-லும் enforce செய்யப்படுகின்றன.</p>
+        <p class="en">Structured records may be cached where needed for speed. Important Documents and app-managed attachments stay in Google Drive, while role permissions are also enforced server-side.</p>
+        <div class="data-actions"><a class="btn btn-secondary" href="/privacy/">Privacy Policy</a><a class="text-link" href="/delete-account/">Delete Account</a></div>
+      </div>
+      <div class="data-panel">
+        <div class="data-row"><span>01</span><div><b class="ta">Google identity + App PIN</b><b class="en">Google identity + App PIN</b><small class="ta">குடும்ப workspace access-க்கு authentication layer.</small><small class="en">Authentication layer for family workspace access.</small></div></div>
+        <div class="data-row"><span>02</span><div><b class="ta">Sheet-backed structured records</b><b class="en">Sheet-backed structured records</b><small class="ta">MOI மற்றும் Daily Cash records-க்கு Google Sheet source-of-truth.</small><small class="en">Google Sheet source-of-truth for MOI and Daily Cash records.</small></div></div>
+        <div class="data-row"><span>03</span><div><b class="ta">Drive-backed attachments</b><b class="en">Drive-backed attachments</b><small class="ta">Documents/attachments local duplicate ஆகாமல் Drive-ல்.</small><small class="en">Documents and app-managed attachments remain Drive-backed.</small></div></div>
+        <div class="data-row"><span>04</span><div><b class="ta">Account deletion control</b><b class="en">Account deletion control</b><small class="ta">In-app + public deletion flow.</small><small class="en">In-app and public account-deletion flow.</small></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section flow-section">
     <div class="container">
-      <div class="section-title"><h2 class="ta">உங்கள் data-க்கு control உங்கள் கையில்</h2><h2 class="en">You stay in control of your data</h2></div>
-      <div class="trust trust-3">
-        <article class="card"><div class="icon">🔐</div><h3 class="ta">Secure access</h3><h3 class="en">Secure access</h3><ul class="check"><li>Google identity + Namma MOI App PIN</li><li>Family workspace separation</li><li>Server-side role and write validation</li></ul></article>
-        <article class="card"><div class="icon">☁️</div><h3 class="ta">Drive-backed files</h3><h3 class="en">Drive-backed files</h3><ul class="check"><li>Important Documents and app-managed attachments in Drive</li><li>Structured record cache only where needed for speed</li><li>No background SMS-read permission in launch build</li></ul></article>
-        <article class="card"><div class="icon">🗑️</div><h3 class="ta">Account & data delete</h3><h3 class="en">Account & data deletion</h3><ul class="check"><li>In-app permanent deletion flow</li><li>Public deletion path after uninstall</li><li>Registered-email OTP verification</li></ul><div class="legal-actions"><a class="btn btn-secondary" href="/delete-account/">Delete Account</a></div></article>
+      <div class="section-head centered compact">
+        <span class="section-kicker ta">எளிய flow</span><span class="section-kicker en">Simple flow</span>
+        <h2 class="ta">பதிவு செய்யுங்கள். தேடுங்கள். தேவையான போது மீண்டும் பெறுங்கள்.</h2>
+        <h2 class="en">Record it. Find it. Use it when you need it.</h2>
+      </div>
+      <div class="steps-grid">
+        <article><span>1</span><div><b class="ta">Google மூலம் sign in</b><b class="en">Sign in with Google</b><small class="ta">உங்கள் family workspace-ஐ திறக்கவும்.</small><small class="en">Open your family workspace.</small></div></article>
+        <article><span>2</span><div><b class="ta">முக்கிய records சேர்க்கவும்</b><b class="en">Add the records that matter</b><small class="ta">MOI, Daily Cash, reminders, documents.</small><small class="en">MOI, Daily Cash, reminders and documents.</small></div></article>
+        <article><span>3</span><div><b class="ta">Search & reports மூலம் follow-up</b><b class="en">Follow up with search & reports</b><small class="ta">தேவைப்படும் போது தகவலை விரைவாக கண்டுபிடிக்கவும்.</small><small class="en">Find the information quickly when you need it.</small></div></article>
       </div>
     </div>
   </section>
 
-  <section class="section">
-    <div class="container product-flow">
-      <div><span class="eyebrow"><span>✓</span><span class="ta">எளிய flow</span><span class="en">Simple flow</span></span><h2 class="ta">பதிவு செய்யுங்கள். தேடுங்கள். குடும்பத்துடன் பகிருங்கள்.</h2><h2 class="en">Record it. Find it. Share it with your family.</h2><p class="ta">Namma MOI accounting software மாதிரி சிக்கலாக இருக்காமல், வீட்டில் தினமும் பயன்படுத்தும் முக்கிய records-ஐ தெளிவாக வைத்திருக்க உருவாக்கப்பட்டது.</p><p class="en">Namma MOI is designed for practical daily family record-keeping without accountant-style complexity.</p></div>
-      <div class="flow-steps"><div><b>01</b><span class="ta">Google மூலம் sign in</span><span class="en">Sign in with Google</span></div><div><b>02</b><span class="ta">MOI / Daily Cash / Family records சேர்க்கவும்</span><span class="en">Add MOI, Daily Cash and family records</span></div><div><b>03</b><span class="ta">Search, reports & reminders மூலம் follow-up செய்யவும்</span><span class="en">Follow up with search, reports and reminders</span></div></div>
+  <section class="section support-section">
+    <div class="container support-card">
+      <div class="support-logo"><img src="assets/icon-192.png" alt=""></div>
+      <div><span class="section-kicker light ta">Official Support</span><span class="section-kicker light en">Official Support</span><h2 class="ta">உதவி வேண்டுமா?</h2><h2 class="en">Need help?</h2><p class="ta">Product support, privacy அல்லது account deletion உதவிக்கு official support email-க்கு எழுதுங்கள்.</p><p class="en">For product support, privacy or account-deletion help, contact the official Namma MOI support address.</p></div>
+      <a class="support-mail" href="mailto:support@nammamoi.in">support@nammamoi.in <span>→</span></a>
     </div>
   </section>
 
-  <section class="section">
-    <div class="container"><div class="card support-card"><div><h2 class="ta">உதவி வேண்டுமா?</h2><h2 class="en">Need help?</h2><p class="ta">Namma MOI support, privacy அல்லது account deletion உதவிக்கு official support email-க்கு எழுதுங்கள்.</p><p class="en">For product support, privacy or account-deletion help, contact the official Namma MOI support address.</p></div><a class="btn" href="mailto:support@nammamoi.in">support@nammamoi.in</a></div></div>
-  </section>
-
-  <section class="cta-final">
-    <div class="container cta-final-box"><div><h2 class="ta">Namma MOI-யை தொடங்குங்கள்</h2><h2 class="en">Start with Namma MOI</h2><p class="ta">மொய், Daily Cash, Reminders மற்றும் குடும்பப் பதிவுகளை இன்று முதல் ஒரே இடத்தில் ஒழுங்குபடுத்துங்கள்.</p><p class="en">Bring MOI, Daily Cash, reminders and family records together in one place.</p></div><div class="cta-row"><a class="btn btn-primary" href="/register"><span class="inline-lang ta">புதிய பதிவு</span><span class="inline-lang en">Create account</span></a><a class="btn btn-secondary" href="/login"><span class="inline-lang ta">உள்நுழை</span><span class="inline-lang en">Login</span></a></div></div>
+  <section class="final-cta">
+    <div class="container final-box">
+      <div><span class="section-kicker ta">இன்று தொடங்குங்கள்</span><span class="section-kicker en">Start today</span><h2 class="ta">குடும்பப் பதிவுகளை நினைவில் அல்ல — நம்ம மொயில் வைத்துக்கொள்ளுங்கள்.</h2><h2 class="en">Keep family records in Namma MOI — not just in memory.</h2><p class="ta">மொய், Daily Cash, Reminders மற்றும் முக்கிய குடும்பப் பதிவுகள் — ஒரே தெளிவான இடத்தில்.</p><p class="en">MOI, Daily Cash, reminders and important family records — in one clear place.</p></div>
+      <div class="cta-stack"><a class="btn btn-primary" href="/register"><span class="inline-lang ta">புதிய பதிவு</span><span class="inline-lang en">Create account</span></a><a class="btn btn-secondary" href="/login"><span class="inline-lang ta">உள்நுழை</span><span class="inline-lang en">Login</span></a></div>
+    </div>
   </section>
 </main>
 
 <footer class="footer">
-  <div class="container footer-row">
-    <div><strong>Namma MOI</strong><p>குடும்பத்தை இணைத்து, உறவுகளைப் பாதுகாப்போம்.<br>© <span data-year>2026</span> Namma MOI • nammamoi.in</p></div>
+  <div class="container footer-main">
+    <div class="footer-brand"><img src="assets/icon-192.png" alt=""><div><strong>நம்ம மொய் • Namma MOI</strong><p>குடும்பத்தை இணைத்து, உறவுகளைப் பாதுகாப்போம்.</p></div></div>
     <div class="footer-links"><a href="/privacy/">Privacy Policy</a><a href="/terms/">Terms</a><a href="/delete-account/">Delete Account</a><a href="mailto:support@nammamoi.in">Support</a><a href="/login">Login</a></div>
   </div>
+  <div class="container footer-bottom"><span>© <span data-year>2026</span> Namma MOI • nammamoi.in</span><span>Developed by Rajayokkiam Pandian</span></div>
 </footer>
 </body>
 </html>
