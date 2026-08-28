@@ -7,6 +7,11 @@
     lang=next==='en'?'en':'ta';
     root.setAttribute('data-lang',lang);
     root.setAttribute('lang',lang==='en'?'en':'ta');
+    document.querySelectorAll('.ta,.en').forEach(function(n){
+      var visible=n.classList.contains(lang);
+      n.hidden=!visible;
+      n.setAttribute('aria-hidden',visible?'false':'true');
+    });
     document.querySelectorAll('[data-lang-toggle]').forEach(function(b){
       b.setAttribute('aria-label',lang==='en'?'தமிழுக்கு மாற்று':'Switch to English');
       b.setAttribute('title',lang==='en'?'தமிழ்':'English');
