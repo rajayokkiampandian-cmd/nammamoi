@@ -7,3 +7,10 @@
 - Existing public routes and legal pages remain intact.
 
 Validation: JavaScript syntax, HTML references, duplicate IDs, public routes, default download lock and Android wrapper XML/security checks passed on 2026-08-27.
+
+## Full-screen stabilization — 2026-08-28
+
+- Added JS-enforced Tamil/English isolation so stale or delayed CSS cannot display both languages.
+- Bumped shared CSS/JS cache versions on the landing and all legal pages.
+- Improved large-desktop scale, tablet spacing, 420px mobile density, keyboard focus and reduced-motion behavior.
+- Preserved the wrapper preview, disabled-until-verified APK gate, routes, legal content and approved brand sections.
