@@ -20,3 +20,10 @@ Validation: JavaScript syntax, HTML references, duplicate IDs, public routes, de
 - Removed all user-facing WebView/wrapper wording.
 - Kept only the main Namma MOI Android app preview, verified-APK download button and Web app fallback.
 - Removed pending version/size/checksum placeholders until a real signed APK is available.
+# v7 — APK-only landing flow (2026-08-29)
+
+- Removed Web App, Login, and Register entry points from the landing page.
+- Kept one clear Android app download journey across header, hero, download section, and final CTA.
+- APK button remains safely disabled until the signed release APK URL is configured.
+- Preserved Privacy, Terms, Delete Account, and Support links.
+- Confirmed that no Google Apps Script URL is present in the public landing source.
