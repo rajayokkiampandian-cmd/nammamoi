@@ -14,3 +14,9 @@ Validation: JavaScript syntax, HTML references, duplicate IDs, public routes, de
 - Bumped shared CSS/JS cache versions on the landing and all legal pages.
 - Improved large-desktop scale, tablet spacing, 420px mobile density, keyboard focus and reduced-motion behavior.
 - Preserved the wrapper preview, disabled-until-verified APK gate, routes, legal content and approved brand sections.
+
+## Requirement correction — 2026-08-29
+
+- Removed all user-facing WebView/wrapper wording.
+- Kept only the main Namma MOI Android app preview, verified-APK download button and Web app fallback.
+- Removed pending version/size/checksum placeholders until a real signed APK is available.
